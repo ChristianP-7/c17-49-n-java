@@ -18,7 +18,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </header>
       <NavbarMovil />
       <Accessibility />
-      <div className="flex md:-mt-52">
+      <div className="flex md:-mt-56">
         <Navbar />
         {children}
       </div>

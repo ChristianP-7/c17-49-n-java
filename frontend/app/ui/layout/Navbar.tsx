@@ -15,7 +15,6 @@ import { useState } from 'react';
 const links = [
   { name: 'Reserva de turnos', href: '/dashboard', icon: CalendarDaysIcon },
   { name: 'Mis consultas', href: '/dashboard/misConsultas', icon: DocumentTextIcon },
-  { name: 'Perfil', href: '/dashboard/profile', icon: UserCircleIcon },
   { name: 'Atención virtual', href: '/dashboard/atencionVirtual', icon: DevicePhoneMobileIcon },
 ];
 
@@ -74,7 +73,7 @@ export const Navbar = () => {
             </div>
           </div>
         </div>
-        <nav className="flex flex-col space-x-0 space-y-3 w-full mt-2">
+        <nav className="flex flex-col space-x-0 space-y-6 w-full mt-2">
           {links.map((link) => {
             const LinkIcon = link.icon;
             return (

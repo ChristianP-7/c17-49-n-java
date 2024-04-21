@@ -1,7 +1,6 @@
 import { Calendario } from '@/app/ui/Calendario';
-import Image from 'next/image';
 import { Especialidades } from '../ui/Especialidades';
-import { Profesionales } from '../ui/profesionales';
+import { Profesionales } from '../ui/Profesionales';
 
 export default async function Dashboard() {
   return (
