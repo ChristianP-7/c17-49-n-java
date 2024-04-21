@@ -1,19 +1,39 @@
 import Image from 'next/image';
 import { ImagenAvatar } from '../ImagenAvatar';
 import Link from 'next/link';
-import { BotonPrincipal } from './BotonPrincipal';
 import {
   CalendarDaysIcon,
   DevicePhoneMobileIcon,
-  UserCircleIcon,
   DocumentTextIcon,
 } from '@heroicons/react/24/outline';
 
-const links = [
+interface Link {
+  name: string;
+  href: string;
+  icon: any;
+}
+
+const doctor = false;
+
+let links: Link[] = [];
+
+const linksDoctor: Link[] = [
+  { name: 'Reserva de turnos Doctor', href: '/dashboard', icon: CalendarDaysIcon },
+  { name: 'Mis consultas Doctor', href: '/dashboard/misConsultas', icon: DocumentTextIcon },
+  {
+    name: 'Atención virtual Doctor',
+    href: '/dashboard/atencionVirtual',
+    icon: DevicePhoneMobileIcon,
+  },
+];
+
+const linksPaciente: Link[] = [
   { name: 'Reserva de turnos', href: '/dashboard', icon: CalendarDaysIcon },
   { name: 'Mis consultas', href: '/dashboard/misConsultas', icon: DocumentTextIcon },
   { name: 'Atención virtual', href: '/dashboard/atencionVirtual', icon: DevicePhoneMobileIcon },
 ];
+
+links = doctor ? linksDoctor : linksPaciente;
 
 export const NavbarMovil = () => {
   return (
@@ -47,7 +67,7 @@ export const NavbarMovil = () => {
           const LinkIcon = link.icon;
           return (
             <Link
-              key={link.name}
+              key={link.name + Math.random()}
               href={link.href}
               className="flex w-10 grow flex-col items-center justify-center px-0 rounded-md py-3 font-medium hover:bg-mlt-600 group hover:text-white">
               <LinkIcon className="w-8" title={link.name} />

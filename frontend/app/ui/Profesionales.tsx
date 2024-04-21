@@ -7,7 +7,7 @@ export const Profesionales = () => {
   return (
     <>
       {doctores?.map((doctor: any) => (
-        <div className="p-1" key={doctor.nombre}>
+        <div className="p-1" key={doctor.nombre + Math.random()}>
           <div className="grid grid-cols-[auto_250px_minmax(0,1fr)] gap-1 justify-center shadow-[0_0_5px] shadow-gray-400 p-2 rounded-xl">
             <Image
               width={50}

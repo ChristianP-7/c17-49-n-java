@@ -5,18 +5,39 @@ import Link from 'next/link';
 import {
   CalendarDaysIcon,
   DevicePhoneMobileIcon,
-  UserCircleIcon,
   DocumentTextIcon,
   Bars3Icon,
   XMarkIcon,
 } from '@heroicons/react/24/outline';
 import { useState } from 'react';
 
-const links = [
+interface Link {
+  name: string;
+  href: string;
+  icon: any;
+}
+
+const doctor = true;
+
+let links: Link[] = [];
+
+const linksDoctor: Link[] = [
+  { name: 'Reserva de turnos Doctor', href: '/dashboard', icon: CalendarDaysIcon },
+  { name: 'Mis consultas Doctor', href: '/dashboard/misConsultas', icon: DocumentTextIcon },
+  {
+    name: 'Atención virtual Doctor',
+    href: '/dashboard/atencionVirtual',
+    icon: DevicePhoneMobileIcon,
+  },
+];
+
+const linksPaciente: Link[] = [
   { name: 'Reserva de turnos', href: '/dashboard', icon: CalendarDaysIcon },
   { name: 'Mis consultas', href: '/dashboard/misConsultas', icon: DocumentTextIcon },
   { name: 'Atención virtual', href: '/dashboard/atencionVirtual', icon: DevicePhoneMobileIcon },
 ];
+
+links = doctor ? linksDoctor : linksPaciente;
 
 export const Navbar = () => {
   const [isNavbarVisible, setIsNavbarVisible] = useState(true);
@@ -78,7 +99,7 @@ export const Navbar = () => {
             const LinkIcon = link.icon;
             return (
               <Link
-                key={link.name}
+                key={link.name + Math.random()}
                 href={link.href}
                 title={link.name}
                 className={`flex h-[48px] grow items-center justify-start gap-2 rounded-md px-2 text-sm font-medium hover:bg-mlt-600 group hover:text-white ${

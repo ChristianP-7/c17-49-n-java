@@ -39,7 +39,7 @@ export const ConsultasPendientes = () => {
               </thead>
 
               {doctores?.map((doctor: any) => (
-                <tbody className="bg-white" key={especialidades[0].nombre}>
+                <tbody className="bg-white" key={especialidades[0].nombre + Math.random()}>
                   <tr>
                     <td className="px-4 py-4 text-sm font-medium text-gray-700 dark:text-black whitespace-nowrap">
                       <div className="inline-flex items-center gap-x-3">
