@@ -49,7 +49,7 @@ export const Navbar = () => {
         </button>
       </header>
       <section
-        className={`flex-col rounded-xl w-[229px] h-[494px] mr-6 overflow-hidden hidden relative p-4  bg-white shadow-2xl box-content md:flex transition-transform duration-0 transform 
+        className={`flex-col rounded-xl w-[229px] h-[500px] mr-6 overflow-hidden hidden relative p-4  bg-white shadow-2xl box-content md:flex transition-transform duration-0 transform 
             ${isNavbarVisible ? 'translate-x-0' : '-translate-x-2'}`}>
         <header className={`${isNavbarVisible ? 'hidden' : 'flex flex-row-reverse w-full'}`}>
           <ImagenAvatar imagen={'/imageProfile/avatar.png'} width={60} height={60} />

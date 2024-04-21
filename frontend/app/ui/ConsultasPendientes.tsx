@@ -1,6 +1,6 @@
-import Image from "next/image";
-import Link from "next/link";
-import { especialidades } from "../../mocks/especialidad.json";
+import Image from 'next/image';
+import Link from 'next/link';
+import { especialidades } from '@/mocks/especialidad.json';
 
 export const ConsultasPendientes = () => {
   const doctores = especialidades[0].doctores;
@@ -8,7 +8,7 @@ export const ConsultasPendientes = () => {
     <div className="flex flex-col gap-2 mt-5">
       <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-          <div className="h-[250px] overflow-y-scroll border border-gray-200 dark:border-gray-300 md:rounded-lg">
+          <div className="h-[250px] overflow-y-scroll scroll-container pb-2 border border-gray-200 dark:border-gray-300 md:rounded-lg">
             <table className="min-w-full divide-y divide-gray-300 dark:divide-gray-300 ">
               <thead className="bg-mlt-600 overflow-y-scroll sticky top-0">
                 <tr>
@@ -39,7 +39,7 @@ export const ConsultasPendientes = () => {
               </thead>
 
               {doctores?.map((doctor: any) => (
-                <tbody className="bg-white">
+                <tbody className="bg-white" key={especialidades[0].nombre}>
                   <tr>
                     <td className="px-4 py-4 text-sm font-medium text-gray-700 dark:text-black whitespace-nowrap">
                       <div className="inline-flex items-center gap-x-3">
@@ -73,15 +73,12 @@ export const ConsultasPendientes = () => {
                         <h2 className="text-sm font-normal">00:00hrs</h2>
                       </div>
                     </td>
-                    <td className="px-4 py-4 text-sm text-black ">
-                      Virtual/Presencial
-                    </td>
+                    <td className="px-4 py-4 text-sm text-black ">Virtual/Presencial</td>
                     <td className="px-4 py-4 text-sm whitespace-nowrap">
                       <div className="flex items-center gap-x-6">
                         <Link
                           href="atencionVirtual"
-                          className="text-mlt-600 transition-colors duration-200 dark:hover:text-mlt-800 dark:text-mlt-600 hover:text-mlt-800 focus:outline-none"
-                        >
+                          className="text-mlt-600 transition-colors duration-200 dark:hover:text-mlt-800 dark:text-mlt-600 hover:text-mlt-800 focus:outline-none">
                           Ingresar
                         </Link>
                         <button className="text-white bg-mlt-600 hover:bg-mlt-800 hover:scale-105 duration-300  transition-colors focus:outline-none font-semibold md:font-medium rounded-xl md:rounded-full text-xs md:text-sm text-center px-1 w-[100px] h-[40px] md:mx-2 md:h-10">
