@@ -35,7 +35,6 @@ public class DoctorController {
     }
 
 
-
     //Insertar Doctores en la lista
     @PostMapping("/createDoctor")
     public String createDoctor(@RequestBody Doctor doctor) {
@@ -70,8 +69,16 @@ public class DoctorController {
      
      return doctor;
     }
+
+    //Devuelve doctor por especialidad
+    @GetMapping("findByEspecialidad/{especialidad}")
+    public List<Doctor> findByEspecialidad(@PathVariable String especialidad){
+        return idoctorservice.findByEspecialidad(especialidad);
+    }
+  
+    // Retorna la lista de doctores que no tienen consulta en la fecha tentativa
     @GetMapping("doctor/showEspecialidadesDisponibles")
     public ResponseEntity<?> getEspecialidadesDisponibles(@RequestParam(name = "dia") String dia, @RequestParam(name = "mes") @NotNull String mes){
-        return idoctorservice.getEspecialidadesDisponibles(dia, mes); // Retorna la lista de doctores que no tienen consulta en la fecha tentativa
+        return idoctorservice.getEspecialidadesDisponibles(dia, mes); 
     }
 }

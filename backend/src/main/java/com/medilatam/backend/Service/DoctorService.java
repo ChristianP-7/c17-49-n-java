@@ -55,8 +55,13 @@ public class DoctorService implements IDoctorService {
     }
 
     @Override
+    public List<Doctor> findByEspecialidad(String especialidad) {
+        return idoctorrepository.findByEspecialidad(especialidad);
+    }
+
+  // Trae los doctores que no tienen consulta en la fecha tentativa, uso Strings para que no se pierda el 0 en los meses y días y no cause conflictos con el formato de fecha
     public ResponseEntity<?> getEspecialidadesDisponibles(String dia, String mes) {
-        // Trae los doctores que no tienen consulta en la fecha tentativa, uso Strings para que no se pierda el 0 en los meses y días y no cause conflictos con el formato de fecha
+        
         Date fechaTentativa= UtilMethods.convertStringToSqlDate(Year.now()+"-" + mes +"-"+ dia);
         log.info("Fecha tentativa: {}", fechaTentativa);
 
