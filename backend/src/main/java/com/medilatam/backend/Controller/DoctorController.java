@@ -5,8 +5,10 @@ import com.medilatam.backend.Entity.Doctor;
 import com.medilatam.backend.Interface.IDoctorService;
 import java.util.List;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -31,7 +33,6 @@ public class DoctorController {
     public Doctor getDoctorById(@PathVariable(name = "id") Long id){
         return idoctorservice.findDoctor(id);
     }
-
 
 
     //Insertar Doctores en la lista
@@ -68,5 +69,16 @@ public class DoctorController {
      
      return doctor;
     }
-    
+
+    //Devuelve doctor por especialidad
+    @GetMapping("findByEspecialidad/{especialidad}")
+    public List<Doctor> findByEspecialidad(@PathVariable String especialidad){
+        return idoctorservice.findByEspecialidad(especialidad);
+    }
+  
+    // Retorna la lista de doctores que no tienen consulta en la fecha tentativa
+    @GetMapping("doctor/showEspecialidadesDisponibles")
+    public ResponseEntity<?> getEspecialidadesDisponibles(@RequestParam(name = "dia") String dia, @RequestParam(name = "mes") @NotNull String mes){
+        return idoctorservice.getEspecialidadesDisponibles(dia, mes); 
+    }
 }
