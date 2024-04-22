@@ -16,13 +16,13 @@ public class PersonaController {
     IPersonaService iPersonaService;
 
     //Listado de usuarios
-    @GetMapping("/showPersonas")
+    @GetMapping("/getPersonas")
     public List<PersonaEntity> getPersonas(){
         return iPersonaService.listarPersonas();
     }
 
     //Devuelve los datos de un usuario seleccionado por su ID
-    @GetMapping("/showPersonas/{id}")
+    @GetMapping("/getPersona/{id}")
     public PersonaEntity getPersonaById(@PathVariable(name = "id") Long id){
         return iPersonaService.personaPorId(id);
     }
