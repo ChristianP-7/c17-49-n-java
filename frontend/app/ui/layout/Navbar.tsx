@@ -98,7 +98,7 @@ export const Navbar = () => {
           {links.map((link) => {
             const LinkIcon = link.icon;
             return (
-              <Link
+              <a
                 key={link.name + Math.random()}
                 href={link.href}
                 title={link.name}
@@ -111,7 +111,7 @@ export const Navbar = () => {
                   }`}
                 />
                 <p>{link.name}</p>
-              </Link>
+              </a>
             );
           })}
         </nav>

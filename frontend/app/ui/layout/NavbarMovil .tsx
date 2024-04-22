@@ -66,13 +66,13 @@ export const NavbarMovil = () => {
         {links.map((link) => {
           const LinkIcon = link.icon;
           return (
-            <Link
-              key={link.name + Math.random()}
+            <a
+              key={link.name}
               href={link.href}
               className="flex w-10 grow flex-col items-center justify-center px-0 rounded-md py-3 font-medium hover:bg-mlt-600 group hover:text-white">
               <LinkIcon className="w-8" title={link.name} />
               <p className="text-[6px] font-semibold group-hover:text-white">{link.name}</p>
-            </Link>
+            </a>
           );
         })}
       </nav>
