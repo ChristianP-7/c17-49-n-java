@@ -33,7 +33,6 @@ public class DoctorController {
     }
 
 
-
     //Insertar Doctores en la lista
     @PostMapping("/createDoctor")
     public String createDoctor(@RequestBody Doctor doctor) {
@@ -68,5 +67,11 @@ public class DoctorController {
      
      return doctor;
     }
-    
+
+    //Devuelve doctor por especialidad
+    @GetMapping("findByEspecialidad/{especialidad}")
+    public List<Doctor> findByEspecialidad(@PathVariable String especialidad){
+        return idoctorservice.findByEspecialidad(especialidad);
+    }
+
 }

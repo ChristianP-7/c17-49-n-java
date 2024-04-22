@@ -37,5 +37,11 @@ public class DoctorService implements IDoctorService {
         Doctor doctor = idoctorrepository.findById(id).orElse(null);
         return doctor;
     }
-    
+
+    @Override
+    public List<Doctor> findByEspecialidad(String especialidad) {
+        return idoctorrepository.findByEspecialidad(especialidad);
+    }
+
+
 }

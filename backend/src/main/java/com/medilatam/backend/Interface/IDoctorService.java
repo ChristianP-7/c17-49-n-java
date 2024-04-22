@@ -18,5 +18,8 @@ public interface IDoctorService {
     
     //Buscar un Objeto del tipo Doctor por Id
     public Doctor findDoctor (Long id);
+
+    //Buscar todos los doctores por especialidad
+    public List<Doctor> findByEspecialidad(String especialidad);
     
 }
