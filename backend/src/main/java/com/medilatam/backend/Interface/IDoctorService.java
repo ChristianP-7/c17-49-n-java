@@ -2,6 +2,8 @@ package com.medilatam.backend.Interface;
 
 import com.medilatam.backend.Entity.Doctor;
 import jakarta.transaction.Transactional;
+import org.springframework.http.ResponseEntity;
+
 import java.util.List;
 
 @Transactional
@@ -22,4 +24,7 @@ public interface IDoctorService {
     //Buscar todos los doctores por especialidad
     public List<Doctor> findByEspecialidad(String especialidad);
     
+    // Obtener las especialidades disponibles en un dia y mes
+    ResponseEntity<?> getEspecialidadesDisponibles(String dia, String mes);
+
 }

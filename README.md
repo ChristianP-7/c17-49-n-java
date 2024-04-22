@@ -40,7 +40,6 @@ Asegúrate de instalar todas las dependencias antes de ejecutar los comandos ant
 - Anthony Medina García
 - Esteban Camacho Salgado
 - Franco Quijada
-- Marcos Aguilar
 - Christian Pérez
 - Fernando Garcia
  ### QA:
@@ -76,7 +75,7 @@ Aquí tienes una guía rápida:
 5. Realiza tus Cambios (`git commit -m 'Add: nueva Funcionalidad'`)
 6. Haz Push a la Rama (`git push origin feature/Caracteristica`)
 7. Abre una [_pull request_](https://github.com/No-Country/c17-49-n-java/pulls)
-8. Recordar siempre pero siempre antes de comenzar a realizar cambios hacer un pull del repositorio para obtener los últimos cambios.
+8. Recordar que, antes de comenzar a realizar cambios, siempre debe hacerse un [_git pull_](https://github.com/No-Country/c17-49-n-java/pulls) del repositorio para obtener los últimos cambios.
 
 ## Agradecimientos
 <img src="https://assets-global.website-files.com/65773955177041dbf059ed20/6584760759a54bef40894700_Logo%20navbar.svg" alt="Logo de la aplicación" width="500" height="200" style="display: block; margin: 0 auto;">
