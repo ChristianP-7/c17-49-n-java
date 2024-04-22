@@ -5,10 +5,10 @@ import { especialidades } from '@/mocks/especialidad.json';
 export const ConsultasPendientes = () => {
   const doctores = especialidades[0].doctores;
   return (
-    <div className="flex flex-col gap-2 mt-5">
+    <div className="flex flex-col gap-2 mt-5 px-4 md:px-0">
       <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-          <div className="h-[250px] overflow-y-scroll scroll-container pb-2 border border-gray-200 dark:border-gray-300 md:rounded-lg">
+          <div className=" md:max-w-[1200px] h-[300px] scroll-container overflow-y-scroll overflow-x-scroll pb-2 border border-gray-200 dark:border-gray-300 md:rounded-lg">
             <table className="min-w-full divide-y divide-gray-300 dark:divide-gray-300 ">
               <thead className="bg-mlt-600 overflow-y-scroll sticky top-0">
                 <tr>

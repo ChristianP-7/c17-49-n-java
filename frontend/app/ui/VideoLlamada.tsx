@@ -81,9 +81,14 @@ const VideoLlamada = () => {
 
   return (
     <div
-      className="items-center justify-center md:mx-auto mt-10 md:mt-1 space-y-10 md:w-[1150px] md:h-[580px] max-w-[440px] md:max-w-[1200px] md:mr-6 md:space-y-6 px-2 mb-4 md:mb-0 select-none shadow-2xl"
+      className="items-center justify-center md:mx-auto mt-10 md:mt-1 space-y-10 md:w-[1150px] md:h-[580px] max-w-[395px] md:max-w-[1200px] md:mr-6 md:space-y-6 md:px-0 px-6 mb-4 md:mb-0 select-none shadow-2xl"
       ref={containerRef}
-      style={{ borderRadius: '20px', padding: '10px', backgroundColor: '#fff' }}></div>
+      style={{
+        borderRadius: '20px',
+        padding: '10px',
+        marginLeft: '8px',
+        backgroundColor: '#fff',
+      }}></div>
   );
 };
 export default VideoLlamada;
