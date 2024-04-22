@@ -39,10 +39,10 @@ export const Calendario: React.FC<Props> = () => {
               <path
                 d="M11.001 6L6.00098 1L1.00098 6"
                 stroke="black"
-                stroke-opacity="0.4"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeOpacity="0.4"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           </div>
@@ -59,10 +59,10 @@ export const Calendario: React.FC<Props> = () => {
               <path
                 d="M11.001 6L6.00098 1L1.00098 6"
                 stroke="black"
-                stroke-opacity="0.4"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeOpacity="0.4"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           </div>

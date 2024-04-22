@@ -5,19 +5,39 @@ import Link from 'next/link';
 import {
   CalendarDaysIcon,
   DevicePhoneMobileIcon,
-  UserCircleIcon,
   DocumentTextIcon,
   Bars3Icon,
   XMarkIcon,
 } from '@heroicons/react/24/outline';
 import { useState } from 'react';
 
-const links = [
+interface Link {
+  name: string;
+  href: string;
+  icon: any;
+}
+
+const doctor = true;
+
+let links: Link[] = [];
+
+const linksDoctor: Link[] = [
+  { name: 'Reserva de turnos Doctor', href: '/dashboard', icon: CalendarDaysIcon },
+  { name: 'Mis consultas Doctor', href: '/dashboard/misConsultas', icon: DocumentTextIcon },
+  {
+    name: 'Atención virtual Doctor',
+    href: '/dashboard/atencionVirtual',
+    icon: DevicePhoneMobileIcon,
+  },
+];
+
+const linksPaciente: Link[] = [
   { name: 'Reserva de turnos', href: '/dashboard', icon: CalendarDaysIcon },
   { name: 'Mis consultas', href: '/dashboard/misConsultas', icon: DocumentTextIcon },
-  { name: 'Perfil', href: '/dashboard/profile', icon: UserCircleIcon },
   { name: 'Atención virtual', href: '/dashboard/atencionVirtual', icon: DevicePhoneMobileIcon },
 ];
+
+links = doctor ? linksDoctor : linksPaciente;
 
 export const Navbar = () => {
   const [isNavbarVisible, setIsNavbarVisible] = useState(true);
@@ -49,7 +69,7 @@ export const Navbar = () => {
         </button>
       </header>
       <section
-        className={`flex-col rounded-xl w-[229px] h-[494px] mr-6 overflow-hidden hidden relative p-4  bg-white shadow-2xl box-content md:flex transition-transform duration-0 transform 
+        className={`flex-col rounded-xl w-[229px] h-[500px] mr-6 overflow-hidden hidden relative p-4  bg-white shadow-2xl box-content md:flex transition-transform duration-0 transform 
             ${isNavbarVisible ? 'translate-x-0' : '-translate-x-2'}`}>
         <header className={`${isNavbarVisible ? 'hidden' : 'flex flex-row-reverse w-full'}`}>
           <ImagenAvatar imagen={'/imageProfile/avatar.png'} width={60} height={60} />
@@ -74,12 +94,12 @@ export const Navbar = () => {
             </div>
           </div>
         </div>
-        <nav className="flex flex-col space-x-0 space-y-3 w-full mt-2">
+        <nav className="flex flex-col space-x-0 space-y-6 w-full mt-2">
           {links.map((link) => {
             const LinkIcon = link.icon;
             return (
-              <Link
-                key={link.name}
+              <a
+                key={link.name + Math.random()}
                 href={link.href}
                 title={link.name}
                 className={`flex h-[48px] grow items-center justify-start gap-2 rounded-md px-2 text-sm font-medium hover:bg-mlt-600 group hover:text-white ${
@@ -91,7 +111,7 @@ export const Navbar = () => {
                   }`}
                 />
                 <p>{link.name}</p>
-              </Link>
+              </a>
             );
           })}
         </nav>
