@@ -56,7 +56,7 @@ const VideoLlamada = () => {
           },
         ],
         scenario: {
-          mode: ZegoUIKitPrebuilt.GroupCall, // Para implementar llamadas 1 a 1, modifica el parámetro aquí a [ZegoUIKitPrebuilt.OneONoneCall].
+          mode: ZegoUIKitPrebuilt.OneONoneCall, // Para implementar llamadas 1 a 1, modifica el parámetro aquí a [ZegoUIKitPrebuilt.OneONoneCall].
         },
       });
     };
