@@ -67,7 +67,7 @@ const initAccessibility = () => {
       useEmojis: false,
       position: {
         top: { size: 50, units: 'vh' },
-        left: { size: 205, units: 'vh' },
+        left: { size: 98, units: '%' },
         type: 'fixed',
       },
     } as IconOptions,
