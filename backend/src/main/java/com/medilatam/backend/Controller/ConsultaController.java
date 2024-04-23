@@ -18,7 +18,7 @@ public class ConsultaController {
     IConsultaService iConsultaService;
     
     //Expone las consultas creadas
-    @GetMapping("/showConsulta")
+    @GetMapping("/getConsulta")
     public List<Consulta> getConsulta(){
         return iConsultaService.getConsulta();
     }
@@ -38,14 +38,14 @@ public class ConsultaController {
     
     
     //Edita una consulta
-    @PutMapping("/editConsulta")
-    public ResponseEntity<?> editConsulta(@RequestParam(name = "id")  Long id,
-                                          @RequestParam(name="descripcion") String nuevaDescripcion,
-                                          @RequestParam(name = "estado") Integer nuevoEstadoDeConsulta,
-                                          @RequestParam(name = "fecha") String nuevaFecha){
+    @PutMapping("/updateConsulta")
+    public ResponseEntity<?> updateConsulta(@RequestParam(name = "id")  Long id,
+                                            @RequestParam(name="descripcion") String nuevaDescripcion,
+                                            @RequestParam(name = "estado") Integer nuevoEstadoDeConsulta,
+                                            @RequestParam(name = "fecha") String nuevaFecha){
         
         //Retorna un status positivo si se realizó correctamente
-        return iConsultaService.editConsulta(id, nuevaDescripcion, nuevoEstadoDeConsulta, nuevaFecha);
+        return iConsultaService.updateConsulta(id, nuevaDescripcion, nuevoEstadoDeConsulta, nuevaFecha);
     }
 
 }

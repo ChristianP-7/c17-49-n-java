@@ -24,5 +24,5 @@ public interface IConsultaService {
     ResponseEntity<?> getConsultasNoAtendidas();
 
     //Edita una consulta siendo esta identificada por su id
-    ResponseEntity<?> editConsulta(Long id, String nuevaDescripcion, Integer nuevoEstadoDeConsulta, String nuevaFecha);
+    ResponseEntity<?> updateConsulta(Long id, String nuevaDescripcion, Integer nuevoEstadoDeConsulta, String nuevaFecha);
 }
