@@ -115,7 +115,7 @@ public class ConsultaService implements IConsultaService {
     }
 
     @Override
-    public ResponseEntity<?> editConsulta(Long id, String nuevaDescripcion, Integer nuevoEstadoDeConsulta, String nuevaFecha) {
+    public ResponseEntity<?> updateConsulta(Long id, String nuevaDescripcion, Integer nuevoEstadoDeConsulta, String nuevaFecha) {
         //Si no existe la consulta con el ID dado
         if (!consultaRepository.existsById(id)) {
             return ResponseEntity.status(400).body("La consulta no existe");

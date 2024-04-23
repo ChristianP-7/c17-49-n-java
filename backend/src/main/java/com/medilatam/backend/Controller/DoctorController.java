@@ -22,16 +22,16 @@ public class DoctorController {
 
     
     //Obtener Doctores
-    @GetMapping("/showDoctores")
+    @GetMapping("/getDoctores")
     public List<Doctor> getDoctor(){
         return idoctorservice.getDoctor();
     }
 
 
     //Devuelve los datos de un usuario seleccionado por su ID
-    @GetMapping("/showDoctores/{id}")
+    @GetMapping("/getDoctores/{id}")
     public Doctor getDoctorById(@PathVariable(name = "id") Long id){
-        return idoctorservice.findDoctor(id);
+        return idoctorservice.getDoctor(id);
     }
 
 
@@ -50,14 +50,14 @@ public class DoctorController {
     }
     
     //Editar los Doctores
-    @PutMapping("/editDoctor/{id}")
-    public Doctor editDoctor (@PathVariable Long id,
-                                            @RequestParam("nombre") String nuevoNombre,
-                                            @RequestParam("especialidad") String nuevoEspecialidad,
-                                            @RequestParam("horarioAtencion") String nuevoHorarioAtencion,
-                                            @RequestParam("localidad") String nuevoLocalidad,
-                                            @RequestParam("costoConsulta") Integer nuevoCostoConsulta) {
-     Doctor doctor = idoctorservice.findDoctor(id);
+    @PutMapping("/updateDoctor/{id}")
+    public Doctor updateDoctor(@PathVariable Long id,
+                               @RequestParam("nombre") String nuevoNombre,
+                               @RequestParam("especialidad") String nuevoEspecialidad,
+                               @RequestParam("horarioAtencion") String nuevoHorarioAtencion,
+                               @RequestParam("localidad") String nuevoLocalidad,
+                               @RequestParam("costoConsulta") Integer nuevoCostoConsulta) {
+     Doctor doctor = idoctorservice.getDoctor(id);
      
      doctor.setNombre(nuevoNombre);
      doctor.setEspecialidad(nuevoEspecialidad);
@@ -77,7 +77,7 @@ public class DoctorController {
     }
   
     // Retorna la lista de doctores que no tienen consulta en la fecha tentativa
-    @GetMapping("doctor/showEspecialidadesDisponibles")
+    @GetMapping("doctor/getEspecialidadesDisponibles")
     public ResponseEntity<?> getEspecialidadesDisponibles(@RequestParam(name = "dia") String dia, @RequestParam(name = "mes") @NotNull String mes){
         return idoctorservice.getEspecialidadesDisponibles(dia, mes); 
     }

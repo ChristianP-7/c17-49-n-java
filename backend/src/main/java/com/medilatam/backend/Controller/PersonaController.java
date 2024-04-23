@@ -21,13 +21,13 @@ public class PersonaController {
     //Listado de usuarios
     @GetMapping("/getPersonas")
     public List<PersonaEntity> getPersonas(){
-        return iPersonaService.listarPersonas();
+        return iPersonaService.getPersonas();
     }
 
     //Devuelve los datos de un usuario seleccionado por su ID
     @GetMapping("/getPersona/{id}")
     public PersonaEntity getPersonaById(@PathVariable(name = "id") Long id){
-        return iPersonaService.personaPorId(id);
+        return iPersonaService.getPersonaById(id);
     }
 
     //Crea un usuario
@@ -35,7 +35,7 @@ public class PersonaController {
     public ResponseEntity<?> createPersona(@RequestParam("data") String personaData, @RequestParam("fileIcon") MultipartFile fileIcon) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         PersonaEntity personaEntity = objectMapper.readValue(personaData, PersonaEntity.class);
-        iPersonaService.guardarPersona(personaEntity, fileIcon);
+        iPersonaService.savePersona(personaEntity, fileIcon);
         return ResponseEntity.status(HttpStatus.CREATED).body("El nuevo registro ha sido creado");
     }
 
@@ -44,14 +44,14 @@ public class PersonaController {
     public ResponseEntity<?> updatePersonaById(@PathVariable(name = "id") Long id, @RequestParam("data") String personaData, @RequestParam("fileIcon") MultipartFile fileIcon) throws IOException {   
         ObjectMapper objectMapper = new ObjectMapper();
         PersonaEntity personaEntity = objectMapper.readValue(personaData, PersonaEntity.class);
-        iPersonaService.actualizarPersonaPorId(id, personaEntity, fileIcon);
+        iPersonaService.updatePersonaById(id, personaEntity, fileIcon);
         return ResponseEntity.status(HttpStatus.OK).body("El registro ha sido actualizado con éxito.");
     }
     
     //Borra un usuario según su ID
     @DeleteMapping("/deletePersona/{id}")
     public ResponseEntity<?> deletePersonaById(@PathVariable(name = "id") Long id) throws IOException {   
-        iPersonaService.eliminarPersonaPorId(id);
+        iPersonaService.deletePersonaById(id);
         return ResponseEntity.status(HttpStatus.OK).body("El registro ha sido eliminado con éxito.");
     }
 

@@ -41,19 +41,20 @@ public class DoctorService implements IDoctorService {
         idoctorrepository.save(doctor);
     }
 
-    
-    
+    //Elimina un Doctor según su ID
     @Override
     public void deleteDoctor(Long id) {
         idoctorrepository.deleteById(id);
     }
 
+    //Devuelve un Doctor segun su ID
     @Override
-    public Doctor findDoctor(Long id) {
+    public Doctor getDoctor(Long id) {
         Doctor doctor = idoctorrepository.findById(id).orElse(null);
         return doctor;
     }
 
+    //Devuelve a los doctores según su especialidad
     @Override
     public List<Doctor> findByEspecialidad(String especialidad) {
         return idoctorrepository.findByEspecialidad(especialidad);

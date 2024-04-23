@@ -30,19 +30,19 @@ public class PersonaService implements IPersonaService {
     private PersonaRepository personaRepository;
 
     @Override
-    public List<PersonaEntity> listarPersonas() {
+    public List<PersonaEntity> getPersonas() {
         List<PersonaEntity> personaEntities = personaRepository.findAll();
         return personaEntities;
     }
 
     @Override
-    public PersonaEntity personaPorId(Long id) {
+    public PersonaEntity getPersonaById(Long id) {
         PersonaEntity personaEntity = personaRepository.findById(id).orElse(null);
         return personaEntity;
     }
 
     @Override
-    public void guardarPersona(PersonaEntity personaEntity, MultipartFile fileIcon) throws IOException {
+    public void savePersona(PersonaEntity personaEntity, MultipartFile fileIcon) throws IOException {
         if (!fileIcon.isEmpty()) {
             if (fileIcon.getContentType().startsWith("image/")) {
                 Map uploadResult = cloudinary.uploader().upload(fileIcon.getBytes(), ObjectUtils.emptyMap());
@@ -56,7 +56,7 @@ public class PersonaService implements IPersonaService {
     }
 
     @Override
-    public void actualizarPersonaPorId(Long id, PersonaEntity personaData, MultipartFile fileIcon) throws IOException {
+    public void updatePersonaById(Long id, PersonaEntity personaData, MultipartFile fileIcon) throws IOException {
         PersonaEntity personaEntity = personaRepository.findById(id).orElse(null);
         personaEntity.setName(personaData.getName());
         personaEntity.setEmail(personaData.getEmail());
@@ -77,7 +77,7 @@ public class PersonaService implements IPersonaService {
     }
 
     @Override
-    public void eliminarPersonaPorId(Long id) throws IOException {
+    public void deletePersonaById(Long id) throws IOException {
         PersonaEntity personaEntity = personaRepository.findById(id).orElse(null);
         if (personaEntity.getFoto() != null) {
             String publicId = personaEntity.getFoto().substring(personaEntity.getFoto().lastIndexOf("/") + 1, personaEntity.getFoto().lastIndexOf("."));

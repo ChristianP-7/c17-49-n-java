@@ -9,18 +9,18 @@ import java.util.List;
 public interface IPersonaService {
 
     //Lista los usuarios
-    List<PersonaEntity> listarPersonas();
+    List<PersonaEntity> getPersonas();
 
     //Muestra un usuario según el ID
-    PersonaEntity personaPorId(Long id);
+    PersonaEntity getPersonaById(Long id);
 
     //Almacena un nuevo usuario
-    void guardarPersona(PersonaEntity personaEntity, MultipartFile fileIcon) throws IOException;
+    void savePersona(PersonaEntity personaEntity, MultipartFile fileIcon) throws IOException;
 
     //Edita un usuario basandose en su ID
-    void actualizarPersonaPorId(Long id, PersonaEntity personaEntity, MultipartFile fileIcon) throws IOException;
+    void updatePersonaById(Long id, PersonaEntity personaEntity, MultipartFile fileIcon) throws IOException;
 
     //Elimina un usuario buscandolo por su ID
-    void eliminarPersonaPorId(Long id) throws IOException;
+    void deletePersonaById(Long id) throws IOException;
 
 }
