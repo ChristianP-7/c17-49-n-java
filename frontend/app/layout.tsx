@@ -18,9 +18,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <link rel="icon" href="/favicon.svg" />
-      <body className={`bg-slate-200 ${inter.className} antialiased md:max-w-[1440px]`}>
-        {children}
-      </body>
+      <body className={`bg-slate-200 ${inter.className} antialiased `}>{children}</body>
     </html>
   );
 }

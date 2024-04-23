@@ -48,8 +48,8 @@ export const Navbar = () => {
 
   return (
     <div
-      className={`flex-col transition-transform duration-0 transform ${
-        isNavbarVisible ? 'translate-x-0' : '-translate-x-44 w-1 fixed'
+      className={`flex-col transition-transform duration-0 ml-6 transform ${
+        isNavbarVisible ? 'translate-x-0' : '-translate-x-52 w-1 fixed'
       }`}>
       <header
         className={`shadow-2xl rounded-xl w-[260px] h-[40px] bg-white  p-2 mb-3 items-center justify-end hidden md:flex`}>

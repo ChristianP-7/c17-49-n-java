@@ -5,7 +5,7 @@ export const Background = () => {
     <Image
       src="/background.png"
       alt="sala de espera de hospital"
-      className="h-[250px] object-cover"
+      className="h-[250px] w-full object-cover"
       width={1440}
       height={300}
       priority={true}
