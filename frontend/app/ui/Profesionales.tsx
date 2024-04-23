@@ -8,13 +8,13 @@ export const Profesionales = () => {
     <>
       {doctores?.map((doctor: any) => (
         <div className="p-1" key={doctor.nombre + Math.random()}>
-          <div className="grid grid-cols-[auto_250px_minmax(0,1fr)] gap-1 justify-center shadow-[0_0_5px] shadow-gray-400 p-2 rounded-xl">
+          <div className="grid grid-cols-[auto_240px_minmax(0,1fr)] gap-1 justify-center shadow-[0_0_5px] shadow-gray-400 p-2 rounded-xl">
             <Image
               width={50}
               height={50}
               src="/imageProfile/avatarGrid.webp"
               alt="avatar"
-              className="md:size[50px] size-10"
+              className="md:size[50px] size-10 hidden md:flex"
             />
             <div className=" leading-none flex flex-col">
               <h1 className="font-bold text-sm">{doctor.nombre}</h1>
