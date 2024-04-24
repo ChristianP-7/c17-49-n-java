@@ -2,15 +2,22 @@ import { ArrowRightIcon, AtSymbolIcon, KeyIcon, UserCircleIcon } from '@heroicon
 import { BotonPrincipal } from '../layout/BotonPrincipal';
 import { ImagenAvatar } from '../ImagenAvatar';
 import Link from 'next/link';
+import { AddImage } from './AddImage';
 
 export const RegisterForm = () => {
   return (
-    <div>
-      <div className="justify-end ml-20 hidden md:flex w-full ">
+    <div className="border border-red-500 flex flex-col mt-16">
+      <div className="md:flex w-full justify-between -mb-28 relative">
         <Link
-          className="bg-mlt-500 flex flex-col items-center rounded-2xl w-32 p-6 hover:scale-110 duration-300"
+          className="bg-mlt-500 flex rounded-2xl h-16 p-6 hover:scale-110 duration-300"
           href="/">
-          <ArrowRightIcon className="absolute pointer-events-none h-[50px] w-[50px] -translate-y-1/2 text-white rotate-180" />
+          <ArrowRightIcon className="w-10 p-0 text-white rotate-180" />
+        </Link>
+        <Link
+          className="bg-mlt-500 items-center rounded-2xl h-16 p-6 hover:scale-110 duration-300"
+          href="/">
+          <p className="text-white font-semibold">Soy Doctor</p>
+          <ArrowRightIcon className="w-10 p-0 text-white" />
         </Link>
       </div>
       <div className="flex justify-center -mb-20">
@@ -24,12 +31,12 @@ export const RegisterForm = () => {
           </div>
           <div className="w-full mb-2">
             <div>
-              <label className="mb-3 mt-2 block text-xs font-medium text-gray-900" htmlFor="nombre">
+              <label className="mb-2 mt-1 block text-xs font-medium text-gray-900" htmlFor="nombre">
                 Nombre
               </label>
               <div className="relative">
                 <input
-                  className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
+                  className="peer block w-full rounded-md border border-gray-200 py-[2px] pl-10 text-sm outline-2 placeholder:text-gray-500"
                   id="nombre"
                   type="text"
                   name="nombre"
@@ -40,12 +47,12 @@ export const RegisterForm = () => {
               </div>
             </div>
             <div>
-              <label className="mb-3 mt-2 block text-xs font-medium text-gray-900" htmlFor="email">
+              <label className="mb-1 mt-2 block text-xs font-medium text-gray-900" htmlFor="email">
                 Email
               </label>
               <div className="relative">
                 <input
-                  className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
+                  className="peer block w-full rounded-md border border-gray-200 py-[2px] pl-10 text-sm outline-2 placeholder:text-gray-500"
                   id="email"
                   type="email"
                   name="email"
@@ -57,13 +64,13 @@ export const RegisterForm = () => {
             </div>
             <div className="mt-4">
               <label
-                className="mb-3 mt-5 block text-xs font-medium text-gray-900"
+                className="mb-1 mt-5 block text-xs font-medium text-gray-900"
                 htmlFor="password">
                 Password
               </label>
               <div className="relative">
                 <input
-                  className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
+                  className="peer block w-full rounded-md border border-gray-200 py-[2px] pl-10 text-sm outline-2 placeholder:text-gray-500"
                   id="password"
                   type="password"
                   name="password"
@@ -72,6 +79,16 @@ export const RegisterForm = () => {
                   minLength={6}
                 />
                 <KeyIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
+              </div>
+            </div>
+            <div className="mt-4">
+              <label
+                className="mb-1 mt-1 block text-xs font-medium text-gray-900"
+                htmlFor="password">
+                Imagen de Perfil
+              </label>
+              <div className="relative">
+                <AddImage />
               </div>
             </div>
           </div>
