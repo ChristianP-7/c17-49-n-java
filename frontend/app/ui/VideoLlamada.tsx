@@ -78,16 +78,30 @@ const VideoLlamada = () => {
     // Llama a la función myMeeting al montar el componente
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // Usa un array vacío como dependencia para que useEffect se ejecute solo una vez al montar el componente
-
+  const containerStyles = {
+    borderRadius: '20px',
+    padding: '10px',
+    width: '75%',
+    height: '91%',
+    backgroundColor: '#fff',
+  };
+  const mobileStyles = `
+    @media (max-width: 768px) {
+      width: 90%;
+      height: auto;
+      padding: 5px;
+      borderRadius: 10px;
+    }
+  `;
+  const combinedStyles = { ...containerStyles, style: mobileStyles };
+  console.log(combinedStyles);
   return (
-    <div
-      className="items-center justify-center md:mx-auto mt-10 md:mt-1 space-y-10  md:h-[580px] max-w-[338px] md:max-w-[450px] xl:max-w-[1250px] 2xl:max-w-[1930px] md:mr-6 md:space-y-6  mb-4 md:ml-30 ml-3 md:mb-0 select-none shadow-2xl"
-      ref={containerRef}
-      style={{
-        borderRadius: '20px',
-        padding: '10px',
-        backgroundColor: '#fff',
-      }}></div>
+    <div className="md:flex items-center justify-center md:mx-auto mt-10 md:mt-0 space-y-5 md:w-full max-w-[340px] md:max-w-[800px] lg:[1000] xl:max-w-[1250px] 2xl:max-w-[1850px] md:mr-6 mb-4 md:mb-0 select-none">
+      <div
+        className="md:absolute mx-auto justify-center"
+        ref={containerRef}
+        style={combinedStyles}></div>
+    </div>
   );
 };
 export default VideoLlamada;

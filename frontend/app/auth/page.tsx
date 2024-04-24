@@ -1,5 +1,6 @@
-import { LoginForm } from '../ui/auth/LoginForm';
+import { LoginFormDoc } from '../ui/auth/LoginFormDoc';
+import { LoginFormPac } from '../ui/auth/LoginFormPac';
 
 export default function Login() {
-  return <LoginForm />;
+  return <LoginFormPac />;
 }

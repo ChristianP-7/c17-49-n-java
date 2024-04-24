@@ -1,27 +1,36 @@
-import { ArrowRightIcon, AtSymbolIcon, KeyIcon, UserCircleIcon } from '@heroicons/react/24/outline';
+import { AtSymbolIcon, KeyIcon, UserCircleIcon } from '@heroicons/react/24/outline';
 import { BotonPrincipal } from '../layout/BotonPrincipal';
-import { ImagenAvatar } from '../ImagenAvatar';
 import Link from 'next/link';
 import { AddImage } from './AddImage';
+import Image from 'next/image';
 
-export const RegisterForm = () => {
+export const RegisterFormPac = () => {
   return (
-    <div className="border border-red-500 flex flex-col mt-16">
-      <div className="md:flex w-full justify-between -mb-28 relative">
+    <div className="flex flex-col mt-12">
+      <div className="flex w-full justify-between -mb-28 relative">
         <Link
-          className="bg-mlt-500 flex rounded-2xl h-16 p-6 hover:scale-110 duration-300"
+          className="bg-mlt-500 text-white font-semibold items-center w-36 justify-end pr-20 flex flex-row rounded-2xl h-16 hover:scale-110 duration-300"
           href="/">
-          <ArrowRightIcon className="w-10 p-0 text-white rotate-180" />
+          Salir
         </Link>
         <Link
-          className="bg-mlt-500 items-center rounded-2xl h-16 p-6 hover:scale-110 duration-300"
+          className="bg-mlt-500 text-white font-semibold items-center w-36 justify-end px-8 flex flex-row rounded-2xl h-16 hover:scale-110 duration-300"
           href="/">
-          <p className="text-white font-semibold">Soy Doctor</p>
-          <ArrowRightIcon className="w-10 p-0 text-white" />
+          Doctor
         </Link>
       </div>
       <div className="flex justify-center -mb-20">
-        <ImagenAvatar imagen="/imageProfile/avatar.png" height={200} width={200} />
+        <Image
+          src="/imageProfile/avatarGrid.webp"
+          alt="imagen avatar"
+          className="p-1 rounded-full ring-2 ring-white"
+          width={200}
+          height={200}
+          style={{
+            objectFit: 'cover',
+            zIndex: 99999,
+          }}
+        />
       </div>
       <form className="space-y-3">
         <div className="flex-1 rounded-xl bg-white px-6 pb-4 pt-8">

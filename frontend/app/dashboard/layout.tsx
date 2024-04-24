@@ -18,7 +18,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </header>
       <NavbarMovil />
       <Accessibility />
-      <div className="flex justify-center px-2 md:px-0 md:-mt-56">
+      <div className="flex px-2 md:px-0 md:-mt-56">
         <Navbar />
         {children}
       </div>
