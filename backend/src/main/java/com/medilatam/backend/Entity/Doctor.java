@@ -1,9 +1,6 @@
 package com.medilatam.backend.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
@@ -20,7 +17,7 @@ public class Doctor {
     @NotNull
     @Size(min = 1, max = 70, message = "Faltan o sobran caracteres")
     private String nombre;
-    
+
     @NotNull
     @Size(min = 1, max = 70, message = "Faltan o sobran caracteres")
     private String especialidad;
@@ -35,6 +32,7 @@ public class Doctor {
     
     @NotNull
     private Integer costoConsulta;
+
 
     private Float calificacion;
 
