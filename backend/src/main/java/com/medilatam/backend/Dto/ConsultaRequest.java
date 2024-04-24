@@ -10,8 +10,8 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
-// Esta es la clase que se encarga de recibir los datos de la consulta para convertirlos en un objeto de tipo Consulta
 
+// Esta es la clase que se encarga de recibir los datos de la consulta para convertirlos en un objeto de tipo Consulta
 public class ConsultaRequest implements java.io.Serializable {
 
    @NotNull

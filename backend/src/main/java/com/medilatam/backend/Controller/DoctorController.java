@@ -19,7 +19,6 @@ public class DoctorController {
     @Autowired
     IDoctorService idoctorservice;
     //private IConsultaService iConsultaService;
-
     
     //Obtener Doctores
     @GetMapping("/getDoctores")
@@ -27,13 +26,11 @@ public class DoctorController {
         return idoctorservice.getDoctor();
     }
 
-
     //Devuelve los datos de un usuario seleccionado por su ID
     @GetMapping("/getDoctores/{id}")
     public Doctor getDoctorById(@PathVariable(name = "id") Long id){
         return idoctorservice.getDoctor(id);
     }
-
 
     //Insertar Doctores en la lista
     @PostMapping("/createDoctor")
