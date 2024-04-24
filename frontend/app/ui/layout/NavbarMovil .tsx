@@ -37,7 +37,7 @@ links = doctor ? linksDoctor : linksPaciente;
 
 export const NavbarMovil = () => {
   return (
-    <section className="flex relative flex-col mx-2 overflow-hidden max-w-[340px] -mt-44 px-12 justify-center items-center p-4 space-x-1 bg-white rounded-xl shadow-lg box-content md:hidden">
+    <section className="flex relative flex-col mx-2 overflow-hidden max-w-[340px] -mt-44 justify-center items-center p-4 space-x-1 bg-white rounded-xl shadow-lg box-content md:hidden">
       <header className="flex justify-center items-center">
         <Image
           src="/Medilatam.svg"
@@ -47,7 +47,7 @@ export const NavbarMovil = () => {
           className="pl-5 pt-3"
         />
       </header>
-      <div className="flex space-y-4 space-x-8 items-center mt-4 justify-center">
+      <div className="flex space-y-2 space-x-6 items-center mt-4 justify-center">
         <ImagenAvatar imagen={'/imageProfile/avatar.png'} width={100} height={100} />
         <div className="flex space-x-3 pb-4  border-b-2">
           <a

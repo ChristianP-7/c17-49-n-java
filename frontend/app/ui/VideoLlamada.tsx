@@ -56,7 +56,7 @@ const VideoLlamada = () => {
           },
         ],
         scenario: {
-          mode: ZegoUIKitPrebuilt.GroupCall, // Para implementar llamadas 1 a 1, modifica el parámetro aquí a [ZegoUIKitPrebuilt.OneONoneCall].
+          mode: ZegoUIKitPrebuilt.OneONoneCall, // Para implementar llamadas 1 a 1, modifica el parámetro aquí a [ZegoUIKitPrebuilt.OneONoneCall].
         },
       });
     };
@@ -81,7 +81,7 @@ const VideoLlamada = () => {
 
   return (
     <div
-      className="items-center justify-center md:mx-auto mt-10 md:mt-1 space-y-10 md:w-[1150px] md:h-[580px] max-w-[395px] md:max-w-[1200px] md:mr-6 md:space-y-6 md:px-0 px-6 mb-4 md:ml-30 ml-3 md:mb-0 select-none shadow-2xl"
+      className="items-center justify-center md:mx-auto mt-10 md:mt-1 space-y-10  md:h-[580px] max-w-[338px] md:max-w-[450px] xl:max-w-[1250px] 2xl:max-w-[1930px] md:mr-6 md:space-y-6  mb-4 md:ml-30 ml-3 md:mb-0 select-none shadow-2xl"
       ref={containerRef}
       style={{
         borderRadius: '20px',
