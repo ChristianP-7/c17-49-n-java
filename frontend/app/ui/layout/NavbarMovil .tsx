@@ -51,12 +51,12 @@ export const NavbarMovil = () => {
         <ImagenAvatar imagen={'/imageProfile/avatar.png'} width={100} height={100} />
         <div className="flex space-x-3 pb-4  border-b-2">
           <a
-            className="text-white bg-mlt-600 hover:bg-mlt-800 hover:scale-105 duration-300  transition-colors focus:outline-none font-medium rounded-full text-sm text-center p-2 w-24"
+            className="text-white bg-mlt-700 hover:bg-mlt-800 hover:scale-105 duration-300  transition-colors focus:outline-none font-medium rounded-full text-sm text-center p-2 w-24"
             href="/auth">
             Login
           </a>
           <a
-            className="text-white bg-mlt-600 hover:bg-mlt-800 hover:scale-105 duration-300 transition-colors focus:outline-none font-medium rounded-full text-sm text-center p-2 w-24"
+            className="text-white bg-mlt-700 hover:bg-mlt-800 hover:scale-105 duration-300 transition-colors focus:outline-none font-medium rounded-full text-sm text-center p-2 w-24"
             href="/auth/register">
             Registro
           </a>
@@ -69,7 +69,7 @@ export const NavbarMovil = () => {
             <a
               key={link.name}
               href={link.href}
-              className="flex w-10 grow flex-col items-center justify-center px-0 rounded-md py-3 font-medium hover:bg-mlt-600 group hover:text-white">
+              className="flex w-10 grow flex-col items-center justify-center px-0 rounded-md py-3 font-medium hover:bg-mlt-700 group hover:text-white">
               <LinkIcon className="w-8" title={link.name} />
               <p className="text-[6px] font-semibold group-hover:text-white">{link.name}</p>
             </a>

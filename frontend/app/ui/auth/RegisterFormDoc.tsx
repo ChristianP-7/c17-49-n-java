@@ -56,15 +56,15 @@ export const RegisterFormDoc = () => {
               <div>
                 <label
                   className="mb-2 mt-1 block text-xs font-medium text-gray-900"
-                  htmlFor="nombre">
+                  htmlFor="matricula">
                   Matricula
                 </label>
                 <div className="relative">
                   <input
                     className="peer block w-44 rounded-md border border-gray-200 py-[2px] pl-9 text-sm outline-2 placeholder:text-gray-500"
-                    id="nombre"
-                    type="text"
-                    name="nombre"
+                    id="matricula"
+                    type="number"
+                    name="matricula"
                     placeholder="Ingrese su matricula"
                     required
                   />

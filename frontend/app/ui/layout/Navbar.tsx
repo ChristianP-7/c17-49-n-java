@@ -54,18 +54,22 @@ export const Navbar = () => {
       <header
         className={`shadow-2xl rounded-xl w-[260px] h-[40px] bg-white  p-2 mb-3 items-center justify-end hidden md:flex`}>
         <button onClick={toggleNavbar}>
+          <p className={`px-1 ${isNavbarVisible ? '' : 'hidden'}`}>Cerrar</p>
           <Bars3Icon
-            className={`w-6 hover:text-white rounded hover:bg-mlt-600 transition-colors duration-300 ${
+            title="menu"
+            className={`w-6 hover:text-white rounded hover:bg-mlt-700 transition-colors duration-300 ${
               isNavbarVisible ? 'hidden' : ''
             }`}
           />
         </button>
         <button onClick={toggleNavbar}>
           <XMarkIcon
-            className={`w-6 hover:text-white rounded hover:bg-mlt-600 transition-colors duration-300 ${
-              isNavbarVisible ? '' : 'hidden '
+            title="cerrar"
+            className={`w-6 hover:text-white rounded hover:bg-mlt-700 transition-colors duration-300 ${
+              isNavbarVisible ? '' : 'hidden'
             }`}
           />
+          <p className={`${isNavbarVisible ? 'hidden' : ''}`}>Menu</p>
         </button>
       </header>
       <section
@@ -82,12 +86,12 @@ export const Navbar = () => {
             <ImagenAvatar imagen={'/imageProfile/avatar.png'} width={130} height={130} />
             <div className={`flex space-x-10 pb-4 border-b-2`}>
               <a
-                className="text-white bg-mlt-600 hover:bg-mlt-800 hover:scale-105 duration-300  transition-colors focus:outline-none font-medium rounded-full text-sm text-center p-2 w-24"
+                className="text-white bg-mlt-700 hover:bg-mlt-800 hover:scale-105 duration-300  transition-colors focus:outline-none font-medium rounded-full text-sm text-center p-2 w-24"
                 href="/auth">
                 Login
               </a>
               <a
-                className="text-white bg-mlt-600 hover:bg-mlt-800 hover:scale-105 duration-300 transition-colors focus:outline-none font-medium rounded-full text-sm text-center p-2 w-24"
+                className="text-white bg-mlt-700 hover:bg-mlt-800 hover:scale-105 duration-300 transition-colors focus:outline-none font-medium rounded-full text-sm text-center p-2 w-24"
                 href="/auth/register">
                 Registro
               </a>
@@ -102,7 +106,7 @@ export const Navbar = () => {
                 key={link.name + Math.random()}
                 href={link.href}
                 title={link.name}
-                className={`flex h-[48px] grow items-center justify-start gap-2 rounded-md px-2 text-sm font-medium hover:bg-mlt-600 group hover:text-white ${
+                className={`flex h-[48px] grow items-center justify-start gap-2 rounded-md px-2 text-sm font-medium hover:bg-mlt-700 group hover:text-white ${
                   isNavbarVisible ? '' : 'flex flex-row-reverse'
                 }`}>
                 <LinkIcon

@@ -10,7 +10,7 @@ export const ConsultasPendientes = () => {
         <div className="inline-block min-w-full py-2 align-middle md:px-6">
           <div className="h-[300px] md:w-full scroll-container overflow-y-scroll overflow-x-scroll pb-2 border border-gray-200 md:rounded-lg">
             <table className="min-w-full divide-y divide-gray-300 dark:divide-gray-300 ">
-              <thead className="bg-mlt-600 overflow-y-scroll sticky top-0">
+              <thead className="bg-mlt-700 overflow-y-scroll sticky top-0">
                 <tr>
                   <th className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-white">
                     Especialidad
@@ -69,7 +69,7 @@ export const ConsultasPendientes = () => {
                       Jan 6, 2022
                     </td>
                     <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
-                      <div className="inline-flex items-center text-mlt-600 ">
+                      <div className="inline-flex items-center text-mlt-700 ">
                         <h2 className="text-sm font-normal">00:00hrs</h2>
                       </div>
                     </td>
@@ -78,10 +78,10 @@ export const ConsultasPendientes = () => {
                       <div className="flex items-center gap-x-6">
                         <Link
                           href="atencionVirtual"
-                          className="text-mlt-600 transition-colors duration-200 dark:hover:text-mlt-800 dark:text-mlt-600 hover:text-mlt-800 focus:outline-none">
+                          className="text-mlt-700 transition-colors duration-200 dark:hover:text-mlt-800 hover:text-mlt-800 focus:outline-none">
                           Ingresar
                         </Link>
-                        <button className="text-white bg-mlt-600 hover:bg-mlt-800 hover:scale-105 duration-300  transition-colors focus:outline-none font-semibold md:font-medium rounded-xl md:rounded-full text-xs md:text-sm text-center px-1 w-[100px] h-[40px] md:mx-2 md:h-10">
+                        <button className="text-white bg-mlt-700 hover:bg-mlt-800 hover:scale-105 duration-300  transition-colors focus:outline-none font-semibold md:font-medium rounded-xl md:rounded-full text-xs md:text-sm text-center px-1 w-[100px] h-[40px] md:mx-2 md:h-10">
                           Cancelar cita
                         </button>
                       </div>
