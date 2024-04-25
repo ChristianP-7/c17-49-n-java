@@ -1,6 +1,7 @@
 package com.medilatam.backend.Entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import lombok.Data;
 
 import java.util.Date;
@@ -34,6 +35,8 @@ public class PersonaEntity {
     private String email;
 
     @Column(name = "password", nullable = false)
+    @Size(min = 6, message = "La contraseña debe tener al menos 6 caracteres")
+    @Pattern(regexp = "^(?=.*[0-9])(?=.*[A-Z]).*$", message = "La contraseña debe contener al menos una mayúscula y un dígito")
     private String password;
 
     @Column(name = "foto")

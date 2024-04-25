@@ -1,10 +1,7 @@
 package com.medilatam.backend.Dto;
 
 import com.medilatam.backend.Entity.Genero;
-import com.medilatam.backend.Security.ValidPassword;
-import jakarta.persistence.Column;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Null;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -37,7 +34,8 @@ public class PersonaDto {
     private String email;
 
     @NotBlank(message = "Este campo es obligatorio")
-    @ValidPassword
+    @Size(min = 6, message = "La contraseña debe tener al menos 6 caracteres")
+    @Pattern(regexp = "^(?=.*[0-9])(?=.*[A-Z]).*$", message = "La contraseña debe contener al menos una mayúscula y un dígito")
     private String password;
 
     @Null(message = "Este campo debe ser nulo al principio")

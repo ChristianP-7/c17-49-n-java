@@ -3,9 +3,11 @@ package com.medilatam.backend.Controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.medilatam.backend.Entity.PersonaEntity;
 import com.medilatam.backend.Interface.IPersonaService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -13,6 +15,7 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
+@Validated
 @RequestMapping("/persona")
 public class PersonaController {
     @Autowired
@@ -32,7 +35,7 @@ public class PersonaController {
 
     //Crea un usuario
     @PostMapping("/createPersona")
-    public ResponseEntity<?> createPersona(@RequestParam("data") String personaData, @RequestParam("fileIcon") MultipartFile fileIcon) throws IOException {
+    public ResponseEntity<?> createPersona(@Valid @RequestParam("data") String personaData, @RequestParam("fileIcon") MultipartFile fileIcon) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         PersonaEntity personaEntity = objectMapper.readValue(personaData, PersonaEntity.class);
         iPersonaService.savePersona(personaEntity, fileIcon);
