@@ -5,6 +5,7 @@ import {
   CalendarDaysIcon,
   DevicePhoneMobileIcon,
   DocumentTextIcon,
+  VideoCameraIcon,
 } from '@heroicons/react/24/outline';
 
 interface Link {
@@ -30,7 +31,7 @@ const linksDoctor: Link[] = [
 const linksPaciente: Link[] = [
   { name: 'Reserva de turnos', href: '/dashboard', icon: CalendarDaysIcon },
   { name: 'Mis consultas', href: '/dashboard/misConsultas', icon: DocumentTextIcon },
-  { name: 'Atención virtual', href: '/dashboard/atencionVirtual', icon: DevicePhoneMobileIcon },
+  { name: 'Atención virtual', href: '/dashboard/atencionVirtual', icon: VideoCameraIcon },
 ];
 
 links = doctor ? linksDoctor : linksPaciente;

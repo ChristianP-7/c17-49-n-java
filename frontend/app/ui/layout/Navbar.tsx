@@ -4,10 +4,10 @@ import { ImagenAvatar } from '../ImagenAvatar';
 import Link from 'next/link';
 import {
   CalendarDaysIcon,
-  DevicePhoneMobileIcon,
   DocumentTextIcon,
   Bars3Icon,
   XMarkIcon,
+  VideoCameraIcon,
 } from '@heroicons/react/24/outline';
 import { useState } from 'react';
 
@@ -17,7 +17,7 @@ interface Link {
   icon: any;
 }
 
-const doctor = true;
+const doctor = false;
 
 let links: Link[] = [];
 
@@ -27,14 +27,14 @@ const linksDoctor: Link[] = [
   {
     name: 'Atención virtual Doctor',
     href: '/dashboard/atencionVirtual',
-    icon: DevicePhoneMobileIcon,
+    icon: VideoCameraIcon,
   },
 ];
 
 const linksPaciente: Link[] = [
   { name: 'Reserva de turnos', href: '/dashboard', icon: CalendarDaysIcon },
   { name: 'Mis consultas', href: '/dashboard/misConsultas', icon: DocumentTextIcon },
-  { name: 'Atención virtual', href: '/dashboard/atencionVirtual', icon: DevicePhoneMobileIcon },
+  { name: 'Atención virtual', href: '/dashboard/atencionVirtual', icon: VideoCameraIcon },
 ];
 
 links = doctor ? linksDoctor : linksPaciente;

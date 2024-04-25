@@ -2,14 +2,11 @@ export const Calificacion = () => {
   return (
     <dialog
       id="popup-modal"
-      //tabIndex="-1"
       className=" fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50 z-50  md:inset-0 max-h-full">
       <div className="relative w-full max-w-md max-h-full">
         <div className="flex flex-col px-4 items-center justify-center relative bg-white rounded-lg shadow-xl">
-          <h2 className="font-bold text-3xl border-b-2 text-center leading-7 pt-2">
-            Muchas Gracias!!
-          </h2>
-          <h3 className="font-semibold text-1xl text-center leading-3 mb-4">
+          <h2 className="font-bold text-3xl border-b-2 text-center pt-2">Muchas Gracias!!</h2>
+          <h3 className="font-semibold text-1xl text-center">
             Le agradeceríamos que tomara un momento para calificar su experiencia.
           </h3>
           <div className="rating">

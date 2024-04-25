@@ -2,7 +2,6 @@ export const SioNo = () => {
   return (
     <dialog
       id="popup-modal"
-      //tabIndex="-1"
       className=" fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50 z-50  md:inset-0 max-h-full">
       <div className="relative p-4 w-full max-w-md max-h-full">
         <div className="relative bg-white rounded-lg shadow-xl">
@@ -45,18 +44,14 @@ export const SioNo = () => {
               ¿Estás seguro de que deseas eliminar esta consulta médica? Esta acción no se puede
               deshacer.
             </h3>
-            <button
-              data-modal-hide="popup-modal"
-              type="button"
-              className="text-white bg-mlt-700 hover:bg-mlt-800 focus:ring-4 focus:outline-none focus:ring-red-300font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
-              Si
-            </button>
-            <button
-              data-modal-hide="popup-modal"
-              type="button"
-              className="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100">
-              No, cancelar
-            </button>
+            <div className="flex justify-center gap-4">
+              <button className="text-white bg-mlt-700 hover:bg-mlt-800 hover:scale-105 duration-300   transition-colors focus:outline-none font-medium rounded-full text-sm text-center p-2 w-24">
+                Confirmar
+              </button>
+              <button className="text-white bg-red-600 hover:bg-red-800 hover:scale-105 duration-300   transition-colors focus:outline-none font-medium rounded-full text-sm text-center p-2 w-24">
+                Cancelar
+              </button>
+            </div>
           </div>
         </div>
       </div>
