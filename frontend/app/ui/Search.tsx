@@ -31,7 +31,7 @@ export const Search = () => {
         <button
           type="submit"
           className="text-white absolute end-2.5 bottom-2.5 bg-mlt-800 hover:bg-mlt-900 focus:ring-4 focus:outline-none focus:ring-mlt-600 font-medium rounded-lg text-sm px-4 py-2">
-          Search
+          Buscar
         </button>
       </div>
     </form>
