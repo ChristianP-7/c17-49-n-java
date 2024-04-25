@@ -1,13 +1,13 @@
 package com.medilatam.backend.Entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Getter @Setter
+@Getter @Setter @Builder
 public class Doctor {
     
     @Id
@@ -25,16 +25,30 @@ public class Doctor {
     @NotNull
     @Size(min = 1, max = 70, message = "Faltan o sobran caracteres")
     private String horarioAtencion;
-    
+
     @NotNull
     @Size(min = 1, max = 70, message = "Faltan o sobran caracteres")
     private String localidad;
-    
+
+    @NotNull
+    @Size(min = 1, max = 70, message = "Faltan o sobran caracteres")
+    private String pais;
+
     @NotNull
     private Integer costoConsulta;
 
-
     private Float calificacion;
+
+    @NotNull @NotBlank
+    private  String telefono;
+    @Email
+    private String email;
+
+    @Size(min=6, max=70, message = "Mínimo seis caracteres , una mayúscula y un número")
+    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{6,}$", message = "Mínimo seis caracteres , una mayúscula y un número")
+    private String password;
+
+
 
     
     //Constructors
