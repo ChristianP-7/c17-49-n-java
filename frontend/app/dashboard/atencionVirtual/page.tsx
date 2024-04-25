@@ -1,4 +1,5 @@
 import dynamic from 'next/dynamic';
+import { Suspense } from 'react';
 
 const VideoLlamadaComp = dynamic(
   () => {
@@ -6,6 +7,6 @@ const VideoLlamadaComp = dynamic(
   },
   { ssr: false }
 );
-export default function misConsultas() {
+export default async function misConsultas() {
   return <VideoLlamadaComp />;
 }
