@@ -17,6 +17,7 @@ export const ImagenAvatar = ({ imagen, height, width }: Props) => {
         objectFit: 'cover',
         width: width,
         height: height,
+        zIndex: 99999,
       }}
     />
   );

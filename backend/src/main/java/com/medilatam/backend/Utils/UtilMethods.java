@@ -2,22 +2,28 @@ package com.medilatam.backend.Utils;
 
 import com.medilatam.backend.Entity.EstadoConsulta;
 import com.medilatam.backend.Entity.TipoConsulta;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.format.datetime.DateFormatter;
 
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 //REVISION
+@Slf4j
 public class UtilMethods {
-    public static Date convertStringToSqlDate(String fecha) {
+
+    public static  Date convertStringToSqlDate(String fecha)  { // Convierte un string a una fecha de tipo lDate
         try {
-            DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-            Date fechaRecibida = formatter.parse(fecha);
-            return fechaRecibida;
+            DateFormatter formatter = new DateFormatter("yyyy-MM-dd");
+            Date date = formatter.parse(fecha, Locale.ENGLISH);
+            return date;
         } catch (ParseException e) {
-            e.printStackTrace();
+            log.error("Error al convertir la fecha");
             return null;
+
         }
     }
     public static EstadoConsulta setEstadoConsulta(Integer estadoConsulta){

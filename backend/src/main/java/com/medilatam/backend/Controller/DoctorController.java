@@ -5,8 +5,10 @@ import com.medilatam.backend.Entity.Doctor;
 import com.medilatam.backend.Interface.IDoctorService;
 import java.util.List;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -17,22 +19,18 @@ public class DoctorController {
     @Autowired
     IDoctorService idoctorservice;
     //private IConsultaService iConsultaService;
-
     
     //Obtener Doctores
-    @GetMapping("/showDoctores")
+    @GetMapping("/getDoctores")
     public List<Doctor> getDoctor(){
         return idoctorservice.getDoctor();
     }
 
-
     //Devuelve los datos de un usuario seleccionado por su ID
-    @GetMapping("/showDoctores/{id}")
+    @GetMapping("/getDoctores/{id}")
     public Doctor getDoctorById(@PathVariable(name = "id") Long id){
-        return idoctorservice.findDoctor(id);
+        return idoctorservice.getDoctor(id);
     }
-
-
 
     //Insertar Doctores en la lista
     @PostMapping("/createDoctor")
@@ -49,14 +47,14 @@ public class DoctorController {
     }
     
     //Editar los Doctores
-    @PutMapping("/editDoctor/{id}")
-    public Doctor editDoctor (@PathVariable Long id,
-                                            @RequestParam("nombre") String nuevoNombre,
-                                            @RequestParam("especialidad") String nuevoEspecialidad,
-                                            @RequestParam("horarioAtencion") String nuevoHorarioAtencion,
-                                            @RequestParam("localidad") String nuevoLocalidad,
-                                            @RequestParam("costoConsulta") Integer nuevoCostoConsulta) {
-     Doctor doctor = idoctorservice.findDoctor(id);
+    @PutMapping("/updateDoctor/{id}")
+    public Doctor updateDoctor(@PathVariable Long id,
+                               @RequestParam("nombre") String nuevoNombre,
+                               @RequestParam("especialidad") String nuevoEspecialidad,
+                               @RequestParam("horarioAtencion") String nuevoHorarioAtencion,
+                               @RequestParam("localidad") String nuevoLocalidad,
+                               @RequestParam("costoConsulta") Integer nuevoCostoConsulta) {
+     Doctor doctor = idoctorservice.getDoctor(id);
      
      doctor.setNombre(nuevoNombre);
      doctor.setEspecialidad(nuevoEspecialidad);
@@ -68,5 +66,16 @@ public class DoctorController {
      
      return doctor;
     }
-    
+
+    //Devuelve doctor por especialidad
+    @GetMapping("findByEspecialidad/{especialidad}")
+    public List<Doctor> findByEspecialidad(@PathVariable String especialidad){
+        return idoctorservice.findByEspecialidad(especialidad);
+    }
+  
+    // Retorna la lista de doctores que no tienen consulta en la fecha tentativa
+    @GetMapping("doctor/getEspecialidadesDisponibles")
+    public ResponseEntity<?> getEspecialidadesDisponibles(@RequestParam(name = "dia") String dia, @RequestParam(name = "mes") @NotNull String mes){
+        return idoctorservice.getEspecialidadesDisponibles(dia, mes); 
+    }
 }

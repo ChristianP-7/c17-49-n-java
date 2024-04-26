@@ -9,10 +9,6 @@ import java.util.Date;
 import lombok.Getter;
 import lombok.Setter;
 
-/**
- *
- * @author Franklynjsb
- */
 @Getter @Setter
 public class ConsultaDto {
     

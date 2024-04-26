@@ -1,6 +1,10 @@
 # c17-49-n-java
 
-<img src="./frontend/public/Medilatam.svg" alt="Logo de la aplicación" width="500" height="200" style="display: block; margin: 0 auto;">
+<div style="text-align: center;">
+  <img src="./frontend/public/Medilatam.svg" alt="Logo de la aplicación" width="900" height="300" style="display: block;
+    margin-left: auto;
+    margin-right: auto;">
+</div>
 
 
 ## Descripción 
@@ -29,8 +33,12 @@ npm run build
 Asegúrate de instalar todas las dependencias antes de ejecutar los comandos anteriores.
 
 ## Capturas de Pantalla 📷
+<div style="display: flex; justify-content: center; item:center">
+  <img src="./frontend/public/562shots_so.png" alt="Screen app" width="900" height="700" style="display: block; margin: 0 auto;">
+  <img src="./frontend/public/917shots_so.png" alt="Screen app" width="900" height="700" style="display: block; margin: 0 auto;">
+  <img src="./frontend/public/309shots_so.png" alt="Screen app" width="900" height="700" style="display: block; margin: 0 auto;">
+</div>
 
-¡Aquí van algunas capturas de pantalla de la aplicación en acción! (Agrega las imágenes aquí)
 
 ## Integrantes del Equipo 🙍‍♂️
 ### Team Leader:
@@ -40,7 +48,6 @@ Asegúrate de instalar todas las dependencias antes de ejecutar los comandos ant
 - Anthony Medina García
 - Esteban Camacho Salgado
 - Franco Quijada
-- Marcos Aguilar
 - Christian Pérez
 - Fernando Garcia
  ### QA:
@@ -76,7 +83,7 @@ Aquí tienes una guía rápida:
 5. Realiza tus Cambios (`git commit -m 'Add: nueva Funcionalidad'`)
 6. Haz Push a la Rama (`git push origin feature/Caracteristica`)
 7. Abre una [_pull request_](https://github.com/No-Country/c17-49-n-java/pulls)
-8. Recordar siempre pero siempre antes de comenzar a realizar cambios hacer un pull del repositorio para obtener los últimos cambios.
+8. Recordar que, antes de comenzar a realizar cambios, siempre debe hacerse un [_git pull_](https://github.com/No-Country/c17-49-n-java/pulls) del repositorio para obtener los últimos cambios.
 
 ## Agradecimientos
 <img src="https://assets-global.website-files.com/65773955177041dbf059ed20/6584760759a54bef40894700_Logo%20navbar.svg" alt="Logo de la aplicación" width="500" height="200" style="display: block; margin: 0 auto;">

@@ -46,7 +46,13 @@ public class ConsultaService implements IConsultaService {
     public ResponseEntity<?> saveConsulta(ConsultaRequest consulta) {
 
         Date fechaRecibida= UtilMethods.convertStringToSqlDate(consulta.getFecha());
-        
+
+        // Verifica si ya existe una consulta con la misma fecha y el mismo doctor
+        if(consultaRepository.existsByFechaAndDoctor(fechaRecibida
+                , doctorRepository.findById(consulta.getDoctorId()).orElse(null))){
+            return ResponseEntity.status(400).body("Ya existe una consulta en esa fecha y con ese doctor");
+        }
+
         //Crea una consulta con los datos recibidos
         Consulta consulta1 = Consulta.builder()
                 .fecha(fechaRecibida)
@@ -109,7 +115,7 @@ public class ConsultaService implements IConsultaService {
     }
 
     @Override
-    public ResponseEntity<?> editConsulta(Long id, String nuevaDescripcion, Integer nuevoEstadoDeConsulta, String nuevaFecha) {
+    public ResponseEntity<?> updateConsulta(Long id, String nuevaDescripcion, Integer nuevoEstadoDeConsulta, String nuevaFecha) {
         //Si no existe la consulta con el ID dado
         if (!consultaRepository.existsById(id)) {
             return ResponseEntity.status(400).body("La consulta no existe");

@@ -5,6 +5,7 @@ import {
   CalendarDaysIcon,
   DevicePhoneMobileIcon,
   DocumentTextIcon,
+  VideoCameraIcon,
 } from '@heroicons/react/24/outline';
 
 interface Link {
@@ -30,14 +31,14 @@ const linksDoctor: Link[] = [
 const linksPaciente: Link[] = [
   { name: 'Reserva de turnos', href: '/dashboard', icon: CalendarDaysIcon },
   { name: 'Mis consultas', href: '/dashboard/misConsultas', icon: DocumentTextIcon },
-  { name: 'Atención virtual', href: '/dashboard/atencionVirtual', icon: DevicePhoneMobileIcon },
+  { name: 'Atención virtual', href: '/dashboard/atencionVirtual', icon: VideoCameraIcon },
 ];
 
 links = doctor ? linksDoctor : linksPaciente;
 
 export const NavbarMovil = () => {
   return (
-    <section className="flex relative flex-col mx-2 overflow-hidden max-w-[340px] -mt-44 px-12 justify-center items-center p-4 space-x-1 bg-white rounded-xl shadow-lg box-content md:hidden">
+    <section className="flex relative flex-col mx-2 overflow-hidden max-w-[340px] -mt-44 justify-center items-center p-4 space-x-1 bg-white rounded-xl shadow-lg box-content md:hidden">
       <header className="flex justify-center items-center">
         <Image
           src="/Medilatam.svg"
@@ -47,16 +48,16 @@ export const NavbarMovil = () => {
           className="pl-5 pt-3"
         />
       </header>
-      <div className="flex space-y-4 space-x-8 items-center mt-4 justify-center">
+      <div className="flex space-y-2 space-x-6 items-center mt-4 justify-center">
         <ImagenAvatar imagen={'/imageProfile/avatar.png'} width={100} height={100} />
         <div className="flex space-x-3 pb-4  border-b-2">
           <a
-            className="text-white bg-mlt-600 hover:bg-mlt-800 hover:scale-105 duration-300  transition-colors focus:outline-none font-medium rounded-full text-sm text-center p-2 w-24"
+            className="text-white bg-mlt-700 hover:bg-mlt-800 hover:scale-105 duration-300  transition-colors focus:outline-none font-medium rounded-full text-sm text-center p-2 w-24"
             href="/auth">
             Login
           </a>
           <a
-            className="text-white bg-mlt-600 hover:bg-mlt-800 hover:scale-105 duration-300 transition-colors focus:outline-none font-medium rounded-full text-sm text-center p-2 w-24"
+            className="text-white bg-mlt-700 hover:bg-mlt-800 hover:scale-105 duration-300 transition-colors focus:outline-none font-medium rounded-full text-sm text-center p-2 w-24"
             href="/auth/register">
             Registro
           </a>
@@ -69,7 +70,7 @@ export const NavbarMovil = () => {
             <a
               key={link.name}
               href={link.href}
-              className="flex w-10 grow flex-col items-center justify-center px-0 rounded-md py-3 font-medium hover:bg-mlt-600 group hover:text-white">
+              className="flex w-10 grow flex-col items-center justify-center px-0 rounded-md py-3 font-medium hover:bg-mlt-700 group hover:text-white">
               <LinkIcon className="w-8" title={link.name} />
               <p className="text-[6px] font-semibold group-hover:text-white">{link.name}</p>
             </a>

@@ -8,13 +8,13 @@ export const Profesionales = () => {
     <>
       {doctores?.map((doctor: any) => (
         <div className="p-1" key={doctor.nombre + Math.random()}>
-          <div className="grid grid-cols-[auto_250px_minmax(0,1fr)] gap-1 justify-center shadow-[0_0_5px] shadow-gray-400 p-2 rounded-xl">
+          <div className="grid grid-cols-[auto_240px_minmax(0,1fr)] gap-1 justify-center shadow-[0_0_5px] shadow-gray-400 p-2 rounded-xl">
             <Image
               width={50}
               height={50}
               src="/imageProfile/avatarGrid.webp"
               alt="avatar"
-              className="md:size[50px] size-10"
+              className="md:size[50px] size-10 hidden md:flex"
             />
             <div className=" leading-none flex flex-col">
               <h1 className="font-bold text-sm">{doctor.nombre}</h1>
@@ -68,7 +68,7 @@ export const Profesionales = () => {
                   </span>
                 </div>
               </div>
-              <button className="text-white bg-mlt-600 hover:bg-mlt-800 hover:scale-105 duration-300  transition-colors focus:outline-none font-semibold md:font-medium rounded-xl md:rounded-full text-xs md:text-sm text-center px-1 w-[75px] h-[40px] md:mx-2 md:h-10">
+              <button className="text-white bg-mlt-700 hover:bg-mlt-800 hover:scale-105 duration-300  transition-colors focus:outline-none font-semibold md:font-medium rounded-xl md:rounded-full text-xs md:text-sm text-center px-1 w-[75px] h-[40px] md:mx-2 md:h-10">
                 Reservar
               </button>
             </div>

@@ -4,10 +4,10 @@ import { ImagenAvatar } from '../ImagenAvatar';
 import Link from 'next/link';
 import {
   CalendarDaysIcon,
-  DevicePhoneMobileIcon,
   DocumentTextIcon,
   Bars3Icon,
   XMarkIcon,
+  VideoCameraIcon,
 } from '@heroicons/react/24/outline';
 import { useState } from 'react';
 
@@ -17,7 +17,7 @@ interface Link {
   icon: any;
 }
 
-const doctor = true;
+const doctor = false;
 
 let links: Link[] = [];
 
@@ -27,14 +27,14 @@ const linksDoctor: Link[] = [
   {
     name: 'Atención virtual Doctor',
     href: '/dashboard/atencionVirtual',
-    icon: DevicePhoneMobileIcon,
+    icon: VideoCameraIcon,
   },
 ];
 
 const linksPaciente: Link[] = [
   { name: 'Reserva de turnos', href: '/dashboard', icon: CalendarDaysIcon },
   { name: 'Mis consultas', href: '/dashboard/misConsultas', icon: DocumentTextIcon },
-  { name: 'Atención virtual', href: '/dashboard/atencionVirtual', icon: DevicePhoneMobileIcon },
+  { name: 'Atención virtual', href: '/dashboard/atencionVirtual', icon: VideoCameraIcon },
 ];
 
 links = doctor ? linksDoctor : linksPaciente;
@@ -48,29 +48,33 @@ export const Navbar = () => {
 
   return (
     <div
-      className={`flex-col transition-transform duration-0 transform ${
-        isNavbarVisible ? 'translate-x-0' : '-translate-x-44 w-1 fixed'
+      className={`flex-col transition-transform duration-0 ml-6 transform hidden md:flex ${
+        isNavbarVisible ? 'translate-x-0' : '-translate-x-52 w-1'
       }`}>
       <header
         className={`shadow-2xl rounded-xl w-[260px] h-[40px] bg-white  p-2 mb-3 items-center justify-end hidden md:flex`}>
         <button onClick={toggleNavbar}>
+          <p className={`px-1 ${isNavbarVisible ? '' : 'hidden'}`}>Cerrar</p>
           <Bars3Icon
-            className={`w-6 hover:text-white rounded hover:bg-mlt-600 transition-colors duration-300 ${
+            title="menu"
+            className={`w-6 hover:text-white rounded hover:bg-mlt-700 transition-colors duration-300 ${
               isNavbarVisible ? 'hidden' : ''
             }`}
           />
         </button>
         <button onClick={toggleNavbar}>
           <XMarkIcon
-            className={`w-6 hover:text-white rounded hover:bg-mlt-600 transition-colors duration-300 ${
-              isNavbarVisible ? '' : 'hidden '
+            title="cerrar"
+            className={`w-6 hover:text-white rounded hover:bg-mlt-700 transition-colors duration-300 ${
+              isNavbarVisible ? '' : 'hidden'
             }`}
           />
+          <p className={`${isNavbarVisible ? 'hidden' : ''}`}>Menu</p>
         </button>
       </header>
       <section
         className={`flex-col rounded-xl w-[229px] h-[500px] mr-6 overflow-hidden hidden relative p-4  bg-white shadow-2xl box-content md:flex transition-transform duration-0 transform 
-            ${isNavbarVisible ? 'translate-x-0' : '-translate-x-2'}`}>
+            ${isNavbarVisible ? 'translate-x-0' : '-translate-x-1'}`}>
         <header className={`${isNavbarVisible ? 'hidden' : 'flex flex-row-reverse w-full'}`}>
           <ImagenAvatar imagen={'/imageProfile/avatar.png'} width={60} height={60} />
         </header>
@@ -82,12 +86,12 @@ export const Navbar = () => {
             <ImagenAvatar imagen={'/imageProfile/avatar.png'} width={130} height={130} />
             <div className={`flex space-x-10 pb-4 border-b-2`}>
               <a
-                className="text-white bg-mlt-600 hover:bg-mlt-800 hover:scale-105 duration-300  transition-colors focus:outline-none font-medium rounded-full text-sm text-center p-2 w-24"
+                className="text-white bg-mlt-700 hover:bg-mlt-800 hover:scale-105 duration-300  transition-colors focus:outline-none font-medium rounded-full text-sm text-center p-2 w-24"
                 href="/auth">
                 Login
               </a>
               <a
-                className="text-white bg-mlt-600 hover:bg-mlt-800 hover:scale-105 duration-300 transition-colors focus:outline-none font-medium rounded-full text-sm text-center p-2 w-24"
+                className="text-white bg-mlt-700 hover:bg-mlt-800 hover:scale-105 duration-300 transition-colors focus:outline-none font-medium rounded-full text-sm text-center p-2 w-24"
                 href="/auth/register">
                 Registro
               </a>
@@ -102,7 +106,7 @@ export const Navbar = () => {
                 key={link.name + Math.random()}
                 href={link.href}
                 title={link.name}
-                className={`flex h-[48px] grow items-center justify-start gap-2 rounded-md px-2 text-sm font-medium hover:bg-mlt-600 group hover:text-white ${
+                className={`flex h-[48px] grow items-center justify-start gap-2 rounded-md px-2 text-sm font-medium hover:bg-mlt-700 group hover:text-white ${
                   isNavbarVisible ? '' : 'flex flex-row-reverse'
                 }`}>
                 <LinkIcon
