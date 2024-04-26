@@ -1,10 +1,18 @@
 import { ExclamationCircleIcon } from '@heroicons/react/24/outline';
 import { CalendarIcon } from './CalendarIcon';
+import { useState } from 'react';
 export const ConfirmarConsulta = () => {
+  const [isMessageVisible, setIsMessageVisible] = useState(true);
+
+  const onMessage = () => {
+    setIsMessageVisible(!isMessageVisible);
+  };
   return (
     <dialog
       id="popup-modal"
-      className=" fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50 z-50  md:inset-0 max-h-full">
+      className={`${
+        isMessageVisible ? '' : 'hidden'
+      } fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50 z-50  md:inset-0 max-h-full`}>
       {/* // Main modal */}
       <div className="relative p-4 w-full max-w-md max-h-full">
         {/* <!-- Modal content --> */}
@@ -61,10 +69,14 @@ export const ConfirmarConsulta = () => {
               </li>
             </ol>
             <div className="flex justify-center gap-4">
-              <button className="text-white bg-mlt-700 hover:bg-mlt-800 hover:scale-105 duration-300   transition-colors focus:outline-none font-medium rounded-full text-sm text-center p-2 w-24">
+              <a
+                href="/dashboard"
+                className="text-white bg-mlt-700 hover:bg-mlt-800 hover:scale-105 duration-300   transition-colors focus:outline-none font-medium rounded-full text-sm text-center p-2 w-24">
                 Confirmar
-              </button>
-              <button className="text-white bg-red-600 hover:bg-red-800 hover:scale-105 duration-300   transition-colors focus:outline-none font-medium rounded-full text-sm text-center p-2 w-24">
+              </a>
+              <button
+                onClick={onMessage}
+                className="text-white bg-red-600 hover:bg-red-800 hover:scale-105 duration-300   transition-colors focus:outline-none font-medium rounded-full text-sm text-center p-2 w-24">
                 Cancelar
               </button>
             </div>

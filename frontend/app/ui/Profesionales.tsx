@@ -2,30 +2,50 @@ import React from 'react';
 import { especialidades } from '@/mocks/especialidad.json';
 import Image from 'next/image';
 
-export const Profesionales = () => {
+interface Props {
+  funcionProp: () => void;
+}
+
+export const Profesionales: React.FC<Props> = ({ funcionProp }) => {
   const doctores = especialidades[0].doctores;
+
   return (
     <>
       {doctores?.map((doctor: any) => (
         <div className="p-1" key={doctor.nombre + Math.random()}>
-          <div className="grid grid-cols-[auto_240px_minmax(0,1fr)] gap-1 justify-center shadow-[0_0_5px] shadow-gray-400 p-2 rounded-xl">
-            <Image
-              width={50}
-              height={50}
-              src="/imageProfile/avatarGrid.webp"
-              alt="avatar"
-              className="md:size[50px] size-10 hidden md:flex"
-            />
-            <div className=" leading-none flex flex-col">
-              <h1 className="font-bold text-sm">{doctor.nombre}</h1>
-              <p className="text-xs">Descripción</p>
+          <div className="grid grid-cols-5 gap-1 justify-center shadow-[0_0_5px] shadow-gray-400 p-2 rounded-xl">
+            <div className=" leading-none flex gap-2">
+              <Image
+                width={50}
+                height={50}
+                src={`/imageProfile/${doctor.image}`}
+                alt="avatar"
+                className="md:size[50px] size-10 hidden md:flex rounded-full bg-cover"
+              />
+              <div className="flex flex-col">
+                <p className="text-xs">Nombre</p>
+                <h1 className="font-bold text-sm">{doctor.nombre}</h1>
+              </div>
             </div>
+            <div className=" leading-none flex flex-col">
+              <p className="text-xs">Especialidad</p>
+              <h1 className="font-bold text-sm">{doctor.especialidad}</h1>
+            </div>
+            <div className=" leading-none flex flex-col">
+              <p className="text-xs">Fecha</p>
+              <h1 className="font-bold text-sm">{doctor.fechaAtencion}</h1>
+            </div>
+            <div className=" leading-none flex flex-col">
+              <p className="text-xs">Horario de atención</p>
+              <h1 className="font-bold text-sm">{doctor.horarioAtencion}</h1>
+            </div>
+
             <div className=" flex gap-3 justify-end items-center">
               <div className=" leading-3  ">
                 <h1 className="text-center text-sm">Precio</h1>
                 <h1 className="text-sm font-extrabold">${doctor.precio}</h1>
               </div>
-              <div className="flex flex-col items-center">
+              {/* <div className="flex flex-col items-center">
                 <h1 className="text-sm">Calificación</h1>
                 <div className="flex ">
                   <svg
@@ -67,8 +87,10 @@ export const Profesionales = () => {
                     5.0
                   </span>
                 </div>
-              </div>
-              <button className="text-white bg-mlt-700 hover:bg-mlt-800 hover:scale-105 duration-300  transition-colors focus:outline-none font-semibold md:font-medium rounded-xl md:rounded-full text-xs md:text-sm text-center px-1 w-[75px] h-[40px] md:mx-2 md:h-10">
+              </div> */}
+              <button
+                className="text-white bg-mlt-700 hover:bg-mlt-800 hover:scale-105 duration-300  transition-colors focus:outline-none font-semibold md:font-medium rounded-xl md:rounded-full text-xs md:text-sm text-center px-1 w-[75px] h-[40px] md:mx-2 md:h-10"
+                onClick={funcionProp}>
                 Reservar
               </button>
             </div>

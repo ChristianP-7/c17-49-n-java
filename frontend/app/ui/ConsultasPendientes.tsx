@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { especialidades } from '@/mocks/especialidad.json';
 
 export const ConsultasPendientes = () => {
+  const fechaHoraActual = new Date();
+
   const doctores = especialidades[0].doctores;
   return (
     <div className="flex flex-col gap-2 mt-5 px-4 md:px-0 md:w-full">
@@ -50,7 +52,7 @@ export const ConsultasPendientes = () => {
                       <div className="flex flex-cols items-center gap-x-2">
                         <Image
                           className="object-cover w-8 h-8 rounded-full"
-                          src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+                          src={`/imageProfile/${doctor.image}`}
                           alt="imagen"
                           width={50}
                           height={50}
@@ -59,21 +61,18 @@ export const ConsultasPendientes = () => {
                           <h2 className="text-sm font-medium text-gray-800 dark:text-black ">
                             {doctor.nombre}
                           </h2>
-                          {/* <p className="text-xs font-normal text-gray-600 dark:text-gray-400">
-                            authurmelo@example.com
-                          </p> */}
                         </div>
                       </div>
                     </td>
                     <td className="px-4 py-4 text-sm text-black dark:text-black whitespace-nowrap">
-                      Jan 6, 2022
+                      {doctor.fechaAtencion}
                     </td>
                     <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
                       <div className="inline-flex items-center text-mlt-700 ">
-                        <h2 className="text-sm font-normal">00:00hrs</h2>
+                        <h2 className="text-sm font-normal">{doctor.horarioAtencion}</h2>
                       </div>
                     </td>
-                    <td className="px-4 py-4 text-sm text-black ">Virtual/Presencial</td>
+                    <td className="px-4 py-4 text-sm text-black ">Virtual</td>
                     <td className="px-4 py-4 text-sm whitespace-nowrap">
                       <div className="flex items-center gap-x-6">
                         <Link

@@ -10,6 +10,7 @@ import {
   VideoCameraIcon,
 } from '@heroicons/react/24/outline';
 import { useState } from 'react';
+import { useUserStore } from '@/store/userStore';
 
 interface Link {
   name: string;
@@ -41,6 +42,7 @@ links = doctor ? linksDoctor : linksPaciente;
 
 export const Navbar = () => {
   const [isNavbarVisible, setIsNavbarVisible] = useState(true);
+  const isLogged = useUserStore((state) => state.isLoggedIn);
 
   const toggleNavbar = () => {
     setIsNavbarVisible(!isNavbarVisible);
@@ -76,15 +78,35 @@ export const Navbar = () => {
         className={`flex-col rounded-xl w-[229px] h-[500px] mr-6 overflow-hidden hidden relative p-4  bg-white shadow-2xl box-content md:flex transition-transform duration-0 transform 
             ${isNavbarVisible ? 'translate-x-0' : '-translate-x-1'}`}>
         <header className={`${isNavbarVisible ? 'hidden' : 'flex flex-row-reverse w-full'}`}>
-          <ImagenAvatar imagen={'/imageProfile/avatar.png'} width={60} height={60} />
+          {isLogged ? (
+            <Image
+              src={'/imageProfile/imagen.jpg'}
+              alt="imagen"
+              width={60}
+              height={60}
+              className="rounded-full"
+            />
+          ) : (
+            <ImagenAvatar imagen={'/imageProfile/avatar.png'} width={60} height={60} />
+          )}
         </header>
         <div className={`${isNavbarVisible ? '' : 'size-0 mb-10'}`}>
           <header>
             <Image src="/Medilatam.svg" alt="logo de la aplicación web" height={150} width={500} />
           </header>
           <div className={`flex flex-col space-y-2 items-center mt-4`}>
-            <ImagenAvatar imagen={'/imageProfile/avatar.png'} width={130} height={130} />
-            <div className={`flex space-x-10 pb-4 border-b-2`}>
+            {isLogged ? (
+              <Image
+                src={'/imageProfile/imagen.jpg'}
+                className="rounded-full"
+                alt="image "
+                width={130}
+                height={130}
+              />
+            ) : (
+              <ImagenAvatar imagen={'/imageProfile/avatar.png'} width={130} height={130} />
+            )}
+            <div className={`flex space-x-10 pb-4 border-b-2 ${isLogged ? 'hidden' : ''}`}>
               <a
                 className="text-white bg-mlt-700 hover:bg-mlt-800 hover:scale-105 duration-300  transition-colors focus:outline-none font-medium rounded-full text-sm text-center p-2 w-24"
                 href="/auth">
