@@ -59,6 +59,10 @@ public class PersonaService implements IPersonaService {
     public void updatePersonaById(Long id, PersonaEntity personaData, MultipartFile fileIcon) throws IOException {
         PersonaEntity personaEntity = personaRepository.findById(id).orElse(null);
         personaEntity.setName(personaData.getName());
+        personaEntity.setFechaNacimiento(personaData.getFechaNacimiento());
+        personaEntity.setGenero(personaData.getGenero());
+        personaEntity.setPais(personaData.getPais());
+        personaEntity.setProvincia(personaData.getProvincia());
         personaEntity.setEmail(personaData.getEmail());
         personaEntity.setPassword(passwordEncoder.encode(personaEntity.getPassword()));
         if (personaEntity.getFoto() != null) {
