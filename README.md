@@ -1,6 +1,10 @@
 # c17-49-n-java
 
-<img src="./frontend/public/Medilatam.svg" alt="Logo de la aplicación" width="500" height="200" style="display: block; margin: 0 auto;">
+<div style="text-align: center;">
+  <img src="./frontend/public/Medilatam.svg" alt="Logo de la aplicación" width="900" height="300" style="display: block;
+    margin-left: auto;
+    margin-right: auto;">
+</div>
 
 
 ## Descripción 
@@ -29,8 +33,12 @@ npm run build
 Asegúrate de instalar todas las dependencias antes de ejecutar los comandos anteriores.
 
 ## Capturas de Pantalla 📷
+<div style="display: flex; justify-content: center; item:center">
+  <img src="./frontend/public/562shots_so.png" alt="Screen app" width="900" height="700" style="display: block; margin: 0 auto;">
+  <img src="./frontend/public/917shots_so.png" alt="Screen app" width="900" height="700" style="display: block; margin: 0 auto;">
+  <img src="./frontend/public/309shots_so.png" alt="Screen app" width="900" height="700" style="display: block; margin: 0 auto;">
+</div>
 
-¡Aquí van algunas capturas de pantalla de la aplicación en acción! (Agrega las imágenes aquí)
 
 ## Integrantes del Equipo 🙍‍♂️
 ### Team Leader:
