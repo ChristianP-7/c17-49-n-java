@@ -3,8 +3,7 @@ package com.medilatam.backend.Controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.medilatam.backend.Entity.PersonaEntity;
 import com.medilatam.backend.Interface.IPersonaService;
-import com.medilatam.backend.Security.CustomPasswordEncoder;
-import jakarta.validation.Valid;
+import com.medilatam.backend.Security.Dto.PasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +20,7 @@ public class PersonaController {
     IPersonaService iPersonaService;
 
     @Autowired
-    private CustomPasswordEncoder passwordEncoder;
+    private PasswordEncoder passwordEncoder;
 
     //Listado de usuarios
     @GetMapping("/getPersonas")

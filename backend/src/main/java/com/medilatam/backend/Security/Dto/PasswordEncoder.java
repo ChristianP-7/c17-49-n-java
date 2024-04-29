@@ -1,16 +1,15 @@
-package com.medilatam.backend.Security;
+package com.medilatam.backend.Security.Dto;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CustomPasswordEncoder implements PasswordEncoder {
+public class PasswordEncoder implements org.springframework.security.crypto.password.PasswordEncoder {
 
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private final int minLength;
 
-    public CustomPasswordEncoder() {
+    public PasswordEncoder() {
         this.bCryptPasswordEncoder = new BCryptPasswordEncoder();
         this.minLength = 6;
     }
