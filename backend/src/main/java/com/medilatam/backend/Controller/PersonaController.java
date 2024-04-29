@@ -3,6 +3,8 @@ package com.medilatam.backend.Controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.medilatam.backend.Entity.PersonaEntity;
 import com.medilatam.backend.Interface.IPersonaService;
+import com.medilatam.backend.Security.CustomPasswordEncoder;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +19,9 @@ import java.util.List;
 public class PersonaController {
     @Autowired
     IPersonaService iPersonaService;
+
+    @Autowired
+    private CustomPasswordEncoder passwordEncoder;
 
     //Listado de usuarios
     @GetMapping("/getPersonas")
@@ -35,6 +40,11 @@ public class PersonaController {
     public ResponseEntity<?> createPersona(@RequestParam("data") String personaData, @RequestParam("fileIcon") MultipartFile fileIcon) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         PersonaEntity personaEntity = objectMapper.readValue(personaData, PersonaEntity.class);
+
+        // Codificar la contraseña antes de guardarla en la base de datos
+        String passwordCodificada = passwordEncoder.encode(personaEntity.getPassword());
+        personaEntity.setPassword(passwordCodificada);
+
         iPersonaService.savePersona(personaEntity, fileIcon);
         return ResponseEntity.status(HttpStatus.CREATED).body("El nuevo registro ha sido creado");
     }
@@ -44,6 +54,11 @@ public class PersonaController {
     public ResponseEntity<?> updatePersonaById(@PathVariable(name = "id") Long id, @RequestParam("data") String personaData, @RequestParam("fileIcon") MultipartFile fileIcon) throws IOException {   
         ObjectMapper objectMapper = new ObjectMapper();
         PersonaEntity personaEntity = objectMapper.readValue(personaData, PersonaEntity.class);
+
+        // Codificar la contraseña antes de guardarla en la base de datos
+        String passwordCodificada = passwordEncoder.encode(personaEntity.getPassword());
+        personaEntity.setPassword(passwordCodificada);
+
         iPersonaService.updatePersonaById(id, personaEntity, fileIcon);
         return ResponseEntity.status(HttpStatus.OK).body("El registro ha sido actualizado con éxito.");
     }
