@@ -50,8 +50,7 @@ public class DoctorService implements IDoctorService {
     //Devuelve un Doctor segun su ID
     @Override
     public Doctor getDoctor(Long id) {
-        Doctor doctor = idoctorrepository.findById(id).orElse(null);
-        return doctor;
+       return idoctorrepository.findById(id).orElse(null);
     }
 
     //Devuelve a los doctores según su especialidad
@@ -78,6 +77,8 @@ public class DoctorService implements IDoctorService {
                                 .especialidad(doctor.getEspecialidad())
                                 .horarioAtencion(doctor.getHorarioAtencion())
                                 .localidad(doctor.getLocalidad())
+                                .pais(doctor.getPais())
+                                .telefono(doctor.getTelefono())
                                 .costoConsulta(doctor.getCostoConsulta())
                                 .build();
                     }).collect(Collectors.toList());

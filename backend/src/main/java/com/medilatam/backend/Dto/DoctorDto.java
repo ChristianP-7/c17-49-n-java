@@ -2,6 +2,8 @@ package com.medilatam.backend.Dto;
 
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,6 +21,13 @@ public class DoctorDto {
     private String localidad;
     @NotBlank
     private Integer costoConsulta;
+    @NotBlank
+    @Size(min = 1, max = 70, message = "Faltan o sobran caracteres")
+    private String pais;
+    @NotNull @NotBlank
+    private  String telefono;
+
+
 
     
     //Constructor

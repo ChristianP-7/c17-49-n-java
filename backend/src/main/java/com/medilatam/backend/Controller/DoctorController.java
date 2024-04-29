@@ -53,13 +53,15 @@ public class DoctorController {
                                @RequestParam("especialidad") String nuevoEspecialidad,
                                @RequestParam("horarioAtencion") String nuevoHorarioAtencion,
                                @RequestParam("localidad") String nuevoLocalidad,
-                               @RequestParam("costoConsulta") Integer nuevoCostoConsulta) {
+                               @RequestParam("costoConsulta") Integer nuevoCostoConsulta,
+                                @RequestParam("pais") String nuevoPais){
      Doctor doctor = idoctorservice.getDoctor(id);
      
      doctor.setNombre(nuevoNombre);
      doctor.setEspecialidad(nuevoEspecialidad);
      doctor.setHorarioAtencion(nuevoHorarioAtencion);
      doctor.setLocalidad(nuevoLocalidad);
+     doctor.setPais(nuevoPais);
      doctor.setCostoConsulta(nuevoCostoConsulta);
      
      idoctorservice.saveDoctor(doctor);
