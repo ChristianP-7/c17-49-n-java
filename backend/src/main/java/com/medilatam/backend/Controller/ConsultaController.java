@@ -24,11 +24,12 @@ public class ConsultaController {
         return iConsultaService.getConsulta();
     }
 
-    // Expone las consultas creadas segun el ID del paciente
-    @GetMapping("/getConsultas/{id}")
-    public ResponseEntity<?> getConsultasByPacienteId(@PathVariable Long id){
-        return iConsultaService.getConsultasByPacienteId(id);
-    }
+    //TODO
+    /*
+    *
+    * GetConsulta segun el ID del paciente
+    *
+    * */
 
     //TODO
     /*
