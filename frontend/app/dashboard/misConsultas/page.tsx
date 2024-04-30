@@ -1,4 +1,5 @@
 import { ConsultasPendientes } from '@/app/ui/ConsultasPendientes';
+import { HistorialConsultas } from '@/app/ui/HistorialConsultas';
 
 export default function misConsultas() {
   return (
@@ -11,6 +12,14 @@ export default function misConsultas() {
             </h1>
           </div>
           <ConsultasPendientes />
+        </section>
+        <section className="container md:px-4 mx-auto ">
+        <div className="rounded-xl bg-white py-2 sticky top-0 mt-[60px] ">
+            <h1 className="font-bold text-lg text-center border-b-2 mb-1 mx-2">
+              Historial de Consultas
+            </h1>
+          </div>
+          <HistorialConsultas />
         </section>
       </div>
     </>
