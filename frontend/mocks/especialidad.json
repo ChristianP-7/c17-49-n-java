@@ -5,60 +5,104 @@
       "abreviacion": "Card.",
       "doctores": [
         {
-          "nombre": "Dr.Pérez",
+          "nombre": "Dr. Rodríguez",
           "especialidad": "Cardiología",
-          "telefono": "555-5555",
-          "email": "",
-          "precio": 200
+          "telefono": "555-1234",
+          "email": "rodriguez@example.com",
+          "precio": 200,
+          "horarioAtencion": "18:30",
+          "fechaAtencion": "25/04/24",
+          "image": "1.png"
         },
         {
-          "nombre": "Dr.Pérez",
+          "nombre": "Dr. Sánchez",
           "especialidad": "Cardiología",
-          "telefono": "555-5555",
-          "email": "",
-          "precio": 200
+          "telefono": "555-5678",
+          "email": "sanchez@example.com",
+          "precio": 200,
+          "horarioAtencion": "19:15",
+          "fechaAtencion": "26/04/24",
+          "image": "2.png"
         },
         {
-          "nombre": "Dr.Pérez",
+          "nombre": "Dr. González",
           "especialidad": "Cardiología",
-          "telefono": "555-5555",
-          "email": "",
-          "precio": 200
+          "telefono": "555-9012",
+          "email": "gonzalez@example.com",
+          "precio": 200,
+          "horarioAtencion": "18:45",
+          "fechaAtencion": "25/04/24",
+          "image": "3.png"
         },
         {
-          "nombre": "Dra.Juanita",
+          "nombre": "Dra. Martínez",
           "especialidad": "Cardiología",
-          "telefono": "555-5555",
-          "email": "",
-          "precio": 400
+          "telefono": "555-3456",
+          "email": "martinez@example.com",
+          "precio": 400,
+          "horarioAtencion": "19:30",
+          "fechaAtencion": "27/04/24",
+          "image": "4.png"
         },
         {
-          "nombre": "Dr.Pérez",
+          "nombre": "Dr. López",
           "especialidad": "Cardiología",
-          "telefono": "555-5555",
-          "email": "",
-          "precio": 200
+          "telefono": "555-7890",
+          "email": "lopez@example.com",
+          "precio": 200,
+          "horarioAtencion": "18:20",
+          "fechaAtencion": "28/04/24",
+          "image": "5.png"
         },
         {
-          "nombre": "Dr.Pérez",
+          "nombre": "Dr. Hernández",
           "especialidad": "Cardiología",
-          "telefono": "555-5555",
-          "email": "",
-          "precio": 200
+          "telefono": "555-4321",
+          "email": "hernandez@example.com",
+          "precio": 200,
+          "horarioAtencion": "19:00",
+          "fechaAtencion": "26/04/24",
+          "image": "6.png"
         },
         {
-          "nombre": "Dr.Gutierrez",
+          "nombre": "Dr. García",
           "especialidad": "Cardiología",
-          "telefono": "555-5555",
-          "email": "",
-          "precio": 1000
+          "telefono": "555-8765",
+          "email": "garcia@example.com",
+          "precio": 1000,
+          "horarioAtencion": "18:10",
+          "fechaAtencion": "25/04/24",
+          "image": "7.png"
         },
         {
-          "nombre": "Dra.Perez",
+          "nombre": "Dra. Díaz",
           "especialidad": "Cardiología",
-          "telefono": "555-5555",
-          "email": "",
-          "precio": 900
+          "telefono": "555-2109",
+          "email": "diaz@example.com",
+          "precio": 900,
+          "horarioAtencion": "19:45",
+          "fechaAtencion": "27/04/24",
+          "image": "8.png"
+        },
+        {
+          "nombre": "Dr. Ramírez",
+          "especialidad": "Cardiología",
+          "telefono": "555-6543",
+          "email": "ramirez@example.com",
+          "precio": 200,
+          "horarioAtencion": "18:50",
+          "fechaAtencion": "26/04/24",
+          "image": "9.png"
+        },
+        {
+          "nombre": "Dra. Castro",
+          "especialidad": "Cardiología",
+          "telefono": "555-0987",
+          "email": "castro@example.com",
+          "precio": 200,
+          "horarioAtencion": "19:20",
+          "fechaAtencion": "28/04/24",
+          "image": "10.png"
         }
       ]
     },
