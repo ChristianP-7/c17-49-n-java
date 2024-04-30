@@ -7,9 +7,11 @@ import com.medilatam.backend.Entity.TipoConsulta;
 import jakarta.validation.constraints.NotBlank;
 import java.util.Date;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+
+
+@NoArgsConstructor
+@AllArgsConstructor
 
 @Getter @Setter @Builder
 public class ConsultaDto {
@@ -31,18 +33,6 @@ public class ConsultaDto {
     
     @NotBlank
     private PersonaEntity persona;
-
-    public ConsultaDto() {
-    }
-
-    public ConsultaDto(Date fecha, Doctor doctor, EstadoConsulta estadoConsulta, TipoConsulta tipoConsulta, String descripcion, PersonaEntity persona) {
-        this.fecha = fecha;
-        this.doctor = doctor;
-        this.estadoConsulta = estadoConsulta;
-        this.tipoConsulta = tipoConsulta;
-        this.descripcion = descripcion;
-        this.persona = persona;
-    }
     
     
     

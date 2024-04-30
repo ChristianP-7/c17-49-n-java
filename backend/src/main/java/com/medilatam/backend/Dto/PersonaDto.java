@@ -3,15 +3,17 @@ package com.medilatam.backend.Dto;
 import com.medilatam.backend.Security.Enums.Genero;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Null;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.Date;
 
+//Deprecable??
 @Data
+
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
+@Getter @Setter
 public class PersonaDto {
 
     private Long id;
