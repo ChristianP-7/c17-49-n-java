@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/consulta")
+@CrossOrigin(origins="*")
 public class ConsultaController {
 
     @Autowired

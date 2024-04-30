@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/doctor")
+@CrossOrigin(origins="*")
 public class DoctorController {
     
     @Autowired
