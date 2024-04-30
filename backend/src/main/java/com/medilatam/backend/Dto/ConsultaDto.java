@@ -6,10 +6,12 @@ import com.medilatam.backend.Entity.PersonaEntity;
 import com.medilatam.backend.Entity.TipoConsulta;
 import jakarta.validation.constraints.NotBlank;
 import java.util.Date;
+
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter @Setter
+@Getter @Setter @Builder
 public class ConsultaDto {
     
     @NotBlank
