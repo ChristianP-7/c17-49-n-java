@@ -1,6 +1,7 @@
 package com.medilatam.backend.Entity;
 
 
+import com.medilatam.backend.Security.Enums.EstadoConsulta;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;

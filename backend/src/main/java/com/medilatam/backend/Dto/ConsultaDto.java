@@ -1,7 +1,7 @@
 package com.medilatam.backend.Dto;
 
 import com.medilatam.backend.Entity.Doctor;
-import com.medilatam.backend.Entity.EstadoConsulta;
+import com.medilatam.backend.Security.Enums.EstadoConsulta;
 import com.medilatam.backend.Entity.PersonaEntity;
 import com.medilatam.backend.Entity.TipoConsulta;
 import jakarta.validation.constraints.NotBlank;

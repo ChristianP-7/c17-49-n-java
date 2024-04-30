@@ -22,7 +22,28 @@ public class ConsultaController {
     public List<Consulta> getConsulta(){
         return iConsultaService.getConsulta();
     }
-    
+
+    //TODO
+    /*
+    *
+    * GetConsulta segun el ID del paciente
+    *
+    * */
+
+    //TODO
+    /*
+     *
+     * GetConsulta segun el ID del doctor
+     *
+     * */
+
+    //TODO
+    /*
+     *
+     * GetConsulta segun el estado de la consulta
+     *
+     * */
+
     
     //Crea una consulta
     @PostMapping("/createConsulta")

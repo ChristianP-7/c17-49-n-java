@@ -2,7 +2,7 @@ package com.medilatam.backend.Service;
 
 import com.medilatam.backend.Dto.ConsultaRequest;
 import com.medilatam.backend.Entity.Consulta;
-import com.medilatam.backend.Entity.EstadoConsulta;
+import com.medilatam.backend.Security.Enums.EstadoConsulta;
 import com.medilatam.backend.Interface.IConsultaService;
 import com.medilatam.backend.Repository.IConsultaRepository;
 import com.medilatam.backend.Repository.IDoctorRepository;

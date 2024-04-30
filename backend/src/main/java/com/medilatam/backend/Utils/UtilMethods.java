@@ -1,13 +1,11 @@
 package com.medilatam.backend.Utils;
 
-import com.medilatam.backend.Entity.EstadoConsulta;
+import com.medilatam.backend.Security.Enums.EstadoConsulta;
 import com.medilatam.backend.Entity.TipoConsulta;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.format.datetime.DateFormatter;
 
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
