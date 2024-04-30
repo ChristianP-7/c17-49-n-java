@@ -3,7 +3,7 @@ package com.medilatam.backend.Controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.medilatam.backend.Entity.PersonaEntity;
 import com.medilatam.backend.Interface.IPersonaService;
-import com.medilatam.backend.Security.Dto.PasswordEncoder;
+import com.medilatam.backend.Security.Dto.CustomPasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +21,7 @@ public class PersonaController {
     IPersonaService iPersonaService;
 
     @Autowired
-    private PasswordEncoder passwordEncoder;
+    private CustomPasswordEncoder customPasswordEncoder;
 
     //Listado de usuarios
     @GetMapping("/getPersonas")
@@ -42,7 +42,7 @@ public class PersonaController {
         PersonaEntity personaEntity = objectMapper.readValue(personaData, PersonaEntity.class);
 
         // Codificar la contraseña antes de guardarla en la base de datos
-        String passwordCodificada = passwordEncoder.encode(personaEntity.getPassword());
+        String passwordCodificada = customPasswordEncoder.encode(personaEntity.getPassword());
         personaEntity.setPassword(passwordCodificada);
 
         iPersonaService.savePersona(personaEntity, fileIcon);
@@ -56,7 +56,7 @@ public class PersonaController {
         PersonaEntity personaEntity = objectMapper.readValue(personaData, PersonaEntity.class);
 
         // Codificar la contraseña antes de guardarla en la base de datos
-        String passwordCodificada = passwordEncoder.encode(personaEntity.getPassword());
+        String passwordCodificada = customPasswordEncoder.encode(personaEntity.getPassword());
         personaEntity.setPassword(passwordCodificada);
 
         iPersonaService.updatePersonaById(id, personaEntity, fileIcon);

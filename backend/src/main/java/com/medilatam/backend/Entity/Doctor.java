@@ -2,17 +2,17 @@ package com.medilatam.backend.Entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter @Setter @Builder
 public class Doctor {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
     
     @NotNull
     @Size(min = 1, max = 70, message = "Faltan o sobran caracteres")
@@ -40,7 +40,8 @@ public class Doctor {
     private Float calificacion;
 
     @NotNull @NotBlank
-    private  String telefono;
+    private  Integer telefono;
+    
     @Email
     private String email;
 
@@ -49,23 +50,24 @@ public class Doctor {
     private String password;
 
 
-
-    
     //Constructors
-    public Doctor() {
-    }
-
     /*
     No está siendo usado, pero igualmente lo dejamos
     De todas formas, si al final vemos que no lo necesitamos podemos deprecar esta sección de código
-     */
-    public Doctor(String nombre, String especialidad, String horarioAtencion, String localidad, Integer costoConsulta) {
+    */
+
+    public Doctor(String nombre, String especialidad,
+                  String horarioAtencion, String localidad,
+                  Integer costoConsulta, String pais,
+                  Integer telefono, String email) {
         this.nombre = nombre;
         this.especialidad = especialidad;
         this.horarioAtencion = horarioAtencion;
         this.localidad = localidad;
         this.costoConsulta = costoConsulta;
+        this.pais = pais;
+        this.telefono = telefono;
+        this.email = email;
     }
-    
-    
+
 }

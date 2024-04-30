@@ -31,8 +31,7 @@ public class DoctorService implements IDoctorService {
     //Obtiene la lista de doctores
     @Override
     public List<Doctor> getDoctor() {
-        List<Doctor> doctor = idoctorrepository.findAll();
-        return doctor;
+        return idoctorrepository.findAll();
     }
 
     //Guarda dentro de la lista el doctor nuevo
@@ -68,7 +67,7 @@ public class DoctorService implements IDoctorService {
         try {
             List<DoctorDto> disponibles = consultaRepository.findAll()// Obtiene todas las consultas agendadas para comparar con la fecha tentativa
                     .stream()
-                    .filter(consulta -> consulta.getFecha().compareTo(fechaTentativa) != 0) // Compara la fecha tentativa con las fechas de las consultas ya agendadas, si es  distinto 0
+                    .filter(consulta -> consulta.getFecha().compareTo(fechaTentativa) != 0) // Compara la fecha tentativa con las fechas de las consultas ya agendadas, si es distinto 0
                     .map(consulta-> {
                         log.info("Fecha de la consulta: {}", consulta.getFecha());
                         Doctor doctor = consulta.getDoctor();
@@ -78,7 +77,7 @@ public class DoctorService implements IDoctorService {
                                 .horarioAtencion(doctor.getHorarioAtencion())
                                 .localidad(doctor.getLocalidad())
                                 .pais(doctor.getPais())
-                                .telefono(doctor.getTelefono())
+                                .telefono(String.valueOf(doctor.getTelefono()))//CORRECCIÓN
                                 .costoConsulta(doctor.getCostoConsulta())
                                 .build();
                     }).collect(Collectors.toList());

@@ -1,5 +1,6 @@
 package com.medilatam.backend.Entity;
 
+import com.medilatam.backend.Security.Enums.Genero;
 import jakarta.persistence.*;
 import lombok.Data;
 

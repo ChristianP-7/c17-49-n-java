@@ -1,7 +1,6 @@
 package com.medilatam.backend.Dto;
 
-import com.medilatam.backend.Entity.Genero;
-import jakarta.persistence.Column;
+import com.medilatam.backend.Security.Enums.Genero;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Null;
 import lombok.AllArgsConstructor;

@@ -11,19 +11,20 @@ import lombok.Setter;
 @Getter @Setter @Builder
 public class DoctorDto {
     
-    @NotBlank
+    @NotNull
     private String nombre;
-    @NotBlank
+    @NotNull
     private String especialidad;
-    @NotBlank
+    @NotNull
     private String horarioAtencion;
-    @NotBlank
+    @NotNull
     private String localidad;
-    @NotBlank
+    @NotNull
     private Integer costoConsulta;
-    @NotBlank
+    @NotNull
     @Size(min = 1, max = 70, message = "Faltan o sobran caracteres")
     private String pais;
+
     @NotNull @NotBlank
     private  String telefono;
 
@@ -34,11 +35,14 @@ public class DoctorDto {
     public DoctorDto() {
     }
 
-    public DoctorDto(String nombre, String especialidad, String horarioAtencion, String localidad, Integer costoConsulta) {
+    public DoctorDto(String nombre, String especialidad, String horarioAtencion, String localidad, Integer costoConsulta,
+                     String pais, String telefono) {
         this.nombre = nombre;
         this.especialidad = especialidad;
         this.horarioAtencion = horarioAtencion;
         this.localidad = localidad;
         this.costoConsulta = costoConsulta;
+        this.pais = pais;
+        this.telefono = telefono;
     }
 }

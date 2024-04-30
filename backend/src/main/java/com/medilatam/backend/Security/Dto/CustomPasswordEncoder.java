@@ -4,12 +4,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @Component
-public class PasswordEncoder implements org.springframework.security.crypto.password.PasswordEncoder {
+public class CustomPasswordEncoder implements org.springframework.security.crypto.password.PasswordEncoder {
 
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private final int minLength;
 
-    public PasswordEncoder() {
+    public CustomPasswordEncoder() {
         this.bCryptPasswordEncoder = new BCryptPasswordEncoder();
         this.minLength = 6;
     }

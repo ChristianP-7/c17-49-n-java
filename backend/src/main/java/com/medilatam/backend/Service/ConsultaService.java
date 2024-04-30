@@ -38,10 +38,7 @@ public class ConsultaService implements IConsultaService {
     public List<Consulta> getConsulta() {
         
         //Crea una lista según las consultas que se hayan guardado
-        List<Consulta> consulta = consultaRepository.findAll();
-
-        //Devuelve la variable que posee la lista guardada
-        return consulta;
+        return consultaRepository.findAll();
 
     }
 
