@@ -2,6 +2,7 @@ package com.medilatam.backend.Interface;
 
 import com.medilatam.backend.Dto.ConsultaRequest;
 import com.medilatam.backend.Entity.Consulta;
+import com.medilatam.backend.Security.Enums.EstadoConsulta;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
@@ -27,4 +28,11 @@ public interface IConsultaService {
     ResponseEntity<?> updateConsulta(Long id, String nuevaDescripcion, Integer nuevoEstadoDeConsulta, String nuevaFecha);
 
     ResponseEntity<?> getConsultasByPacienteId(Long id);
+
+    // Expone la lista de Consultas filtradas por estado
+    ResponseEntity<?> getConsultasByEstado(EstadoConsulta estado);
+  
+    // Expone la lista de Consultas filtradas por el doctor que las posea
+    ResponseEntity<?> getConsultasByDoctorId(Long id);
+
 }

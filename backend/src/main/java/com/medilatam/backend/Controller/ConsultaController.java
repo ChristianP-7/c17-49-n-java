@@ -4,6 +4,7 @@ package com.medilatam.backend.Controller;
 import com.medilatam.backend.Dto.ConsultaRequest;
 import com.medilatam.backend.Entity.Consulta;
 import com.medilatam.backend.Interface.IConsultaService;
+import com.medilatam.backend.Security.Enums.EstadoConsulta;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -30,21 +31,17 @@ public class ConsultaController {
         return iConsultaService.getConsultasByPacienteId(id);
     }
 
-    //TODO
-    /*
-     *
-     * GetConsulta segun el ID del doctor
-     *
-     * */
+    @GetMapping("getConsultasByDoctorId/{id}")
+    public ResponseEntity<?> getConsultasByDoctorId(@PathVariable Long id){
+        return iConsultaService.getConsultasByDoctorId(id);
+    }
 
-    //TODO
-    /*
-     *
-     * GetConsulta segun el estado de la consulta
-     *
-     * */
+    // Expone las consultas creadas segun su estado pasandolo como parametro
+    @GetMapping("/getConsultasByEstado/{estado}")
+    public ResponseEntity<?> getConsultasByEstado(@PathVariable EstadoConsulta estado){
+        return iConsultaService.getConsultasByEstado(estado);
+    }
 
-    
     //Crea una consulta
     @PostMapping("/createConsulta")
     public ResponseEntity<?> createConsulta(@RequestBody ConsultaRequest consulta){
