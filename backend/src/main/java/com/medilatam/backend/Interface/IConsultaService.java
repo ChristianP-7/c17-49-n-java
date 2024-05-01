@@ -8,16 +8,16 @@ import org.springframework.http.ResponseEntity;
 import java.util.List;
 
 public interface IConsultaService {
-    
+
     //Expone la lista de Consultas
     List<Consulta> getConsulta();
-    
+
     //Guarda una consulta
     ResponseEntity<?> saveConsulta(ConsultaRequest consulta);
-    
+
     //Eliminar una consulta por ID
     ResponseEntity<?> deleteConsulta(Long id);
-    
+
     //Buscar una consulta por ID
     ResponseEntity<?> findConsulta(Long id);
 
@@ -31,7 +31,7 @@ public interface IConsultaService {
 
     // Expone la lista de Consultas filtradas por estado
     ResponseEntity<?> getConsultasByEstado(EstadoConsulta estado);
-  
+
     // Expone la lista de Consultas filtradas por el doctor que las posea
     ResponseEntity<?> getConsultasByDoctorId(Long id);
 

@@ -76,7 +76,7 @@ public class DoctorService implements IDoctorService {
                                 .especialidad(doctor.getEspecialidad())
                                 .horarioAtencion(doctor.getHorarioAtencion())
                                 .localidad(doctor.getLocalidad())
-                                .pais(doctor.getPais())
+                                /*.pais(doctor.getPais())*/
                                 .telefono(String.valueOf(doctor.getTelefono()))//CORRECCIÓN
                                 .costoConsulta(doctor.getCostoConsulta())
                                 .build();

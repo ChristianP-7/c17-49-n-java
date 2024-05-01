@@ -3,9 +3,6 @@ package com.medilatam.backend.Service;
 import com.medilatam.backend.Dto.ConsultaDto;
 import com.medilatam.backend.Dto.ConsultaRequest;
 import com.medilatam.backend.Entity.Consulta;
-import com.medilatam.backend.Entity.Doctor;
-import com.medilatam.backend.Entity.PersonaEntity;
-import com.medilatam.backend.Entity.TipoConsulta;
 import com.medilatam.backend.Security.Enums.EstadoConsulta;
 import com.medilatam.backend.Interface.IConsultaService;
 import com.medilatam.backend.Repository.IConsultaRepository;
@@ -15,7 +12,6 @@ import com.medilatam.backend.Utils.UtilMethods;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -28,17 +24,17 @@ import java.util.Objects;
 
 @Slf4j
 public class ConsultaService implements IConsultaService {
-    
+
     @Autowired
     IConsultaRepository consultaRepository;
-    
+
     private final PersonaRepository personaRepository;
     private final IDoctorRepository doctorRepository;
-    
+
     //Obtiene una lista de las consultas
     @Override
     public List<Consulta> getConsulta() {
-        
+
         //Crea una lista según las consultas que se hayan guardado
         return consultaRepository.findAll();
 
@@ -70,29 +66,29 @@ public class ConsultaService implements IConsultaService {
                         .valueOf(doctorRepository.findById(consulta.getDoctorId()).orElse(null)
                                 .getCostoConsulta()))
                 .build();
-        
+
         //Guarda la consulta dentro del repositorio de consultas
         consultaRepository.save(consulta1);
         return ResponseEntity.status(200).body("Consulta guardada con éxito");
     }
 
-    
+
     //Según el ID dado se busca dicha consulta para eliminarla
     @Override
     public ResponseEntity<?> deleteConsulta(Long id) {
-        
+
         //Si no existe la consulta con el ID dado
         if (!consultaRepository.existsById(id)) {
             return ResponseEntity.status(400).body("La consulta no existe");
         }
-        
+
         //Se elimina una consulta en particular del repositorio designada por su ID
         consultaRepository.deleteById(id);
         return ResponseEntity.status(200).body("Consulta eliminada con éxito");
-        
+
     }
 
-    
+
     //Busca una consulta según un ID dado
     @Override
     public ResponseEntity<?> findConsulta(Long id) {
@@ -102,14 +98,14 @@ public class ConsultaService implements IConsultaService {
         }
         //Se busca una consulta por su ID para guardarla dentro de la variable y si no la encuentra expone un null
         Consulta consulta = consultaRepository.findById(id).orElse(null);
-        
+
         //Se expone la variable que posee la consulta buscada
         return ResponseEntity.status(200).body(consulta);
     }
 
     @Override
     public ResponseEntity<?> getConsultasNoAtendidas() {
-         //Obtiene todas las consultas no atendidas
+        //Obtiene todas las consultas no atendidas
         List<Consulta> consultasNoAtendidas = consultaRepository.findAll()
                 .stream()
                 .filter(consulta->

@@ -11,63 +11,53 @@ import lombok.*;
 public class Doctor {
     
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @NotNull
+
     @Size(min = 1, max = 70, message = "Faltan o sobran caracteres")
+    @Column(name = "nombre", nullable = false)
     private String nombre;
 
-    @NotNull
     @Size(min = 1, max = 70, message = "Faltan o sobran caracteres")
+    @Column(name = "especialidad", nullable = false)
     private String especialidad;
     
-    @NotNull
+
     @Size(min = 1, max = 70, message = "Faltan o sobran caracteres")
+    @Column(name = "horarioAtencion", nullable = false)
     private String horarioAtencion;
 
-    @NotNull
+
     @Size(min = 1, max = 70, message = "Faltan o sobran caracteres")
+    @Column(name = "localidad", nullable = false)
     private String localidad;
 
-    @NotNull
+
     @Size(min = 1, max = 70, message = "Faltan o sobran caracteres")
+    @Column(name = "pais")
     private String pais;
 
-    @NotNull
+
+    @Column(name = "costoConsulta", nullable = false)
     private Integer costoConsulta;
 
+    @Column(name = "calificacion", nullable = false)
     private Float calificacion;
 
-    @NotNull @NotBlank
+
+    @Column(name = "telefono", unique = true)
     private  Integer telefono;
     
     @Email
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
 
     @Size(min=6, max=70, message = "Mínimo seis caracteres , una mayúscula y un número")
     @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{6,}$", message = "Mínimo seis caracteres , una mayúscula y un número")
+    @Column(name = "password", nullable = false)
     private String password;
 
-
-    //Constructors
-    /*
-    No está siendo usado, pero igualmente lo dejamos
-    De todas formas, si al final vemos que no lo necesitamos podemos deprecar esta sección de código
-    */
-
-    public Doctor(String nombre, String especialidad,
-                  String horarioAtencion, String localidad,
-                  Integer costoConsulta, String pais,
-                  Integer telefono, String email) {
-        this.nombre = nombre;
-        this.especialidad = especialidad;
-        this.horarioAtencion = horarioAtencion;
-        this.localidad = localidad;
-        this.costoConsulta = costoConsulta;
-        this.pais = pais;
-        this.telefono = telefono;
-        this.email = email;
-    }
 
 }
