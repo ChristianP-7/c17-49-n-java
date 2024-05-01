@@ -2,34 +2,31 @@ package com.medilatam.backend.Dto;
 
 
 import jakarta.validation.constraints.NotBlank;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import lombok.*;
+
+
+@NoArgsConstructor
+@AllArgsConstructor
 
 @Getter @Setter @Builder
 public class DoctorDto {
     
-    @NotBlank
+    @NotNull
     private String nombre;
-    @NotBlank
+    @NotNull
     private String especialidad;
-    @NotBlank
+    @NotNull
     private String horarioAtencion;
-    @NotBlank
+    @NotNull
     private String localidad;
-    @NotBlank
+    @NotNull
     private Integer costoConsulta;
+    @NotNull
+    @Size(min = 1, max = 70, message = "Faltan o sobran caracteres")
+    private String pais;
 
-    
-    //Constructor
-    public DoctorDto() {
-    }
-
-    public DoctorDto(String nombre, String especialidad, String horarioAtencion, String localidad, Integer costoConsulta) {
-        this.nombre = nombre;
-        this.especialidad = especialidad;
-        this.horarioAtencion = horarioAtencion;
-        this.localidad = localidad;
-        this.costoConsulta = costoConsulta;
-    }
+    @NotNull @NotBlank
+    private  String telefono;
 }

@@ -1,8 +1,10 @@
 package com.medilatam.backend.Service;
 
+import com.medilatam.backend.Dto.ConsultaDto;
 import com.medilatam.backend.Dto.ConsultaRequest;
 import com.medilatam.backend.Entity.Consulta;
-import com.medilatam.backend.Entity.EstadoConsulta;
+import com.medilatam.backend.Entity.TipoConsulta;
+import com.medilatam.backend.Security.Enums.EstadoConsulta;
 import com.medilatam.backend.Interface.IConsultaService;
 import com.medilatam.backend.Repository.IConsultaRepository;
 import com.medilatam.backend.Repository.IDoctorRepository;
@@ -11,11 +13,13 @@ import com.medilatam.backend.Utils.UtilMethods;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor
@@ -34,10 +38,7 @@ public class ConsultaService implements IConsultaService {
     public List<Consulta> getConsulta() {
         
         //Crea una lista según las consultas que se hayan guardado
-        List<Consulta> consulta = consultaRepository.findAll();
-
-        //Devuelve la variable que posee la lista guardada
-        return consulta;
+        return consultaRepository.findAll();
 
     }
 
@@ -126,6 +127,27 @@ public class ConsultaService implements IConsultaService {
         consulta.setFecha(UtilMethods.convertStringToSqlDate(nuevaFecha));
         consultaRepository.save(consulta);
         return ResponseEntity.status(200).body("Consulta editada con éxito");
+    }
+
+    @Override
+    public ResponseEntity<?> getConsultasByPacienteId(Long id) {
+        if(!personaRepository.existsById(id)){
+            return ResponseEntity.status(400).body("El usuario no existe");
+        }
+        List<ConsultaDto> consultasIdPaciente= consultaRepository.findAll()
+                .stream()
+                .filter(consulta-> Objects.equals(consulta.getPaciente().getId(), id))
+                .map(consultaId -> new ConsultaDto().builder()
+                        .tipoConsulta(consultaId.getTipo())
+                        .descripcion(consultaId.getDescripcion())
+                        .estadoConsulta(consultaId.getEstado())
+                        .fecha(consultaId.getFecha())
+                        .doctor(consultaId.getDoctor())
+                        .persona(consultaId.getPaciente())
+                        .build())
+                .toList();
+        return ResponseEntity.status(200).body(consultasIdPaciente);
+
     }
 
 }

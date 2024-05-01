@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/consulta")
+@CrossOrigin(origins="*")
 public class ConsultaController {
 
     @Autowired
@@ -22,7 +23,27 @@ public class ConsultaController {
     public List<Consulta> getConsulta(){
         return iConsultaService.getConsulta();
     }
-    
+
+    // Expone las consultas creadas segun el ID del paciente
+    @GetMapping("/getConsultas/{id}")
+    public ResponseEntity<?> getConsultasByPacienteId(@PathVariable Long id){
+        return iConsultaService.getConsultasByPacienteId(id);
+    }
+
+    //TODO
+    /*
+     *
+     * GetConsulta segun el ID del doctor
+     *
+     * */
+
+    //TODO
+    /*
+     *
+     * GetConsulta segun el estado de la consulta
+     *
+     * */
+
     
     //Crea una consulta
     @PostMapping("/createConsulta")

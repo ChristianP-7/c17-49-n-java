@@ -1,7 +1,10 @@
 package com.medilatam.backend.Entity;
 
+import com.medilatam.backend.Security.Enums.Genero;
 import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.Date;
 
 @Data
 @Entity
@@ -15,6 +18,18 @@ public class PersonaEntity {
 
     @Column(name = "name", nullable = false)
     private String name;
+
+    @Column(name = "fechaNacimiento", nullable = false)
+    private Date fechaNacimiento;
+
+    @Column(name = "genero", nullable = false)
+    private Genero genero;
+
+    @Column(name = "pais", nullable = false)
+    private String pais;
+
+    @Column(name = "provincia", nullable = false)
+    private String provincia;
 
     @Column(name = "email", nullable = false, unique = true)
     private String email;

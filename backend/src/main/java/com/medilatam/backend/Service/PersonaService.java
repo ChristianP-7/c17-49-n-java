@@ -31,14 +31,12 @@ public class PersonaService implements IPersonaService {
 
     @Override
     public List<PersonaEntity> getPersonas() {
-        List<PersonaEntity> personaEntities = personaRepository.findAll();
-        return personaEntities;
+        return personaRepository.findAll();
     }
 
     @Override
     public PersonaEntity getPersonaById(Long id) {
-        PersonaEntity personaEntity = personaRepository.findById(id).orElse(null);
-        return personaEntity;
+        return personaRepository.findById(id).orElse(null);
     }
 
     @Override
@@ -59,6 +57,10 @@ public class PersonaService implements IPersonaService {
     public void updatePersonaById(Long id, PersonaEntity personaData, MultipartFile fileIcon) throws IOException {
         PersonaEntity personaEntity = personaRepository.findById(id).orElse(null);
         personaEntity.setName(personaData.getName());
+        personaEntity.setFechaNacimiento(personaData.getFechaNacimiento());
+        personaEntity.setGenero(personaData.getGenero());
+        personaEntity.setPais(personaData.getPais());
+        personaEntity.setProvincia(personaData.getProvincia());
         personaEntity.setEmail(personaData.getEmail());
         personaEntity.setPassword(passwordEncoder.encode(personaEntity.getPassword()));
         if (personaEntity.getFoto() != null) {
