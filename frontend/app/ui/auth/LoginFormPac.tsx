@@ -8,10 +8,11 @@ import { useUserStore } from '@/store/userStore';
 
 export const LoginFormPac = () => {
   const [isMessageVisible, setIsMessageVisible] = useState(true);
-  /*   const cambiarLoggin = useUserStore((state) => state.cambiarLogin); */
+  const cambiarLoggin = useUserStore((state) => state.cambiarLogin);
   const onMessage = () => {
     setIsMessageVisible(!isMessageVisible);
-    /* cambiarLogin(true); */
+    cambiarLoggin();
+    console.log(cambiarLoggin());
   };
 
   return (
