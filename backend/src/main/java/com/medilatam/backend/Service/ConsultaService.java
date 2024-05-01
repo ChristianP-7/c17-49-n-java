@@ -3,6 +3,8 @@ package com.medilatam.backend.Service;
 import com.medilatam.backend.Dto.ConsultaDto;
 import com.medilatam.backend.Dto.ConsultaRequest;
 import com.medilatam.backend.Entity.Consulta;
+import com.medilatam.backend.Entity.Doctor;
+import com.medilatam.backend.Entity.PersonaEntity;
 import com.medilatam.backend.Entity.TipoConsulta;
 import com.medilatam.backend.Security.Enums.EstadoConsulta;
 import com.medilatam.backend.Interface.IConsultaService;
@@ -150,7 +152,28 @@ public class ConsultaService implements IConsultaService {
 
     }
 
+    //Devuelve las consultas según el estado en el que estén estas
     @Override
+    public ResponseEntity<?> getConsultasByEstado(EstadoConsulta estado) {
+        if(!consultaRepository.existsByEstado(estado)){
+            return ResponseEntity.status(400).body("No existe consultas con ese estado.");
+        }
+        List<ConsultaDto> consultasPorEstado = consultaRepository.findAll()
+                .stream()
+                .filter(consulta-> Objects.equals(consulta.getEstado(), estado))
+                .map(consultaEstado -> new ConsultaDto().builder()
+                        .tipoConsulta(consultaEstado.getTipo())
+                        .descripcion(consultaEstado.getDescripcion())
+                        .estadoConsulta(consultaEstado.getEstado())
+                        .fecha(consultaEstado.getFecha())
+                        .doctor(consultaEstado.getDoctor())
+                        .persona(consultaEstado.getPaciente())
+                        .build())
+                .toList();
+        return ResponseEntity.status(200).body(consultasPorEstado);
+    }
+
+    //Obtener las consultas según el ID del Doctor que consulte devolviendo una lista de las mismas
     public ResponseEntity<?> getConsultasByDoctorId(Long id) {
         if(!personaRepository.existsById(id)) {
             return ResponseEntity.status(400).body("El doctor no existe");
