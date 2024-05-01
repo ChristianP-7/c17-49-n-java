@@ -30,7 +30,7 @@ public class ConsultaController {
         return iConsultaService.getConsultasByPacienteId(id);
     }
 
-    @GetMapping("getConsultas/{id}")
+    @GetMapping("getConsultasByDoctorId/{id}")
     public ResponseEntity<?> getConsultasByDoctorId(@PathVariable Long id){
         return iConsultaService.getConsultasByDoctorId(id);
     }
