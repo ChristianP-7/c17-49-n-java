@@ -1,8 +1,12 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { especialidades } from '@/mocks/especialidad.json';
+import Image from "next/image";
+import Link from "next/link";
+import { especialidades } from "@/mocks/especialidad.json";
 
-export const ConsultasPendientes = () => {
+interface Props {
+  funcionProp: () => void;
+}
+
+export const ConsultasPendientes: React.FC<Props> = ({ funcionProp }) => {
   const fechaHoraActual = new Date();
 
   const doctores = especialidades[0].doctores;
@@ -41,7 +45,10 @@ export const ConsultasPendientes = () => {
               </thead>
 
               {doctores?.map((doctor: any) => (
-                <tbody className="bg-white" key={especialidades[0].nombre + Math.random()}>
+                <tbody
+                  className="bg-white"
+                  key={especialidades[0].nombre + Math.random()}
+                >
                   <tr>
                     <td className="px-4 py-4 text-sm font-medium text-gray-700 dark:text-black whitespace-nowrap">
                       <div className="inline-flex items-center gap-x-3">
@@ -69,7 +76,9 @@ export const ConsultasPendientes = () => {
                     </td>
                     <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
                       <div className="inline-flex items-center text-mlt-700 ">
-                        <h2 className="text-sm font-normal">{doctor.horarioAtencion}</h2>
+                        <h2 className="text-sm font-normal">
+                          {doctor.horarioAtencion}
+                        </h2>
                       </div>
                     </td>
                     <td className="px-4 py-4 text-sm text-black ">Virtual</td>
@@ -77,10 +86,14 @@ export const ConsultasPendientes = () => {
                       <div className="flex items-center gap-x-6">
                         <Link
                           href="atencionVirtual"
-                          className="text-mlt-700 transition-colors duration-200 dark:hover:text-mlt-800 hover:text-mlt-800 focus:outline-none">
+                          className="text-mlt-700 transition-colors duration-200 dark:hover:text-mlt-800 hover:text-mlt-800 focus:outline-none"
+                        >
                           Ingresar
                         </Link>
-                        <button className="text-white bg-mlt-700 hover:bg-mlt-800 hover:scale-105 duration-300  transition-colors focus:outline-none font-semibold md:font-medium rounded-xl md:rounded-full text-xs md:text-sm text-center px-1 w-[100px] h-[40px] md:mx-2 md:h-10">
+                        <button
+                          className="text-white bg-mlt-700 hover:bg-mlt-800 hover:scale-105 duration-300  transition-colors focus:outline-none font-semibold md:font-medium rounded-xl md:rounded-full text-xs md:text-sm text-center px-1 w-[100px] h-[40px] md:mx-2 md:h-10"
+                          onClick={funcionProp}
+                        >
                           Cancelar cita
                         </button>
                       </div>

@@ -1,20 +1,37 @@
-export const SioNo = () => {
+"use client";
+import { useState } from "react";
+
+interface SioNoProps {
+  mensaje: string;
+}
+
+export const SioNo: React.FC<SioNoProps> = ({ mensaje }) => {
+  const [isMessageVisible, setIsMessageVisible] = useState(true);
+  const onMensaje = () => {
+    setIsMessageVisible(!isMessageVisible);
+  };
+
   return (
     <dialog
       id="popup-modal"
-      className=" fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50 z-50  md:inset-0 max-h-full">
+      className={`fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50 z-50  md:inset-0 max-h-full
+      ${isMessageVisible ? "" : "hidden"}`}
+    >
       <div className="relative p-4 w-full max-w-md max-h-full">
         <div className="relative bg-white rounded-lg shadow-xl">
           <button
+            onClick={onMensaje}
             type="button"
             className="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
-            data-modal-hide="popup-modal">
+            data-modal-hide="popup-modal"
+          >
             <svg
               className="w-3 h-3"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
-              viewBox="0 0 14 14">
+              viewBox="0 0 14 14"
+            >
               <path
                 stroke="currentColor"
                 stroke-linecap="round"
@@ -31,7 +48,8 @@ export const SioNo = () => {
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
-              viewBox="0 0 20 20">
+              viewBox="0 0 20 20"
+            >
               <path
                 stroke="currentColor"
                 stroke-linecap="round"
@@ -41,14 +59,16 @@ export const SioNo = () => {
               />
             </svg>
             <h3 className="mb-5 text-lg font-normal text-gray-500 ">
-              ¿Estás seguro de que deseas eliminar esta consulta médica? Esta acción no se puede
-              deshacer.
+              {mensaje}
             </h3>
             <div className="flex justify-center gap-4">
               <button className="text-white bg-mlt-700 hover:bg-mlt-800 hover:scale-105 duration-300   transition-colors focus:outline-none font-medium rounded-full text-sm text-center p-2 w-24">
                 Confirmar
               </button>
-              <button className="text-white bg-red-600 hover:bg-red-800 hover:scale-105 duration-300   transition-colors focus:outline-none font-medium rounded-full text-sm text-center p-2 w-24">
+              <button
+                className="text-white bg-red-600 hover:bg-red-800 hover:scale-105 duration-300   transition-colors focus:outline-none font-medium rounded-full text-sm text-center p-2 w-24"
+                onClick={onMensaje}
+              >
                 Cancelar
               </button>
             </div>

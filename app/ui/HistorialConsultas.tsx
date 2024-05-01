@@ -1,11 +1,15 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { especialidades } from '@/mocks/especialidad.json';
+import Image from "next/image";
+import Link from "next/link";
+import { especialidades } from "@/mocks/especialidad.json";
 
-export const HistorialConsultas = () => {
+interface Props {
+  funcionProp: () => void;
+}
+
+export const HistorialConsultas: React.FC<Props> = ({ funcionProp }) => {
   const fechaHoraActual = new Date();
-
   const doctores = especialidades[0].doctores;
+
   return (
     <div className="flex flex-col gap-2 mt-1 px-4 md:px-0 md:w-full h-[200px]">
       <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6">
@@ -41,7 +45,10 @@ export const HistorialConsultas = () => {
               </thead>
 
               {doctores?.map((doctor: any) => (
-                <tbody className="bg-white" key={especialidades[0].nombre + Math.random()}>
+                <tbody
+                  className="bg-white"
+                  key={especialidades[0].nombre + Math.random()}
+                >
                   <tr>
                     <td className="px-4 py-4 text-sm font-medium text-gray-700 dark:text-black whitespace-nowrap">
                       <div className="inline-flex items-center gap-x-3">
@@ -69,18 +76,24 @@ export const HistorialConsultas = () => {
                     </td>
                     <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
                       <div className="inline-flex items-center text-mlt-700 ">
-                        <h2 className="text-sm text-mlt-700 font-bold">{doctor.estado}</h2>
+                        <h2 className="text-sm text-mlt-700 font-bold">
+                          {doctor.estado}
+                        </h2>
                       </div>
                     </td>
                     <td className="px-4 py-4 text-sm text-black ">Virtual</td>
                     <td className="px-4 py-4 text-sm whitespace-nowrap">
                       <div className="flex items-center gap-x-6">
-                      <Link
+                        <Link
                           href="atencionVirtual"
-                          className="text-mlt-700 transition-colors duration-200 dark:hover:text-mlt-800 hover:text-mlt-800 focus:outline-none">
+                          className="text-mlt-700 transition-colors duration-200 dark:hover:text-mlt-800 hover:text-mlt-800 focus:outline-none"
+                        >
                           Detalle consulta
                         </Link>
-                        <button className="text-white bg-mlt-700 hover:bg-mlt-800 hover:scale-105 duration-300  transition-colors focus:outline-none font-semibold md:font-medium rounded-xl md:rounded-full text-xs md:text-sm text-center px-1 w-[100px] h-[40px] md:mx-2 md:h-10">
+                        <button
+                          className="text-white bg-mlt-700 hover:bg-mlt-800 hover:scale-105 duration-300  transition-colors focus:outline-none font-semibold md:font-medium rounded-xl md:rounded-full text-xs md:text-sm text-center px-1 w-[100px] h-[40px] md:mx-2 md:h-10"
+                          onClick={funcionProp}
+                        >
                           Eliminar
                         </button>
                       </div>

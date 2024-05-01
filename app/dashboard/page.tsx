@@ -13,9 +13,9 @@ import { ProfesionalesSkeleton } from '../ui/Skeletons';
 import { Search } from '../ui/Search';
 
 export default function Dashboard() {
-  const [isMessageVisible, setIsMessageVisible] = useState(true);
+  const [isMessageVisible, SetIsMessageVisible] = useState(true);
   const onMessage = () => {
-    setIsMessageVisible(!isMessageVisible);
+    SetIsMessageVisible(!isMessageVisible);
   };
   return (
     <>
