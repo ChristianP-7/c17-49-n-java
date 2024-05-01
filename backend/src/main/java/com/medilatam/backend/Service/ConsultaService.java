@@ -152,6 +152,7 @@ public class ConsultaService implements IConsultaService {
 
     }
 
+    //Devuelve las consultas según el estado en el que estén estas
     @Override
     public ResponseEntity<?> getConsultasByEstado(EstadoConsulta estado) {
         if(!consultaRepository.existsByEstado(estado)){
@@ -172,4 +173,23 @@ public class ConsultaService implements IConsultaService {
         return ResponseEntity.status(200).body(consultasPorEstado);
     }
 
+    //Obtener las consultas según el ID del Doctor que consulte devolviendo una lista de las mismas
+    public ResponseEntity<?> getConsultasByDoctorId(Long id) {
+        if(!personaRepository.existsById(id)) {
+            return ResponseEntity.status(400).body("El doctor no existe");
+        }
+        List<ConsultaDto> consultasIdDoctor = consultaRepository.findAll()
+                .stream()
+                .filter(consulta -> Objects.equals(consulta.getDoctor().getId(), id))
+                .map(consultaId -> new ConsultaDto().builder()
+                        .tipoConsulta(consultaId.getTipo())
+                        .descripcion(consultaId.getDescripcion())
+                        .estadoConsulta(consultaId.getEstado())
+                        .fecha(consultaId.getFecha())
+                        .doctor(consultaId.getDoctor())
+                        .persona(consultaId.getPaciente())
+                        .build())
+                .toList();
+        return ResponseEntity.ok().body(consultasIdDoctor);
+    }
 }

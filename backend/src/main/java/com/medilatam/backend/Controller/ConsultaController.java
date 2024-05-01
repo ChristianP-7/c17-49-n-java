@@ -31,12 +31,10 @@ public class ConsultaController {
         return iConsultaService.getConsultasByPacienteId(id);
     }
 
-    //TODO
-    /*
-     *
-     * GetConsulta segun el ID del doctor
-     *
-     * */
+    @GetMapping("getConsultasByDoctorId/{id}")
+    public ResponseEntity<?> getConsultasByDoctorId(@PathVariable Long id){
+        return iConsultaService.getConsultasByDoctorId(id);
+    }
 
     // Expone las consultas creadas segun su estado pasandolo como parametro
     @GetMapping("/getConsultasByEstado/{estado}")
