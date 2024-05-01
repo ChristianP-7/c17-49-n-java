@@ -1,7 +1,7 @@
 package com.medilatam.backend.Utils;
 
 import com.medilatam.backend.Security.Enums.EstadoConsulta;
-import com.medilatam.backend.Entity.TipoConsulta;
+import com.medilatam.backend.Security.Enums.TipoConsulta;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.format.datetime.DateFormatter;
 

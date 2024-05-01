@@ -1,4 +1,4 @@
-package com.medilatam.backend.Entity;
+package com.medilatam.backend.Security.Enums;
 
 public enum TipoConsulta {
     PRESENCIAL,VIRTUAL

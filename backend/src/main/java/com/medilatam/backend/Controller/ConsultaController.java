@@ -18,7 +18,7 @@ public class ConsultaController {
 
     @Autowired
     IConsultaService iConsultaService;
-    
+
     //Expone las consultas creadas
     @GetMapping("/getConsulta")
     public List<Consulta> getConsulta(){
@@ -47,21 +47,21 @@ public class ConsultaController {
     public ResponseEntity<?> createConsulta(@RequestBody ConsultaRequest consulta){
         return iConsultaService.saveConsulta(consulta);
     }
-    
+
     //Borra una consulta siguiendo su ID
     @DeleteMapping("/deleteConsulta/{id}")
     public ResponseEntity<?> deleteConsulta(@PathVariable Long id){
         return iConsultaService.deleteConsulta(id);
     }
-    
-    
+
+
     //Edita una consulta
     @PutMapping("/updateConsulta")
     public ResponseEntity<?> updateConsulta(@RequestParam(name = "id")  Long id,
                                             @RequestParam(name="descripcion") String nuevaDescripcion,
                                             @RequestParam(name = "estado") Integer nuevoEstadoDeConsulta,
                                             @RequestParam(name = "fecha") String nuevaFecha){
-        
+
         //Retorna un status positivo si se realizó correctamente
         return iConsultaService.updateConsulta(id, nuevaDescripcion, nuevoEstadoDeConsulta, nuevaFecha);
     }

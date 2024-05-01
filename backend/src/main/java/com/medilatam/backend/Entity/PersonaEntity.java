@@ -19,16 +19,16 @@ public class PersonaEntity {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "fechaNacimiento", nullable = false)
+    @Column(name = "fechaNacimiento")
     private Date fechaNacimiento;
 
-    @Column(name = "genero", nullable = false)
+    @Column(name = "genero")
     private Genero genero;
 
-    @Column(name = "pais", nullable = false)
+    @Column(name = "pais")
     private String pais;
 
-    @Column(name = "provincia", nullable = false)
+    @Column(name = "provincia")
     private String provincia;
 
     @Column(name = "email", nullable = false, unique = true)
