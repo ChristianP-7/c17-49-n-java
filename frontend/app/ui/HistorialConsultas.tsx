@@ -5,9 +5,9 @@ import { especialidades } from '@/mocks/especialidad.json';
 export const HistorialConsultas = () => {
   const fechaHoraActual = new Date();
 
-  const doctores = especialidades[0].doctores;
+  const doctores = especialidades[2].doctores;
   return (
-    <div className="flex flex-col gap-2 mt-1 px-4 md:px-0 md:w-full h-[200px]">
+    <div className="flex flex-col gap-2 mt-2 px-4 md:px-0 md:w-full h-[200px]">
       <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6">
         <div className="inline-block min-w-full py-2 align-middle md:px-6">
           <div className="h-[200px] md:w-full scroll-container overflow-y-scroll  overflow-x-scroll pb-2 border border-gray-200 md:rounded-lg">
@@ -75,7 +75,7 @@ export const HistorialConsultas = () => {
                     <td className="px-4 py-4 text-sm text-black ">Virtual</td>
                     <td className="px-4 py-4 text-sm whitespace-nowrap">
                       <div className="flex items-center gap-x-6">
-                      <Link
+                        <Link
                           href="atencionVirtual"
                           className="text-mlt-700 transition-colors duration-200 dark:hover:text-mlt-800 hover:text-mlt-800 focus:outline-none">
                           Detalle consulta

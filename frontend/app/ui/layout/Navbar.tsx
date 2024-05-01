@@ -8,6 +8,7 @@ import {
   Bars3Icon,
   XMarkIcon,
   VideoCameraIcon,
+  ArrowLeftEndOnRectangleIcon,
 } from '@heroicons/react/24/outline';
 import { useState } from 'react';
 import { useUserStore } from '@/store/userStore';
@@ -96,35 +97,38 @@ export const Navbar = () => {
           </header>
           <div className={`flex flex-col space-y-2 items-center mt-4`}>
             {isLogged ? (
-              <Image
-                src={'/imageProfile/imagen.jpg'}
-                className="rounded-full"
-                alt="image "
-                width={130}
-                height={130}
-              />
+              <div className="border-b-2">
+                <Image
+                  src={'/imageProfile/imagen.jpg'}
+                  className="rounded-full"
+                  alt="image "
+                  width={130}
+                  height={130}
+                />
+                <h3 className="text-center text-mlt-800 font-semibold">Bienvenido Pedro</h3>
+              </div>
             ) : (
               <ImagenAvatar imagen={'/imageProfile/avatar.png'} width={130} height={130} />
             )}
             <div className={`flex space-x-10 pb-4 border-b-2 ${isLogged ? 'hidden' : ''}`}>
-              <a
+              <Link
                 className="text-white bg-mlt-700 hover:bg-mlt-800 hover:scale-105 duration-300  transition-colors focus:outline-none font-medium rounded-full text-sm text-center p-2 w-24"
                 href="/auth">
                 Login
-              </a>
-              <a
+              </Link>
+              <Link
                 className="text-white bg-mlt-700 hover:bg-mlt-800 hover:scale-105 duration-300 transition-colors focus:outline-none font-medium rounded-full text-sm text-center p-2 w-24"
                 href="/auth/register">
                 Registro
-              </a>
+              </Link>
             </div>
           </div>
         </div>
-        <nav className="flex flex-col space-x-0 space-y-6 w-full mt-2">
+        <nav className="flex flex-col space-x-0 space-y-3 w-full mt-2">
           {links.map((link) => {
             const LinkIcon = link.icon;
             return (
-              <a
+              <Link
                 key={link.name + Math.random()}
                 href={link.href}
                 title={link.name}
@@ -137,9 +141,22 @@ export const Navbar = () => {
                   }`}
                 />
                 <p>{link.name}</p>
-              </a>
+              </Link>
             );
           })}
+          {isLogged ? (
+            <button
+              className={`flex h-[48px] grow items-center justify-start gap-2 rounded-md px-2 text-sm font-medium hover:bg-red-600 group hover:text-white ${
+                isNavbarVisible ? '' : 'flex flex-row-reverse'
+              }`}>
+              <ArrowLeftEndOnRectangleIcon
+                className={` ${isNavbarVisible ? 'w-8' : 'w-12 hover:rotate-6 hover:duration-200'}`}
+              />
+              Logout
+            </button>
+          ) : (
+            ''
+          )}
         </nav>
       </section>
     </div>

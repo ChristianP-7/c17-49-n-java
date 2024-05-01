@@ -87,12 +87,12 @@ export const LoginFormPac = () => {
           </div>
           {isMessageVisible ? '' : <SuccessMessage />}
           <div className="flex justify-center space-x-4 items-center mt-4">
-            <a
+            <Link
               href="/dashboard"
               className="text-white bg-mlt-700 hover:bg-mlt-800 hover:scale-105 duration-300   transition-colors focus:outline-none font-medium rounded-full text-sm text-center p-2 w-24"
               onClick={onMessage}>
               Login
-            </a>
+            </Link>
             <a
               className="text-mlt-700 font-semibold hover:scale-105 duration-300 hover:text-mlt-800"
               href="/auth/register">

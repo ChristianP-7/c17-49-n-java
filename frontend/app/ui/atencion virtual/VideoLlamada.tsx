@@ -3,6 +3,7 @@
 import * as React from 'react';
 import { useEffect, useRef } from 'react'; // Importa useEffect y useRef
 import { ZegoUIKitPrebuilt } from '@zegocloud/zego-uikit-prebuilt';
+import { useRouter } from 'next/navigation';
 
 function randomID(len: any) {
   let result = '';
@@ -21,7 +22,8 @@ export function getUrlParams(url = window.location.href) {
   return new URLSearchParams(urlStr);
 }
 
-const VideoLlamada = () => {
+const VideoLlamadaComp = () => {
+  const { push } = useRouter();
   const roomID = getUrlParams().get('roomID') || 'videollamadaid';
   const containerRef = useRef(null); // Usa useRef para crear una referencia
   useEffect(() => {
@@ -43,20 +45,36 @@ const VideoLlamada = () => {
       // Inicia la llamada
       zp.joinRoom({
         container: containerRef.current, // Usa la referencia del contenedor
-        sharedLinks: [
-          {
-            name: 'Personal link',
-            url:
-              window.location.protocol +
-              '//' +
-              window.location.host +
-              window.location.pathname +
-              '?roomID=' +
-              roomID,
-          },
-        ],
+        turnOnMicrophoneWhenJoining: true,
+        turnOnCameraWhenJoining: true,
+        showMyCameraToggleButton: true,
+        showMyMicrophoneToggleButton: true,
+        showAudioVideoSettingsButton: true,
+        showScreenSharingButton: false,
+        showTextChat: true,
+        showUserList: true,
+        showLayoutButton: true,
+        showLeaveRoomConfirmDialog: false,
+        maxUsers: 2,
+        layout: 'Auto',
+        showLeavingView: false,
+        showPreJoinView: false,
+        whiteboardConfig: {
+          showAddImageButton: true,
+        },
         scenario: {
-          mode: ZegoUIKitPrebuilt.OneONoneCall, // Para implementar llamadas 1 a 1, modifica el parámetro aquí a [ZegoUIKitPrebuilt.OneONoneCall].
+          mode: ZegoUIKitPrebuilt.OneONoneCall,
+        },
+        branding: {
+          logoURL: '/Medilatam.svg',
+        },
+        onUserAvatarSetter: (userList) => {
+          userList.forEach((user: any) => {
+            user.setUserAvatar('/imageProfile/imagen.jpg');
+          });
+        },
+        onLeaveRoom: () => {
+          push('/dashboard');
         },
       });
     };
@@ -68,11 +86,12 @@ const VideoLlamada = () => {
         myMeeting();
       }
     };
+
     document.addEventListener('visibilitychange', handleVisibilityChange);
 
     // Limpiar el evento al desmontar el componente
     return () => {
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      document.removeEventListener('beforeunload', handleVisibilityChange);
     };
 
     // Llama a la función myMeeting al montar el componente
@@ -96,7 +115,7 @@ const VideoLlamada = () => {
   const combinedStyles = { ...containerStyles, style: mobileStyles };
   console.log(combinedStyles);
   return (
-    <div className="md:flex items-center justify-center md:mx-auto mt-10 md:mt-0 space-y-5 md:w-full max-w-[340px] md:max-w-[800px] lg:[1000] xl:max-w-[1250px] 2xl:max-w-[1850px] md:mr-6 mb-4 md:mb-0 select-none">
+    <div className="">
       <div
         className="md:absolute mx-auto justify-center"
         ref={containerRef}
@@ -104,4 +123,4 @@ const VideoLlamada = () => {
     </div>
   );
 };
-export default VideoLlamada;
+export default VideoLlamadaComp;

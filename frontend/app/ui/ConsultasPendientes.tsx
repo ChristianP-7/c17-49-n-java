@@ -7,7 +7,7 @@ export const ConsultasPendientes = () => {
 
   const doctores = especialidades[0].doctores;
   return (
-    <div className="flex flex-col gap-2 mt-5 px-4 md:px-0 md:w-full h-[200px]">
+    <div className="flex flex-col gap-2 mt-2 px-4 md:px-0 md:w-full h-[200px]">
       <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6">
         <div className="inline-block min-w-full py-2 align-middle md:px-6">
           <div className="h-[200px] md:w-full scroll-container overflow-y-scroll overflow-x-scroll pb-2 border border-gray-200 md:rounded-lg">

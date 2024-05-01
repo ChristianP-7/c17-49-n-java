@@ -10,11 +10,17 @@
           "telefono": "555-1234",
           "email": "rodriguez@example.com",
           "precio": 200,
-          "horarioAtencion": "18:30",
+          "horarioAtencion": "16:30",
           "fechaAtencion": "25/04/24",
-          "estado":"Atendida",
-          "image": "1.png"
-        },
+          "estado": "Atendida",
+          "image": "5.png"
+        }
+      ]
+    },
+    {
+      "nombre": "Dermatología",
+      "abreviacion": "Derm.",
+      "doctores": [
         {
           "nombre": "Dr. Sánchez",
           "especialidad": "Cardiología",
@@ -22,7 +28,7 @@
           "email": "sanchez@example.com",
           "precio": 200,
           "horarioAtencion": "19:15",
-          "estado":"Cancelada",
+          "estado": "Cancelada",
           "fechaAtencion": "26/04/24",
           "image": "2.png"
         },
@@ -33,10 +39,16 @@
           "email": "gonzalez@example.com",
           "precio": 200,
           "horarioAtencion": "18:45",
-          "estado":"Atendida",
+          "estado": "Atendida",
           "fechaAtencion": "25/04/24",
           "image": "3.png"
-        },
+        }
+      ]
+    },
+    {
+      "nombre": "Gastroenterología",
+      "abreviacion": "Gastro.",
+      "doctores": [
         {
           "nombre": "Dra. Martínez",
           "especialidad": "Cardiología",
@@ -44,7 +56,7 @@
           "email": "martinez@example.com",
           "precio": 400,
           "horarioAtencion": "19:30",
-          "estado":"Atendida",
+          "estado": "Atendida",
           "fechaAtencion": "27/04/24",
           "image": "4.png"
         },
@@ -55,7 +67,7 @@
           "email": "lopez@example.com",
           "precio": 200,
           "horarioAtencion": "18:20",
-          "estado":"Cancelada",
+          "estado": "Cancelada",
           "fechaAtencion": "28/04/24",
           "image": "5.png"
         },
@@ -66,63 +78,11 @@
           "email": "hernandez@example.com",
           "precio": 200,
           "horarioAtencion": "19:00",
-          "estado":"Cancelada",
+          "estado": "Cancelada",
           "fechaAtencion": "26/04/24",
           "image": "6.png"
-        },
-        {
-          "nombre": "Dr. García",
-          "especialidad": "Cardiología",
-          "telefono": "555-8765",
-          "email": "garcia@example.com",
-          "precio": 1000,
-          "horarioAtencion": "18:10",
-          "estado":"Atendida",
-          "fechaAtencion": "25/04/24",
-          "image": "7.png"
-        },
-        {
-          "nombre": "Dra. Díaz",
-          "especialidad": "Cardiología",
-          "telefono": "555-2109",
-          "email": "diaz@example.com",
-          "precio": 900,
-          "horarioAtencion": "19:45",
-          "estado":"Atendida",
-          "fechaAtencion": "27/04/24",
-          "image": "8.png"
-        },
-        {
-          "nombre": "Dr. Ramírez",
-          "especialidad": "Cardiología",
-          "telefono": "555-6543",
-          "email": "ramirez@example.com",
-          "precio": 200,
-          "horarioAtencion": "18:50",
-          "estado":"Cancelada",
-          "fechaAtencion": "26/04/24",
-          "image": "9.png"
-        },
-        {
-          "nombre": "Dra. Castro",
-          "especialidad": "Cardiología",
-          "telefono": "555-0987",
-          "email": "castro@example.com",
-          "precio": 200,
-          "horarioAtencion": "19:20",
-          "estado":"Cancelada",
-          "fechaAtencion": "28/04/24",
-          "image": "10.png"
         }
       ]
-    },
-    {
-      "nombre": "Dermatología",
-      "abreviacion": "Derm."
-    },
-    {
-      "nombre": "Gastroenterología",
-      "abreviacion": "Gastro."
     },
     {
       "nombre": "Endocrinología",
@@ -134,7 +94,53 @@
     },
     {
       "nombre": "Neurología",
-      "abreviacion": "Neuro."
+      "abreviacion": "Neuro.",
+      "doctores": [
+        {
+          "nombre": "Dr. García",
+          "especialidad": "Cardiología",
+          "telefono": "555-8765",
+          "email": "garcia@example.com",
+          "precio": 1000,
+          "horarioAtencion": "18:10",
+          "estado": "Atendida",
+          "fechaAtencion": "25/04/24",
+          "image": "7.png"
+        },
+        {
+          "nombre": "Dra. Díaz",
+          "especialidad": "Cardiología",
+          "telefono": "555-2109",
+          "email": "diaz@example.com",
+          "precio": 900,
+          "horarioAtencion": "19:45",
+          "estado": "Atendida",
+          "fechaAtencion": "27/04/24",
+          "image": "8.png"
+        },
+        {
+          "nombre": "Dr. Ramírez",
+          "especialidad": "Cardiología",
+          "telefono": "555-6543",
+          "email": "ramirez@example.com",
+          "precio": 200,
+          "horarioAtencion": "18:50",
+          "estado": "Cancelada",
+          "fechaAtencion": "26/04/24",
+          "image": "9.png"
+        },
+        {
+          "nombre": "Dra. Castro",
+          "especialidad": "Cardiología",
+          "telefono": "555-0987",
+          "email": "castro@example.com",
+          "precio": 200,
+          "horarioAtencion": "19:20",
+          "estado": "Cancelada",
+          "fechaAtencion": "28/04/24",
+          "image": "10.png"
+        }
+      ]
     }
   ]
 }

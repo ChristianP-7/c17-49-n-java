@@ -14,7 +14,7 @@ export default function misConsultas() {
           <ConsultasPendientes />
         </section>
         <section className="container md:px-4 mx-auto ">
-        <div className="rounded-xl bg-white py-2 sticky top-0 mt-[60px] ">
+          <div className="rounded-xl bg-white py-2 sticky top-0 mt-[60px] ">
             <h1 className="font-bold text-lg text-center border-b-2 mb-1 mx-2">
               Historial de Consultas
             </h1>

@@ -1,6 +1,7 @@
 import { ExclamationCircleIcon } from '@heroicons/react/24/outline';
 import { CalendarIcon } from './CalendarIcon';
 import { useState } from 'react';
+import Link from 'next/link';
 export const ConfirmarConsulta = () => {
   const [isMessageVisible, setIsMessageVisible] = useState(true);
 
@@ -34,7 +35,7 @@ export const ConfirmarConsulta = () => {
                   <CalendarIcon />
                 </span>
                 <h3 className="flex items-start mb-1 text-lg font-semibold text-gray-900">
-                  Viernes 26-04-2024, 18:00 Hs
+                  Viernes 01-05-2024, 16:30 Hs
                 </h3>
                 <p className="block mb-3 text-sm font-normal leading-none text-gray-500">
                   Fecha y Hora
@@ -55,7 +56,7 @@ export const ConfirmarConsulta = () => {
                 <span className="absolute flex items-center justify-center w-6 h-6 bg-mlt-600 rounded-full -start-3.5 ring-8  ring-mlt-800">
                   <CalendarIcon />
                 </span>
-                <h3 className="mb-1 text-lg font-semibold text-gray-900">Dr.Perez</h3>
+                <h3 className="mb-1 text-lg font-semibold text-gray-900">Dr.Rodriguez</h3>
                 <p className="block mb-3 text-sm font-normal leading-none text-gray-500">
                   Especialista
                 </p>
@@ -69,11 +70,11 @@ export const ConfirmarConsulta = () => {
               </li>
             </ol>
             <div className="flex justify-center gap-4">
-              <a
-                href="/dashboard"
+              <button
+                onClick={onMessage}
                 className="text-white bg-mlt-700 hover:bg-mlt-800 hover:scale-105 duration-300   transition-colors focus:outline-none font-medium rounded-full text-sm text-center p-2 w-24">
                 Confirmar
-              </a>
+              </button>
               <button
                 onClick={onMessage}
                 className="text-white bg-red-600 hover:bg-red-800 hover:scale-105 duration-300   transition-colors focus:outline-none font-medium rounded-full text-sm text-center p-2 w-24">
