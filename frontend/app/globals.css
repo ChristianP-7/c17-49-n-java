@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --_access-menu-background-color: #021934;
+
+    --_access-menu-item-button-background: #0c8eae;
+
+    --_access-menu-item-color: rgba(255, 255, 255, .6);
+
+    --_access-menu-header-color: rgba(255, 255, 255, .87);
+
+    --_access-menu-item-button-active-color: #175d73;
+
+    --_access-menu-item-button-active-background-color: #fff;
+
+    --_access-menu-div-active-background-color: #fff;
+
+    --_access-menu-item-button-hover-color: rgba(255, 255, 255, .8);
+
+    --_access-menu-item-button-hover-background-color: #0cc0df;
+
+    --_access-menu-item-icon-color: rgba(255, 255, 255, .6);
+
+    --_access-menu-item-hover-icon-color: rgba(255, 255, 255, .8);
+
+    --_access-menu-item-active-icon-color: #fff;
+
+}
+
+/* Estilo del contenedor con scroll */
+.scroll-container {
+    overflow-y: scroll;
+    /* Mostrar scroll vertical */
+    overflow-x: hidden;
+    /* Ocultar scroll horizontal si lo hay */
+}
+
+/* Estilo del scrollbar */
+.scroll-container::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 10px;
+    /* Ancho del scrollbar */
+}
+
+/* Estilo del track del scrollbar */
+.scroll-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+
+    /* Color de fondo del track */
+}
+
+/* Estilo del thumb (la parte que se puede arrastrar) del scrollbar */
+.scroll-container::-webkit-scrollbar-thumb {
+    background: #175d73;
+    border-radius: 10px;
+    /* Color del thumb */
+}
+
+/* Estilo del thumb en hover */
+.scroll-container::-webkit-scrollbar-thumb:hover {
+    background: #093243;
+    border-radius: 10px;
+    /* Cambio de color en hover */
+}
+
+.rating {
+    display: inline-block;
+}
+
+.rating input {
+    display: none;
+}
+
+.rating label {
+    float: right;
+    cursor: pointer;
+    color: #ccc;
+    transition: color 0.3s;
+}
+
+.rating label:before {
+    content: '\2605';
+    font-size: 60px;
+}
+
+.rating input:checked~label,
+.rating label:hover,
+.rating label:hover~label {
+    color: #0c8eae;
+    transition: color 0.3s;
+}

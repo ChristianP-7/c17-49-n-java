@@ -1,5 +1,6 @@
 {
   "cSpell.words": [
+<<<<<<< HEAD
     "abreviacion",
     "Accesibility",
     "Boton",
@@ -7,5 +8,26 @@
     "Medilatam",
     "Seleccinado",
     "webp"
+=======
+    "Accesibility",
+    "atencion",
+    "Atencion",
+    "Boton",
+    "calificacion",
+    "descripcion",
+    "heroicons",
+    "medilatam",
+    "Medilatam",
+    "NOATENDIDO",
+    "qwertyuiopasdfgh",
+    "reseva",
+    "uikit",
+    "videollamadaid",
+    "webp",
+    "zego",
+    "Zego",
+    "zegocloud",
+    "zustand"
+>>>>>>> 32523a47b89a34565d5ce2b8def036b3f6a7891d
   ]
 }
