@@ -30,12 +30,10 @@ public class ConsultaController {
         return iConsultaService.getConsultasByPacienteId(id);
     }
 
-    //TODO
-    /*
-     *
-     * GetConsulta segun el ID del doctor
-     *
-     * */
+    @GetMapping("getConsultas/{id}")
+    public ResponseEntity<?> getConsultasByDoctorId(@PathVariable Long id){
+        return iConsultaService.getConsultasByDoctorId(id);
+    }
 
     //TODO
     /*

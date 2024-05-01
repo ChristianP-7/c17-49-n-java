@@ -27,4 +27,6 @@ public interface IConsultaService {
     ResponseEntity<?> updateConsulta(Long id, String nuevaDescripcion, Integer nuevoEstadoDeConsulta, String nuevaFecha);
 
     ResponseEntity<?> getConsultasByPacienteId(Long id);
+
+    ResponseEntity<?> getConsultasByDoctorId(Long id);
 }

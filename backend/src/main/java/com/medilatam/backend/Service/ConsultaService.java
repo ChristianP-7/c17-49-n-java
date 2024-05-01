@@ -150,4 +150,23 @@ public class ConsultaService implements IConsultaService {
 
     }
 
+    @Override
+    public ResponseEntity<?> getConsultasByDoctorId(Long id) {
+        if(!personaRepository.existsById(id)) {
+            return ResponseEntity.status(400).body("El doctor no existe");
+        }
+        List<ConsultaDto> consultasIdDoctor = consultaRepository.findAll()
+                .stream()
+                .filter(consulta -> Objects.equals(consulta.getDoctor().getId(), id))
+                .map(consultaId -> new ConsultaDto().builder()
+                        .tipoConsulta(consultaId.getTipo())
+                        .descripcion(consultaId.getDescripcion())
+                        .estadoConsulta(consultaId.getEstado())
+                        .fecha(consultaId.getFecha())
+                        .doctor(consultaId.getDoctor())
+                        .persona(consultaId.getPaciente())
+                        .build())
+                .toList();
+        return ResponseEntity.ok().body(consultasIdDoctor);
+    }
 }
