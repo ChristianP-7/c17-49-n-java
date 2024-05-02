@@ -25,8 +25,7 @@ export function getUrlParams(url = window.location.href) {
 const VideoLlamadaComp = () => {
   const finCall = useUserStore((state) => state.finCall);
   const callFined = useUserStore((state) => state.isFinishCall);
-  const initCall = useUserStore((state) => state.inProgressCall);
-  const endCall = useUserStore((state) => state.inProgressCall);
+  const calling = useUserStore((state) => state.inProgressCall);
   const roomID = getUrlParams().get('roomID') || 'videollamadaid';
   const containerRef = useRef(null); // Usa useRef para crear una referencia
   useEffect(() => {
@@ -77,11 +76,11 @@ const VideoLlamadaComp = () => {
           });
         },
         onJoinRoom: () => {
-          initCall();
+          calling(true);
         },
         onLeaveRoom: () => {
           finCall();
-          endCall();
+          calling(false);
         },
       });
     };

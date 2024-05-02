@@ -8,7 +8,7 @@ interface State {
     isInProgressCall: boolean;
     cambiarLogin: () => void;
     finCall: () => void;
-    inProgressCall: () => void;
+    inProgressCall: (bol: boolean) => void;
 }
 
 export const useUserStore = create<State>((set) => ({
@@ -18,7 +18,7 @@ export const useUserStore = create<State>((set) => ({
     isInProgressCall: false,
     cambiarLogin: () => set((state) => ({ isLoggedIn: !state.isLoggedIn })),
     finCall: () => set((state) => ({ isFinishCall: !state.isFinishCall })),
-    inProgressCall: () => set((state) => ({ isInProgressCall: !state.isInProgressCall })),
+    inProgressCall: (bol) => set((state) => ({ isInProgressCall: bol })),
 }));
 
 
