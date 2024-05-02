@@ -1,9 +1,9 @@
 'use client';
 
-import * as React from 'react';
 import { useEffect, useRef } from 'react'; // Importa useEffect y useRef
 import { ZegoUIKitPrebuilt } from '@zegocloud/zego-uikit-prebuilt';
-import { useRouter } from 'next/navigation';
+import { Calificacion } from '../modals/Calificacion';
+import { useUserStore } from '@/store/userStore';
 
 function randomID(len: any) {
   let result = '';
@@ -23,7 +23,9 @@ export function getUrlParams(url = window.location.href) {
 }
 
 const VideoLlamadaComp = () => {
-  const { push } = useRouter();
+  const finCall = useUserStore((state) => state.finCall);
+  const callFined = useUserStore((state) => state.isFinishCall);
+  const calling = useUserStore((state) => state.inProgressCall);
   const roomID = getUrlParams().get('roomID') || 'videollamadaid';
   const containerRef = useRef(null); // Usa useRef para crear una referencia
   useEffect(() => {
@@ -73,8 +75,12 @@ const VideoLlamadaComp = () => {
             user.setUserAvatar('/imageProfile/imagen.jpg');
           });
         },
+        onJoinRoom: () => {
+          calling(true);
+        },
         onLeaveRoom: () => {
-          push('/dashboard');
+          finCall();
+          calling(false);
         },
       });
     };
@@ -91,7 +97,7 @@ const VideoLlamadaComp = () => {
 
     // Limpiar el evento al desmontar el componente
     return () => {
-      document.removeEventListener('beforeunload', handleVisibilityChange);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
 
     // Llama a la función myMeeting al montar el componente
@@ -100,8 +106,8 @@ const VideoLlamadaComp = () => {
   const containerStyles = {
     borderRadius: '20px',
     padding: '10px',
-    width: '75%',
-    height: '91%',
+    width: '1200px',
+    height: '560px',
     backgroundColor: '#fff',
   };
   const mobileStyles = `
@@ -113,14 +119,16 @@ const VideoLlamadaComp = () => {
     }
   `;
   const combinedStyles = { ...containerStyles, style: mobileStyles };
-  console.log(combinedStyles);
   return (
-    <div className="">
+    <>
       <div
-        className="md:absolute mx-auto justify-center"
+        className={`${
+          callFined ? 'hidden' : 'flex'
+        }  md:max-w-[1200px] md:mt-4 md:mr-6 -mt-52 md:mx-auto mx-2`}
         ref={containerRef}
         style={combinedStyles}></div>
-    </div>
+      <Calificacion />
+    </>
   );
 };
 export default VideoLlamadaComp;

@@ -44,9 +44,13 @@ links = doctor ? linksDoctor : linksPaciente;
 export const Navbar = () => {
   const [isNavbarVisible, setIsNavbarVisible] = useState(true);
   const isLogged = useUserStore((state) => state.isLoggedIn);
+  const cambiarLoggin = useUserStore((state) => state.cambiarLogin);
 
   const toggleNavbar = () => {
     setIsNavbarVisible(!isNavbarVisible);
+  };
+  const logout = () => {
+    cambiarLoggin();
   };
 
   return (
@@ -146,6 +150,7 @@ export const Navbar = () => {
           })}
           {isLogged ? (
             <button
+              onClick={logout}
               className={`flex h-[48px] grow items-center justify-start gap-2 rounded-md px-2 text-sm font-medium hover:bg-red-600 group hover:text-white ${
                 isNavbarVisible ? '' : 'flex flex-row-reverse'
               }`}>

@@ -1,3 +1,4 @@
+'use client';
 import Image from 'next/image';
 import { ImagenAvatar } from '../ImagenAvatar';
 import Link from 'next/link';
@@ -7,6 +8,7 @@ import {
   DocumentTextIcon,
   VideoCameraIcon,
 } from '@heroicons/react/24/outline';
+import { useUserStore } from '@/store/userStore';
 
 interface Link {
   name: string;
@@ -37,8 +39,12 @@ const linksPaciente: Link[] = [
 links = doctor ? linksDoctor : linksPaciente;
 
 export const NavbarMovil = () => {
+  const calling = useUserStore((state) => state.isInProgressCall);
   return (
-    <section className="flex relative flex-col mx-2 overflow-hidden max-w-[340px] -mt-44 justify-center items-center p-4 space-x-1 bg-white rounded-xl shadow-lg box-content md:hidden">
+    <section
+      className={`${
+        calling ? 'hidden' : 'flex'
+      } flex relative flex-col mx-2 overflow-hidden max-w-[340px] -mt-44 justify-center items-center p-4 space-x-1 bg-white rounded-xl shadow-lg box-content md:hidden`}>
       <header className="flex justify-center items-center">
         <Image
           src="/Medilatam.svg"
