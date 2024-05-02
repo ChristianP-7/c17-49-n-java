@@ -1,7 +1,6 @@
 import { ExclamationCircleIcon } from '@heroicons/react/24/outline';
 import { CalendarIcon } from './CalendarIcon';
 import { useState } from 'react';
-import Link from 'next/link';
 export const ConfirmarConsulta = () => {
   const [isMessageVisible, setIsMessageVisible] = useState(true);
 
