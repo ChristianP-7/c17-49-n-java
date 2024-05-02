@@ -36,8 +36,9 @@ public class DoctorService implements IDoctorService {
 
     //Guarda dentro de la lista el doctor nuevo
     @Override
-    public void saveDoctor(Doctor doctor) {
-        idoctorrepository.save(doctor);
+    public String saveDoctor(Doctor doctor) {
+            idoctorrepository.save(doctor);
+            return "Doctor guardado con éxito";
     }
 
     //Elimina un Doctor según su ID

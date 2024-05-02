@@ -5,6 +5,7 @@ import com.medilatam.backend.Dto.ConsultaRequest;
 import com.medilatam.backend.Entity.Consulta;
 import com.medilatam.backend.Interface.IConsultaService;
 import com.medilatam.backend.Security.Enums.EstadoConsulta;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -44,7 +45,7 @@ public class ConsultaController {
 
     //Crea una consulta
     @PostMapping("/createConsulta")
-    public ResponseEntity<?> createConsulta(@RequestBody ConsultaRequest consulta){
+    public ResponseEntity<?> createConsulta(@Valid @RequestBody ConsultaRequest consulta){
         return iConsultaService.saveConsulta(consulta);
     }
 

@@ -5,6 +5,7 @@ import com.medilatam.backend.Entity.Doctor;
 import com.medilatam.backend.Interface.IDoctorService;
 import java.util.List;
 
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,9 +36,8 @@ public class DoctorController {
 
     //Insertar Doctores en la lista
     @PostMapping("/createDoctor")
-    public String createDoctor(@RequestBody Doctor doctor) {
-        idoctorservice.saveDoctor(doctor);
-        return "Success";
+    public String createDoctor(@RequestBody @Valid Doctor doctor) {
+        return idoctorservice.saveDoctor(doctor);
     }
     
     //Borrar Doctores

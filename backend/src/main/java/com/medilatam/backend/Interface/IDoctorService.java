@@ -13,7 +13,7 @@ public interface IDoctorService {
     List<Doctor> getDoctor();
 
     //Guarda un Objeto que sea Doctor
-    void saveDoctor (Doctor doctor);
+    String saveDoctor (Doctor doctor);
 
     //Eliminar un Objeto que sea Doctor
     void deleteDoctor (Long id);
