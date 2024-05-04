@@ -15,7 +15,7 @@ public interface IPersonaService {
     PersonaEntity getPersonaById(Long id);
 
     //Almacena un nuevo usuario
-    void savePersona(PersonaEntity personaEntity, MultipartFile fileIcon) throws IOException;
+    String savePersona(PersonaEntity personaEntity, MultipartFile fileIcon) throws IOException;
 
     //Edita un usuario basandose en su ID
     void updatePersonaById(Long id, PersonaEntity personaEntity, MultipartFile fileIcon) throws IOException;

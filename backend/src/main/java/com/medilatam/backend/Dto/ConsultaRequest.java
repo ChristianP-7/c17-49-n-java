@@ -1,5 +1,6 @@
 package com.medilatam.backend.Dto;
 
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -16,11 +17,11 @@ public class ConsultaRequest implements java.io.Serializable {
 
    @NotNull
     private String fecha;
-   
-   @NotEmpty
+
+   @NotBlank
     private String descripcion;
-   
-    @NotEmpty
+
+    @NotNull
     private Integer estadoConsulta;
     
     @NotNull

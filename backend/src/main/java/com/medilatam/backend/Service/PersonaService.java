@@ -40,7 +40,7 @@ public class PersonaService implements IPersonaService {
     }
 
     @Override
-    public void savePersona(PersonaEntity personaEntity, MultipartFile fileIcon) throws IOException {
+    public String savePersona(PersonaEntity personaEntity, MultipartFile fileIcon) throws IOException {
         if (!fileIcon.isEmpty()) {
             if (fileIcon.getContentType().startsWith("image/")) {
                 Map uploadResult = cloudinary.uploader().upload(fileIcon.getBytes(), ObjectUtils.emptyMap());
@@ -51,6 +51,7 @@ public class PersonaService implements IPersonaService {
         }
         personaEntity.setPassword(passwordEncoder.encode(personaEntity.getPassword()));
         personaRepository.save(personaEntity);
+        return "Persona guardada con éxito";
     }
 
     @Override

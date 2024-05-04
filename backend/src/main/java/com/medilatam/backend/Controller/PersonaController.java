@@ -37,7 +37,7 @@ public class PersonaController {
 
     //Crea un usuario
     @PostMapping("/createPersona")
-    public ResponseEntity<?> createPersona(@RequestParam("data") String personaData, @RequestParam("fileIcon") MultipartFile fileIcon) throws IOException {
+    public ResponseEntity<?> createPersona(@RequestParam("data")  String personaData, @RequestParam("fileIcon") MultipartFile fileIcon) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         PersonaEntity personaEntity = objectMapper.readValue(personaData, PersonaEntity.class);
 
@@ -45,8 +45,7 @@ public class PersonaController {
         String passwordCodificada = customPasswordEncoder.encode(personaEntity.getPassword());
         personaEntity.setPassword(passwordCodificada);
 
-        iPersonaService.savePersona(personaEntity, fileIcon);
-        return ResponseEntity.status(HttpStatus.CREATED).body("El nuevo registro ha sido creado");
+        return ResponseEntity.status(HttpStatus.OK).body( iPersonaService.savePersona(personaEntity, fileIcon));
     }
 
     //Edita un usuario según su ID

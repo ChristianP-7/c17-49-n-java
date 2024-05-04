@@ -4,6 +4,8 @@ package com.medilatam.backend.Entity;
 import com.medilatam.backend.Security.Enums.EstadoConsulta;
 import com.medilatam.backend.Security.Enums.TipoConsulta;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
@@ -30,7 +32,7 @@ public class Consulta {
     @JoinColumn(name="paciente_id")
     private PersonaEntity paciente;
 
-    @NotNull
+    @NotBlank
     @Size(min=1, max=30, message="Número de caracteres incorrectos")
     @JoinColumn(name="doctor_especialidad", nullable = false)
     private String especialidad;
@@ -58,7 +60,7 @@ public class Consulta {
     @Column(name = "tipo", nullable = false)
     private TipoConsulta tipo;
 
-    @NotNull
+   @Email
     @Column(name = "email", nullable = false, unique = true)
     private String email;
 
@@ -66,6 +68,7 @@ public class Consulta {
     @Column(name = "celular", nullable = false)
     private Long celular;
 
+    @NotNull
     @Column(name = "calificacion", nullable = false)
     private Float calificacion;
 }

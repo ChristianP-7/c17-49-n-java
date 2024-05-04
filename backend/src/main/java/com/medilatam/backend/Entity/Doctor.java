@@ -39,14 +39,14 @@ public class Doctor {
     @Column(name = "pais")
     private String pais;
 
-
+    @NotNull
     @Column(name = "costoConsulta", nullable = false)
     private Integer costoConsulta;
-
+    @NotNull
     @Column(name = "calificacion", nullable = false)
     private Float calificacion;
 
-
+    @NotNull
     @Column(name = "telefono", unique = true)
     private  Integer telefono;
     
