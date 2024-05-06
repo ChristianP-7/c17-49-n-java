@@ -13,26 +13,26 @@ public interface IConsultaService {
     List<Consulta> getConsulta();
 
     //Guarda una consulta
-    ResponseEntity<?> saveConsulta(ConsultaRequest consulta);
+   String saveConsulta(ConsultaRequest consulta);
 
     //Eliminar una consulta por ID
-    ResponseEntity<?> deleteConsulta(Long id);
+   String deleteConsulta(Long id);
 
     //Buscar una consulta por ID
     ResponseEntity<?> findConsulta(Long id);
 
     //Busca consultas no atendidas por id - REVISION
-    ResponseEntity<?> getConsultasNoAtendidas();
+   List<?> getConsultasNoAtendidas();
 
     //Edita una consulta siendo esta identificada por su id
-    ResponseEntity<?> updateConsulta(Long id, String nuevaDescripcion, Integer nuevoEstadoDeConsulta, String nuevaFecha);
+    String updateConsulta(Long id, String nuevaDescripcion, Integer nuevoEstadoDeConsulta, String nuevaFecha);
 
-    ResponseEntity<?> getConsultasByPacienteId(Long id);
+   List<?> getConsultasByPacienteId(Long id);
 
     // Expone la lista de Consultas filtradas por estado
-    ResponseEntity<?> getConsultasByEstado(EstadoConsulta estado);
+   List<?> getConsultasByEstado(EstadoConsulta estado);
 
     // Expone la lista de Consultas filtradas por el doctor que las posea
-    ResponseEntity<?> getConsultasByDoctorId(Long id);
+   List<?> getConsultasByDoctorId(Long id);
 
 }

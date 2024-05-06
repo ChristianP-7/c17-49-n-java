@@ -26,6 +26,6 @@ public interface IDoctorService {
     List<Doctor> findByEspecialidad(String especialidad);
 
     // Obtener las especialidades disponibles en un dia y mes
-    ResponseEntity<?> getEspecialidadesDisponibles(String dia, String mes);
+    List<?> getEspecialidadesDisponibles(String dia, String mes);
 
 }

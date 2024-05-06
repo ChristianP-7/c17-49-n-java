@@ -78,7 +78,7 @@ public class DoctorController {
   
     // Retorna la lista de doctores que no tienen consulta en la fecha tentativa
     @GetMapping("doctor/getEspecialidadesDisponibles")
-    public ResponseEntity<?> getEspecialidadesDisponibles(@RequestParam(name = "dia") String dia, @RequestParam(name = "mes") @NotNull String mes){
+    public List<?> getEspecialidadesDisponibles(@RequestParam(name = "dia") String dia, @RequestParam(name = "mes") @NotNull String mes){
         return idoctorservice.getEspecialidadesDisponibles(dia, mes); 
     }
 }

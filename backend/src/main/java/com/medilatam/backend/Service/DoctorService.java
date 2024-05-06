@@ -60,7 +60,7 @@ public class DoctorService implements IDoctorService {
     }
 
   // Trae los doctores que no tienen consulta en la fecha tentativa, uso Strings para que no se pierda el 0 en los meses y días y no cause conflictos con el formato de fecha
-    public ResponseEntity<?> getEspecialidadesDisponibles(String dia, String mes) {
+    public List<?> getEspecialidadesDisponibles(String dia, String mes) {
         
         Date fechaTentativa= UtilMethods.convertStringToSqlDate(Year.now()+"-" + mes +"-"+ dia);
         log.info("Fecha tentativa: {}", fechaTentativa);
@@ -82,9 +82,9 @@ public class DoctorService implements IDoctorService {
                                 .costoConsulta(doctor.getCostoConsulta())
                                 .build();
                     }).collect(Collectors.toList());
-            return new ResponseEntity<>(disponibles, HttpStatus.OK);
+            return disponibles;
         } catch (DataAccessException e) {
-            return ResponseEntity.badRequest().body("Error al obtener los doctores disponibles");
+            return List.of();
         }
     }
     
