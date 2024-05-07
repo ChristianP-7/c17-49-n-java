@@ -152,7 +152,6 @@ public class ConsultaService implements IConsultaService {
                         .build())
                 .toList();
         return consultasIdPaciente;
-
     }
 
     //Devuelve las consultas según el estado en el que estén estas
