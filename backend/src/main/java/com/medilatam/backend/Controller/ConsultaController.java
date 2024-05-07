@@ -28,37 +28,37 @@ public class ConsultaController {
 
     // Expone las consultas creadas segun el ID del paciente
     @GetMapping("/getConsultas/{id}")
-    public ResponseEntity<?> getConsultasByPacienteId(@PathVariable Long id){
+    public List<?> getConsultasByPacienteId(@PathVariable Long id){
         return iConsultaService.getConsultasByPacienteId(id);
     }
 
     @GetMapping("getConsultasByDoctorId/{id}")
-    public ResponseEntity<?> getConsultasByDoctorId(@PathVariable Long id){
+    public List<?> getConsultasByDoctorId(@PathVariable Long id){
         return iConsultaService.getConsultasByDoctorId(id);
     }
 
     // Expone las consultas creadas segun su estado pasandolo como parametro
     @GetMapping("/getConsultasByEstado/{estado}")
-    public ResponseEntity<?> getConsultasByEstado(@PathVariable EstadoConsulta estado){
+    public List<?> getConsultasByEstado(@PathVariable EstadoConsulta estado){
         return iConsultaService.getConsultasByEstado(estado);
     }
 
     //Crea una consulta
     @PostMapping("/createConsulta")
-    public ResponseEntity<?> createConsulta(@Valid @RequestBody ConsultaRequest consulta){
+    public String createConsulta(@Valid @RequestBody ConsultaRequest consulta){
         return iConsultaService.saveConsulta(consulta);
     }
 
     //Borra una consulta siguiendo su ID
     @DeleteMapping("/deleteConsulta/{id}")
-    public ResponseEntity<?> deleteConsulta(@PathVariable Long id){
+    public String deleteConsulta(@PathVariable Long id){
         return iConsultaService.deleteConsulta(id);
     }
 
 
     //Edita una consulta
     @PutMapping("/updateConsulta")
-    public ResponseEntity<?> updateConsulta(@RequestParam(name = "id")  Long id,
+    public String updateConsulta(@RequestParam(name = "id")  Long id,
                                             @RequestParam(name="descripcion") String nuevaDescripcion,
                                             @RequestParam(name = "estado") Integer nuevoEstadoDeConsulta,
                                             @RequestParam(name = "fecha") String nuevaFecha){

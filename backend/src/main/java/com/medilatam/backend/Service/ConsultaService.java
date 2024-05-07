@@ -42,14 +42,14 @@ public class ConsultaService implements IConsultaService {
 
     //Guarda la consulta dentro del repositorio de consultas
     @Override
-    public ResponseEntity<?> saveConsulta(ConsultaRequest consulta) {
+    public String saveConsulta(ConsultaRequest consulta) {
 
         Date fechaRecibida= UtilMethods.convertStringToSqlDate(consulta.getFecha());
 
         // Verifica si ya existe una consulta con la misma fecha y el mismo doctor
         if(consultaRepository.existsByFechaAndDoctor(fechaRecibida
                 , doctorRepository.findById(consulta.getDoctorId()).orElse(null))){
-            return ResponseEntity.status(400).body("Ya existe una consulta en esa fecha y con ese doctor");
+            return "Ya existe una consulta en esa fecha y con ese doctor";
         }
 
         //Crea una consulta con los datos recibidos
@@ -69,22 +69,22 @@ public class ConsultaService implements IConsultaService {
 
         //Guarda la consulta dentro del repositorio de consultas
         consultaRepository.save(consulta1);
-        return ResponseEntity.status(200).body("Consulta guardada con éxito");
+        return "Consulta guardada con éxito";
     }
 
 
     //Según el ID dado se busca dicha consulta para eliminarla
     @Override
-    public ResponseEntity<?> deleteConsulta(Long id) {
+    public String deleteConsulta(Long id) {
 
         //Si no existe la consulta con el ID dado
         if (!consultaRepository.existsById(id)) {
-            return ResponseEntity.status(400).body("La consulta no existe");
+            return"La consulta no existe";
         }
 
         //Se elimina una consulta en particular del repositorio designada por su ID
         consultaRepository.deleteById(id);
-        return ResponseEntity.status(200).body("Consulta eliminada con éxito");
+        return "Consulta eliminada con éxito";
 
     }
 
@@ -104,33 +104,33 @@ public class ConsultaService implements IConsultaService {
     }
 
     @Override
-    public ResponseEntity<?> getConsultasNoAtendidas() {
+    public List<?> getConsultasNoAtendidas() {
         //Obtiene todas las consultas no atendidas
         List<Consulta> consultasNoAtendidas = consultaRepository.findAll()
                 .stream()
                 .filter(consulta->
                         consulta.getEstado().equals(EstadoConsulta.NO_ATENDIDO)).toList();
-        return ResponseEntity.status(200).body(consultasNoAtendidas);
+        return consultasNoAtendidas;
     }
 
     @Override
-    public ResponseEntity<?> updateConsulta(Long id, String nuevaDescripcion, Integer nuevoEstadoDeConsulta, String nuevaFecha) {
+    public String updateConsulta(Long id, String nuevaDescripcion, Integer nuevoEstadoDeConsulta, String nuevaFecha) {
         //Si no existe la consulta con el ID dado
         if (!consultaRepository.existsById(id)) {
-            return ResponseEntity.status(400).body("La consulta no existe");
+            return "La consulta no existe";
         }
         Consulta consulta = consultaRepository.findById(id).get();
         consulta.setDescripcion(nuevaDescripcion);
         consulta.setEstado(UtilMethods.setEstadoConsulta(nuevoEstadoDeConsulta));
         consulta.setFecha(UtilMethods.convertStringToSqlDate(nuevaFecha));
         consultaRepository.save(consulta);
-        return ResponseEntity.status(200).body("Consulta editada con éxito");
+        return"Consulta editada con éxito";
     }
 
     @Override
-    public ResponseEntity<?> getConsultasByPacienteId(Long id) {
+    public List<?> getConsultasByPacienteId(Long id) {
         if(!personaRepository.existsById(id)){
-            return ResponseEntity.status(400).body("El usuario no existe");
+            return List.of();
         }
         List<ConsultaDto> consultasIdPaciente= consultaRepository.findAll()
                 .stream()
@@ -144,15 +144,15 @@ public class ConsultaService implements IConsultaService {
                         .persona(consultaId.getPaciente())
                         .build())
                 .toList();
-        return ResponseEntity.status(200).body(consultasIdPaciente);
+        return consultasIdPaciente;
 
     }
 
     //Devuelve las consultas según el estado en el que estén estas
     @Override
-    public ResponseEntity<?> getConsultasByEstado(EstadoConsulta estado) {
+    public List<?> getConsultasByEstado(EstadoConsulta estado) {
         if(!consultaRepository.existsByEstado(estado)){
-            return ResponseEntity.status(400).body("No existe consultas con ese estado.");
+            return List.of();
         }
         List<ConsultaDto> consultasPorEstado = consultaRepository.findAll()
                 .stream()
@@ -166,13 +166,13 @@ public class ConsultaService implements IConsultaService {
                         .persona(consultaEstado.getPaciente())
                         .build())
                 .toList();
-        return ResponseEntity.status(200).body(consultasPorEstado);
+        return consultasPorEstado;
     }
 
     //Obtener las consultas según el ID del Doctor que consulte devolviendo una lista de las mismas
-    public ResponseEntity<?> getConsultasByDoctorId(Long id) {
+    public List<?> getConsultasByDoctorId(Long id) {
         if(!personaRepository.existsById(id)) {
-            return ResponseEntity.status(400).body("El doctor no existe");
+            return List.of();
         }
         List<ConsultaDto> consultasIdDoctor = consultaRepository.findAll()
                 .stream()
@@ -186,6 +186,6 @@ public class ConsultaService implements IConsultaService {
                         .persona(consultaId.getPaciente())
                         .build())
                 .toList();
-        return ResponseEntity.ok().body(consultasIdDoctor);
+        return consultasIdDoctor;
     }
 }
