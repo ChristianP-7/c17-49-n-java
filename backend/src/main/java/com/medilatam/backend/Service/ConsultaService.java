@@ -44,34 +44,41 @@ public class ConsultaService implements IConsultaService {
     @Override
     public String saveConsulta(ConsultaRequest consulta) {
 
-        Date fechaRecibida= UtilMethods.convertStringToSqlDate(consulta.getFecha());
+        try {
 
-        // Verifica si ya existe una consulta con la misma fecha y el mismo doctor
-        if(consultaRepository.existsByFechaAndDoctor(fechaRecibida
-                , doctorRepository.findById(consulta.getDoctorId()).orElse(null))){
-            return "Ya existe una consulta en esa fecha y con ese doctor";
+            Date fechaRecibida = UtilMethods.convertStringToSqlDate(consulta.getFecha());
+
+            // Verifica si ya existe una consulta con la misma fecha y el mismo doctor
+            if (consultaRepository.existsByFechaAndDoctor(fechaRecibida
+                    , doctorRepository.findById(consulta.getDoctorId()).orElse(null))) {
+                return "Ya existe una consulta en esa fecha y con ese doctor";
+
+            }
+
+            //Crea una consulta con los datos recibidos
+            Consulta consulta1 = Consulta.builder()
+                    .fecha(fechaRecibida)
+                    .descripcion(consulta.getDescripcion())
+                    .estado(UtilMethods.setEstadoConsulta(consulta.getEstadoConsulta()))
+                    .tipo(UtilMethods.setTipoConsulta(consulta.getTipoConsulta()))
+                    .calificacion(consulta.getCalificacion())
+                    .especialidad(doctorRepository.findById(consulta.getDoctorId()).orElse(null).getEspecialidad())
+                    .paciente(personaRepository.findById(consulta.getPersonaId()).orElse(null))
+                    .doctor(doctorRepository.findById(consulta.getDoctorId()).orElse(null))
+                    .precio(Float
+                            .valueOf(doctorRepository.findById(consulta.getDoctorId()).orElse(null)
+                                    .getCostoConsulta()))
+                    .build();
+
+            //Guarda la consulta dentro del repositorio de consultas
+            consultaRepository.save(consulta1);
+            return "Consulta guardada con éxito";
+        } catch (Exception e) {
+            // Manejo de la excepción
+            e.printStackTrace(); // Otra opción: loguear la excepción
+            return "Ocurrió un error al guardar la consulta";
         }
-
-        //Crea una consulta con los datos recibidos
-        Consulta consulta1 = Consulta.builder()
-                .fecha(fechaRecibida)
-                .descripcion(consulta.getDescripcion())
-                .estado(UtilMethods.setEstadoConsulta(consulta.getEstadoConsulta()))
-                .tipo(UtilMethods.setTipoConsulta(consulta.getTipoConsulta()))
-                .calificacion(consulta.getCalificacion())
-                .especialidad(doctorRepository.findById(consulta.getDoctorId()).orElse(null).getEspecialidad() )
-                .paciente(personaRepository.findById(consulta.getPersonaId()).orElse(null))
-                .doctor(doctorRepository.findById(consulta.getDoctorId()).orElse(null))
-                .precio(Float
-                        .valueOf(doctorRepository.findById(consulta.getDoctorId()).orElse(null)
-                                .getCostoConsulta()))
-                .build();
-
-        //Guarda la consulta dentro del repositorio de consultas
-        consultaRepository.save(consulta1);
-        return "Consulta guardada con éxito";
     }
-
 
     //Según el ID dado se busca dicha consulta para eliminarla
     @Override
